@@ -3,6 +3,11 @@
 This repository contains equations sheets that I am writing for my engineering courses. I will
 update this repository periodically.
 
+## Sheets
+
+I currently have created equations sheets for the following subjects:
+- Fluid Mechanics
+
 ## License
 
 All components of this work are licensed under the Creative Commons Attribution-ShareAlike 3.0
