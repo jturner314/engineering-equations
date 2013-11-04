@@ -7,3 +7,4 @@ cont:
 clean:
 	@latexmk -C
 	@rm -f *.out
+	@rm -rf auto
