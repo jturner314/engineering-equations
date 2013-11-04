@@ -289,12 +289,15 @@ momentum, $\vec{H}$.
   + \frac{1}{r}\pd{(\rho v_\theta)}{\theta} + \pd{(\rho v_z)}{z}\)
 \item[Steady flow]
   \(0 = \vec\nabla\cdot\rho\vec{V}\)
-\item[Stream function $\psi$]
-  \(u = \pd{\psi}{y}\) and \(v = -\pd{\psi}{x}\)
-\item[Velocity potential $\phi$ for irrotational, inviscid flow]
-  \(u = \pd{\phi}{x}\),
-  \(v = \pd{\phi}{y}\),
-  \(w = \pd{\phi}{z}\)
+\item[Stream function for 2-D flow ($\psi$ is constant along streamlines)]~
+  \begin{description*}
+  \item[Rectangular coordinates]
+    \(u = \pd{\psi}{y}\) and \(v = -\pd{\psi}{x}\)
+  \item[Cylindrical coordinates]
+    \(v_r = \frac{1}{r}\pd{\psi}{\theta}\) and \(v_\theta = -\pd{\psi}{r}\)
+  \item[Volume flow rate between streamlines]
+    \(q = \psi_2 - \psi_1\)
+  \end{description*}
 \end{description*}
 
 \subsection{Fluid Rotation}
@@ -302,7 +305,22 @@ momentum, $\vec{H}$.
 \item[Vorticity vector]
   \(\vec\varsigma = \vec\nabla\times\vec{V}\)
 \item[Irrotational flow]
-  \(\vec\nabla\times\vec{V} = \vec\nabla^2\psi = 0\)
+  \(\vec\nabla\times\vec{V} = 0\)
+\item[Velocity potential $\phi(x,y,z,t)$] for irrotational, inviscid flow
+  \begin{description*}
+  \item[Definition]
+    \(\vec V = \vec{\nabla}\phi\)
+  \item[Rectangular coordinates]
+    \(u = \pd{\phi}{x}\),
+    \(v = \pd{\phi}{y}\),
+    \(w = \pd{\phi}{z}\)
+  \item[Cylindrical coordinates]
+    \(v_r = \pd{\phi}{r}\),
+    \(v_\theta = \frac{1}{r}\pd{\phi}{\theta}\),
+    \(v_z = \pd{\phi}{z}\)
+  \item[Laplace's equation] due to irrotationality,
+    \(\vec\nabla^2\psi = 0\)
+  \end{description*}
 \end{description*}
 
 \subsection{Navier-Stokes Equations}
