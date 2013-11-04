@@ -1,0 +1,47 @@
+% Page margins
+\usepackage[margin=1in]{geometry}
+
+% Mathematics
+\usepackage{amsmath}
+
+% Differential operators and derivatives
+\usepackage{commath}
+
+% Numbers and units
+\usepackage{siunitx}
+
+% Misc LaTeX patches
+\usepackage{fixltx2e}
+
+% Compact list environments
+\usepackage{mdwlist}
+
+% Title without author and date
+\makeatletter
+\renewcommand{\@maketitle}{
+\newpage\null\vskip 2em%
+\begin{center}{\LARGE \@title \par}\end{center}%
+\par} \makeatother
+
+% Description environment labels are not bold and are followed by colon
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1:}
+
+% Bold vectors
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\vechat}[1]{\boldsymbol{\hat{\mathbf{#1}}}}
+
+% Volume
+\newcommand{\volsym}{\settowidth{\dimen255}{V}\ooalign{$V$\cr\rule[.7ex]{\dimen255}{.4pt}\cr}}
+
+% Copyright notice on first page
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{
+\fancyfoot[C]{Copyright \textcopyright\ 2013 Jim Turner. This work is licensed under the Creative
+  Commons Attribution-ShareAlike~3.0 Unported License. To view a copy of this license, visit
+  \mbox{\url{http://creativecommons.org/licenses/by-sa/3.0/deed.en_US}}.}
+}
+\renewcommand{\headrulewidth}{0pt}
+
+% Hyperlinks and PDF document title
+\usepackage[pdftex]{hyperref}
+\hypersetup{colorlinks,citecolor=black,filecolor=black,linkcolor=black,urlcolor=black}

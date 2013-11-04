@@ -1,0 +1,354 @@
+\documentclass{article}
+\title{Fluid Mechanics Equations}
+
+\input{sheet-includes.tex}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\noindent Fluid mechanics has conflicting notation styles and parameters. In this document, pressure
+is written in some places as $P$ and in others as $p$. These are equivalent. Volume and velocity are
+both represented with the English letter V. To distinguish between them, velocity is written with a
+normal $V$ while volume is written with a struck-through $\volsym$. Note also that I am using the
+conventional symbols from engineering mechanics for linear momentum, $\vec{L}$, and angular
+momentum, $\vec{H}$.
+
+\section{Important Fluid Properties}
+
+\subsection{Density, etc.}
+\begin{description*}
+\item[Density of air at STP]
+  \(\rho_\mathrm{air} = \SI{1.23}{kg/m^3}\)
+\item[Density of water]
+  \(\rho_\mathrm{H_2O} = \SI{1000}{kg/m^3}\)
+\item[Specific volume]
+  \(v = 1/\rho\)
+\item[Specific weight]
+  \(\gamma = \rho g\)
+\item[Specific gravity]
+  \(\mathit{SG} = \rho / \rho_\mathrm{H_2O}\)
+\end{description*}
+
+\subsection{Viscosity}
+\begin{description*}
+\item[Newtonian fluids]
+  \(\tau = \mu \od{u}{y}\)
+\item[Kinematic viscosity]
+  \(\nu = \mu / \rho\)
+\end{description*}
+
+\subsection{Speed of Sound}
+\begin{description*}
+\item[Speed of sound in air]
+  \(c_\mathrm{air} = \SI{330}{m/s}\)
+\item[Speed of sound in water]
+  \(c_\mathrm{H_2O} = \SI{1560}{m/s}\)
+\item[Speed of sound]
+  \(c = \sqrt{\left(\od{P}{\rho}\right)_s}\)
+\item[Mach number]
+  \(\mathit{Ma} = u/c\)
+\end{description*}
+
+\subsection{Surface Tension}
+\begin{description*}
+\item[Definition] Surface tension can be defined as surface energy per unit area (\si{J/m^2}) or
+  normal force per unit length cut into surface of fluid (\si{N/m}): \(F = \sigma \dif L\).
+\item[Laplace pressure] Pressure difference between inside and outside of a curved surface due to
+  surface tension
+  \begin{description*}
+  \item[Pressure inside a fluid droplet]
+    \(\Delta P = P_\mathrm{in} -
+    P_\mathrm{out} = \frac{2\sigma}{R}\)
+  \item[Pressure inside a bubble] \(\Delta P = P_\mathrm{in} -
+    P_\mathrm{out} = \frac{4\sigma}{R}\)
+  \end{description*}
+\end{description*}
+
+\subsection{Ideal Gases}
+\begin{description*}
+\item[Universal gas constant]
+  \(R_\mathrm{u} = \SI{8.31}{J/mol.K}\)
+\item[Ideal gas law]
+  \(P = \rho R T\) where \(R = R_\mathrm{u}/\bar{M}\)
+\item[Specific heats]
+  \(c_v = \pd{\hat u}{T}\) and \(c_P = \pd{\hat h}{T}\)
+\item[Relationship between $c_v$ and $c_p$]
+  \(c_P = c_v + R\)
+\item[Specific heat ratio]
+  \(k = c_P/c_v\)
+\end{description*}
+
+\section{Fluid Statics}
+
+\subsection{Pressure Gradient}
+\begin{description*}
+\item[Force (per unit volume) on fluid due to pressure gradient]
+  \(\vec{f}_\mathrm{press} = -\vec\nabla p\)
+\item[Pressure gradient due to accelerating reference frame]
+  \(\vec\nabla p = \rho \left(\vec{g}-\vec{a}\right)\)
+\item[Pressure due to gravity]
+  \(\vec\nabla p = \rho \vec g \Rightarrow p = \rho g h\)
+\end{description*}
+
+\subsection{Hydrostatic Forces on Surfaces}
+\begin{description*}
+\item[Plane surface inclined by angle $\theta$] Equivalent force acts normal to the surface at its
+  center of pressure (CP), calculated using the pressure at the center of area (CA).
+  \begin{description*}
+  \item[Equivalent force]
+    \(F = p_\mathrm{CA}A\)
+  \item[Distance of CP from CA along the surface]
+    \(y_\mathrm{CP} = -\rho g \sin\theta\frac{I_{xc}}{p_\mathrm{CA}A}\) and
+    \(x_\mathrm{CP} = -\rho g \sin\theta\frac{I_{xyc}}{p_\mathrm{CA}A}\)
+  \end{description*}
+\item[Curved surface] Consider horizontal and vertical components of the equivalent force
+  separately. Each component is equivalent to the force that would act on a projection of the curved
+  surface onto a plane normal to the component. As a result, the components may act at different
+  locations.
+\end{description*}
+
+\subsection{Archimedes's Laws}
+\begin{description*}
+\item[1st Law] A body immersed in a fluid experiences a vertical buoyant force equal to the weight
+  of the fluid it displaces: \(F_\mathrm{B} = -W_\mathrm{wb}\)
+\item[2nd Law] A floating body displaces its own weight in the fluid in which it floats:
+  \(W_\mathrm{b} = W_\mathrm{wb}\)
+\end{description*}
+
+\subsection{Rotating Liquid with Constant Angular Velocity}
+\begin{description*}
+\item[Within fluid]
+  \(z = \frac{P-P_0}{\rho g} + \frac{r^2\omega^2}{2g}\)
+\item[Overall paraboloid height]
+  \(h = \frac{R^2\omega^2}{2g}\)
+\item[Volume of paraboloid]
+  \(\volsym_p = \frac{1}{2} \pi R^2 h\)
+\item[Initial fluid height]
+  \(x = \frac{1}{2} h\)
+\end{description*}
+
+\subsection{Bernoulli Equation}
+\begin{description*}
+\item[Conditions] Steady, incompressible, frictionless flow along streamline
+\item[Pressure form]
+  \(\frac{1}{2}\rho V^2 + \rho g h + P = \text{constant}\)
+\item[Static pressure]
+  \(P\)
+\item[Stagnation pressure]
+  \(P_0 = P + \frac{1}{2}\rho V^2\)
+\item[Dynamic pressure]
+  \(\frac{1}{2}\rho V^2\)
+\item[Pitot tube]
+  \(V = \sqrt{\frac{2\left(P_0-P_1\right)}{\rho}}\)
+\item[Total head]
+  \(H = \frac{V^2}{2g} + \frac{P}{\rho g} + h\)
+\item[Turbine\slash{}pump head] \(\dot{W} = \dot{m} g h\)
+\end{description*}
+
+\section{Basic Fluid Dynamics}
+
+\subsection{Velocity}
+\begin{description*}
+\item[Velocity field]
+  \(\vec{V} = \od{\vec{r}}{t} = \vec{V}(x,y,z,t) = u\vechat{\i}+v\vechat{\j} + w\vechat{k}\)
+\item[Lines of interest]~
+  \begin{description*}
+  \item[Streamline] a line that is everywhere tangent to the velocity vector
+  \item[Pathline] the actual path of a fluid particle
+  \item[Streakline] the locus of particles that have earlier passed through a particular point
+  \end{description*}
+\item[Finding streamline equation]
+  \(\frac{\dif r}{V} = \frac{\dif x}{u} = \frac{\dif y}{v} = \frac{\dif z}{w}\)
+\end{description*}
+
+\subsection{Material Derivative Operator}
+\begin{description*}
+\item[Material derivative operator]
+  \(\frac{\Dif ()}{\Dif t} = \pd{()}{t} + u\pd{()}{x} + v\pd{()}{y} + w\pd{()}{z}\)
+\end{description*}
+
+
+\subsection{Acceleration}
+\begin{description*}
+\item[Acceleration field]
+  \(\vec a = \frac{\Dif\vec{V}}{\Dif t} = \pd{\vec V}{t} + (\vec{V}\cdot\vec\nabla\vec{V})\)
+\item[$x$ component]
+  \(a_x = \pd{u}{t} + u\pd{u}{x} + v\pd{u}{y} + w\pd{u}{z}\)
+\end{description*}
+
+\section{Reynolds Transport Theorem (RTT)}
+\begin{description*}
+\item[Property per unit mass]
+  \(\beta = B/m\)
+\item[RTT, general form]
+  \(\frac{\Dif B_\mathrm{sys}}{\Dif t}
+  = \pd{B_\mathrm{cv}}{t}+\dot{B}_\mathrm{out} - \dot{B}_\mathrm{in}
+  = \pd{}{t}\left(\int_\mathrm{cv}\beta\rho\dif{\volsym}\right)
+  + \int_\mathrm{cs}\beta\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+  where
+  \(B_\mathrm{sys} = \int_\mathrm{sys}\beta\rho\dif{\volsym}\)
+\end{description*}
+
+\subsection{Mass}
+\begin{description*}
+\item[RTT, $M$]
+  \(0 = \frac{\Dif M_\mathrm{sys}}{\Dif t}
+  = \pd{M_\mathrm{cv}}{t}+\dot{m}_\mathrm{out}-\dot{m}_\mathrm{in}
+  = \pd{}{t}\left(\int_\mathrm{cv}\rho\dif{\volsym}\right)
+  + \int_\mathrm{cs}\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+\item[Steady flow]
+  \(\sum\dot{m}_\mathrm{in} = \sum\dot{m}_\mathrm{out}\)
+\item[Mass flow rate for 1-D flow]
+  \(\dot{m} = \rho A \bar{V} = \rho Q\)
+\end{description*}
+
+\subsection{Linear Momentum}
+\begin{description*}
+\item[RTT, $\vec{L}$]
+  \(\sum{\vec{F}}
+  = \frac{\Dif (m\vec{V})_\mathrm{sys}}{\Dif t}
+  = \pd{(m\vec{V})_\mathrm{cv}}{t}
+  + \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
+  - \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{in}
+  = \pd{}{t}\left(\int_\mathrm{cv}\rho\vec{V}\dif{\volsym}\right)
+  + \int_\mathrm{cs}\rho\vec{V}(\vec{V}\cdot\vechat{n})\dif{A}\)
+\item[Steady flow]
+  \(\sum{\vec{F}}
+  = \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
+  - \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{in}\)
+\item[Possible forces]~
+  \begin{description*}
+    \item[Pressure force]
+      \(\sum\vec{F}_\mathrm{press} = \int_\mathrm{cs}p_\mathrm{gage}(-\vechat{n})\dif{A}\)
+    \item[Gravity force] Use weight of fluid
+    \item[Other body forces] Depend on each situation
+  \end{description*}
+\item[Moving control volume] For a control volume moving at constant velocity, use the same
+  equations but with all velocities relative to control volume.
+\end{description*}
+
+\subsection{Angular Momentum}
+\begin{description*}
+\item[RTT, $\vec{H}$]
+  \(\sum\vec{M} = \sum\vec{r}\times\vec{F}
+  = \frac{\Dif \vec{H}_\mathrm{sys}}{\Dif t}
+  = \pd{}{t}\left(\int_\mathrm{cv}\rho(\vec{r}\times\vec{V})\dif{\volsym}\right)
+  + \int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+\item[1-D uniform flow inlets and outlets]
+  \(\int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\vechat{n})\dif{A}
+  = \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{out}
+  - \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{in}\)
+\end{description*}
+
+\subsection{Energy}
+\begin{description*}
+\item[RTT, $E$]
+  \(\frac{\Dif E_\mathrm{sys}}{\Dif t}
+  = \od{Q}{t}-\od{W}{t}
+  = \pd{}{t}\left(\int_\mathrm{cv}e\rho\dif{\volsym}\right)
+  + \int_\mathrm{cs}e\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+\item[RTT using enthalpy]
+  \(\dot{Q}-\dot{W}_\mathrm{visc}-\dot{W}_\mathrm{shaft}
+  = \pd{}{t}\left(\int_\mathrm{cv}e\rho\dif{\volsym}\right)
+  + \int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\vechat{n})\dif{A}\)
+\item[1-D uniform flow inlets and outlets]~\\
+  \(\int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\vechat{n})\dif{A}
+  = \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{out}
+  - \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{in}\)
+\item[Work of viscous forces]
+  \(\dot{W}_\mathrm{visc} = -\int_\mathrm{cs}\vec\tau\cdot\vec{V}\dif{A}\)
+\item[Extended Bernoulli Equation]~
+  \begin{description*}
+  \item[Energy formulation]
+    \(q - w_\mathrm{visc} - w_\mathrm{shaft}
+    = \left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{out}
+    - \left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{in}\)
+  \item[Alternatively]
+    Let \(e_\mathrm{loss} = \hat{u}_\mathrm{out}-\hat{u}_\mathrm{in}-q+w_\mathrm{visc}\), then \\
+    \(\left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{out}
+    = \left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{in}
+    - w_\mathrm{shaft} - e_\mathrm{loss}\)
+  \item[Head formulation]
+    \(H_\mathrm{out} = H_\mathrm{in} + (h_P-h_T) - h_L\)
+  \end{description*}
+\end{description*}
+
+\section{Differential Analysis of Fluid Flow}
+
+\subsection{Mass Conservation (Continuity Equation)}
+\begin{description*}
+\item[Continuity equation]
+  \(0 = \pd{\rho}{t} + \vec\nabla\cdot\rho\vec{V}
+  = \pd{\rho}{t}+\pd{\rho u}{x}+\pd{\rho v}{y}+\pd{\rho w}{z}\)
+\item[Cylindrical coordinates]
+  \(0 = \pd{\rho}{t} + \frac{1}{r}\pd{(r\rho v_r)}{r}
+  + \frac{1}{r}\pd{(\rho v_\theta)}{\theta} + \pd{(\rho v_z)}{z}\)
+\item[Steady flow]
+  \(0 = \vec\nabla\cdot\rho\vec{V}\)
+\item[Stream function $\psi$]
+  \(u = \pd{\psi}{y}\) and \(v = -\pd{\psi}{x}\)
+\item[Velocity potential $\phi$ for irrotational, inviscid flow]
+  \(u = \pd{\phi}{x}\),
+  \(v = \pd{\phi}{y}\),
+  \(w = \pd{\phi}{z}\)
+\end{description*}
+
+\subsection{Fluid Rotation}
+\begin{description*}
+\item[Vorticity vector]
+  \(\vec\varsigma = \vec\nabla\times\vec{V}\)
+\item[Irrotational flow]
+  \(\vec\nabla\times\vec{V} = \vec\nabla^2\psi = 0\)
+\end{description*}
+
+\subsection{Navier-Stokes Equations}
+\begin{description*}
+\item[Assumptions] While the Navier-Stokes equations can apply more generally, the equations in this
+  sheet assume Newtonian, incompressible fluid flow
+\item[Navier-Stokes Equations]
+  \(\rho\vec{g} - \vec\nabla p + \mu\vec\nabla^2\vec{V} = \rho\frac{\Dif\vec V}{\Dif t}\)
+\item[$x$ component]
+  \(\rho g_x - \pd{p}{x} + \mu\left(\pd[2]{u}{x}+\pd[2]{u}{y}+\pd[2]{u}{z}\right) = \rho\frac{\Dif u}{\Dif t}\)
+\item[Cylindrical coordinates]
+  \(\rho\left(\pd{v_z}{t}+v_r\pd{v_z}{r}+\frac{v_\theta}{r}\pd{v_z}{\theta}+v_z\pd{v_z}{z}\right)
+  = \rho g_z - \pd{p}{z}
+  + \mu\left(\frac{1}{r}\pd{}{r}\left(r\pd{v_z}{r}\right)
+    + \frac{1}{r^2}\pd[2]{v_z}{\theta}
+    + \pd[2]{v_z}{z}\right)\)
+\item[Couette flow] Steady, viscous flow between two parallel fixed plates caused pressure gradient
+  along the length of the plates. Produces a parabolic velocity distribution between the plates.
+  \begin{description*}
+  \item[Definitions] $h$ is one half the distance between the plates;
+    $y\in[-h,h]$ is the vertical coordinate from the midline;
+    $b$ is the width of the plates
+  \item[Velocity at position $y$]
+    \(u = u_\mathrm{max}\left(1-\frac{y^2}{h^2}\right)\)
+  \item[Maximum velocity]
+    \(u_\mathrm{max} = \left(-\pd{P}{x}\right)\frac{h^2}{2\mu}\)
+  \item[Average velocity]
+    \(u_\mathrm{ave} = \frac{2}{3}u_\mathrm{max}\)
+  \item[Flow rate]
+    \(Q = \frac{4}{3}u_\mathrm{max}hb\)
+  \end{description*}
+\item[Laminar flow in pipe] Steady, viscous flow within a cylindrical pipe caused by pressure
+  gradient along the length of the pipe.
+  \begin{description*}
+  \item[Velocity at position $r$]
+    \(v_z = v_\mathrm{max}\left(1 - \frac{r^2}{R^2}\right)\)
+  \item[Maximum velocity]
+    \(v_\mathrm{max} = \left(-\pd{P}{z}\right)\frac{R^2}{4\mu}\)
+  \item[Average velocity]
+    \(v_\mathrm{ave} = \frac{1}{2}v_\mathrm{max}\)
+  \item[Flow rate]
+    \(Q = \frac{1}{2}v_\mathrm{max}\pi R^2\)
+  \end{description*}
+\end{description*}
+
+\section{Dimensional Analysis}
+\emph{TODO: Add this section (Lectures 19--)}
+
+\end{document}
