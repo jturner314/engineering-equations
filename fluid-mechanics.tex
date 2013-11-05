@@ -333,16 +333,19 @@ momentum, $\vec{H}$.
 \begin{description*}
 \item[Assumptions] While the Navier-Stokes equations can apply more generally, the equations in this
   sheet assume Newtonian, incompressible fluid flow
-\item[Navier-Stokes Equations]
+\item[Navier-Stokes equations]
   \(\rho\vec{g} - \vec\nabla p + \mu\vec\nabla^2\vec{V} = \rho\frac{\Dif\vec V}{\Dif t}\)
-\item[$x$ component]
-  \(\rho g_x - \pd{p}{x} + \mu\left(\pd[2]{u}{x}+\pd[2]{u}{y}+\pd[2]{u}{z}\right) = \rho\frac{\Dif u}{\Dif t}\)
-\item[Cylindrical coordinates]
-  \(\rho\left(\pd{v_z}{t}+v_r\pd{v_z}{r}+\frac{v_\theta}{r}\pd{v_z}{\theta}+v_z\pd{v_z}{z}\right)
-  = \rho g_z - \pd{p}{z}
-  + \mu\left(\frac{1}{r}\pd{}{r}\left(r\pd{v_z}{r}\right)
-    + \frac{1}{r^2}\pd[2]{v_z}{\theta}
-    + \pd[2]{v_z}{z}\right)\)
+  \begin{description*}
+  \item[Rectangular, $x$ direction]
+    \(\rho g_x - \pd{p}{x} + \mu\left(\pd[2]{u}{x}+\pd[2]{u}{y}+\pd[2]{u}{z}\right)
+    = \rho\frac{\Dif u}{\Dif t} = \rho a_x\)
+  \item[Cylindrical, $z$ direction]
+    \(\rho\left(\pd{v_z}{t}+v_r\pd{v_z}{r}+\frac{v_\theta}{r}\pd{v_z}{\theta}+v_z\pd{v_z}{z}\right)
+    = \rho g_z - \pd{p}{z}
+    + \mu\left[\frac{1}{r}\pd{}{r}\left(r\pd{v_z}{r}\right)
+      + \frac{1}{r^2}\pd[2]{v_z}{\theta}
+      + \pd[2]{v_z}{z}\right]\)
+  \end{description*}
 \item[Couette flow] Steady, viscous flow between two parallel fixed plates caused pressure gradient
   along the length of the plates. Produces a parabolic velocity distribution between the plates.
   \begin{description*}
