@@ -154,7 +154,7 @@ momentum, $\vec{H}$.
 \subsection{Velocity}
 \begin{description*}
 \item[Velocity field]
-  \(\vec{V} = \od{\vec{r}}{t} = \vec{V}(x,y,z,t) = u\vechat{\i}+v\vechat{\j} + w\vechat{k}\)
+  \(\vec{V} = \od{\vec{r}}{t} = \vec{V}(x,y,z,t) = u\uvec{\i}+v\uvec{\j} + w\uvec{k}\)
 \item[Lines of interest]~
   \begin{description*}
   \item[Streamline] a line that is everywhere tangent to the velocity vector
@@ -191,7 +191,7 @@ momentum, $\vec{H}$.
   \(\frac{\Dif B_\mathrm{sys}}{\Dif t}
   = \pd{B_\mathrm{cv}}{t}+\dot{B}_\mathrm{out} - \dot{B}_\mathrm{in}
   = \pd{}{t}\left(\int_\mathrm{cv}\beta\rho\dif{\volsym}\right)
-  + \int_\mathrm{cs}\beta\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}\beta\rho(\vec{V}\cdot\uvec{n})\dif{A}\)
   where
   \(B_\mathrm{sys} = \int_\mathrm{sys}\beta\rho\dif{\volsym}\)
 \end{description*}
@@ -202,7 +202,7 @@ momentum, $\vec{H}$.
   \(0 = \frac{\Dif M_\mathrm{sys}}{\Dif t}
   = \pd{M_\mathrm{cv}}{t}+\dot{m}_\mathrm{out}-\dot{m}_\mathrm{in}
   = \pd{}{t}\left(\int_\mathrm{cv}\rho\dif{\volsym}\right)
-  + \int_\mathrm{cs}\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}\rho(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[Steady flow]
   \(\sum\dot{m}_\mathrm{in} = \sum\dot{m}_\mathrm{out}\)
 \item[Mass flow rate for 1-D flow]
@@ -218,7 +218,7 @@ momentum, $\vec{H}$.
   + \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
   - \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{in}
   = \pd{}{t}\left(\int_\mathrm{cv}\rho\vec{V}\dif{\volsym}\right)
-  + \int_\mathrm{cs}\rho\vec{V}(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}\rho\vec{V}(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[Steady flow]
   \(\sum{\vec{F}}
   = \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
@@ -226,7 +226,7 @@ momentum, $\vec{H}$.
 \item[Possible forces]~
   \begin{description*}
     \item[Pressure force]
-      \(\sum\vec{F}_\mathrm{press} = \int_\mathrm{cs}p_\mathrm{gage}(-\vechat{n})\dif{A}\)
+      \(\sum\vec{F}_\mathrm{press} = \int_\mathrm{cs}p_\mathrm{gage}(-\uvec{n})\dif{A}\)
     \item[Gravity force] Use weight of fluid
     \item[Other body forces] Depend on each situation
   \end{description*}
@@ -240,9 +240,9 @@ momentum, $\vec{H}$.
   \(\sum\vec{M} = \sum\vec{r}\times\vec{F}
   = \frac{\Dif \vec{H}_\mathrm{sys}}{\Dif t}
   = \pd{}{t}\left(\int_\mathrm{cv}\rho(\vec{r}\times\vec{V})\dif{\volsym}\right)
-  + \int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[1-D uniform flow inlets and outlets]
-  \(\int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\vechat{n})\dif{A}
+  \(\int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\uvec{n})\dif{A}
   = \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{out}
   - \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{in}\)
 \end{description*}
@@ -253,13 +253,13 @@ momentum, $\vec{H}$.
   \(\frac{\Dif E_\mathrm{sys}}{\Dif t}
   = \od{Q}{t}-\od{W}{t}
   = \pd{}{t}\left(\int_\mathrm{cv}e\rho\dif{\volsym}\right)
-  + \int_\mathrm{cs}e\rho(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}e\rho(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[RTT using enthalpy]
   \(\dot{Q}-\dot{W}_\mathrm{visc}-\dot{W}_\mathrm{shaft}
   = \pd{}{t}\left(\int_\mathrm{cv}e\rho\dif{\volsym}\right)
-  + \int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\vechat{n})\dif{A}\)
+  + \int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[1-D uniform flow inlets and outlets]~\\
-  \(\int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\vechat{n})\dif{A}
+  \(\int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\uvec{n})\dif{A}
   = \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{out}
   - \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{in}\)
 \item[Work of viscous forces]
