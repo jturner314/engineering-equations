@@ -134,6 +134,7 @@ momentum, $\vec{H}$.
 \section{Basic Fluid Dynamics}
 
 \subsection{Bernoulli Equation}
+\label{sec:bernoulli-eq}
 \begin{description*}
 \item[Conditions] Steady, incompressible, frictionless flow along streamline
 \item[Pressure form]
@@ -149,7 +150,7 @@ momentum, $\vec{H}$.
 \item[Total head]
   \(H = \frac{V^2}{2g} + \frac{P}{\rho g} + h\)
 \item[Turbine\slash{}pump head]
-  \(\dot{W} = \dot{m} g h\)
+  \(h = \frac{\dot{W}}{\dot{m} g} = \frac{w}{g}\)
 \item[Energy grade line] total head available to the fluid
 \item[Hydraulic grade line] sum of pressure head and elevation head (does not include velocity head)
 \end{description*}
@@ -280,6 +281,8 @@ momentum, $\vec{H}$.
     - w_\mathrm{shaft} - e_\mathrm{loss}\)
   \item[Head formulation]
     \(H_\mathrm{out} = H_\mathrm{in} + (h_P-h_T) - h_L\)
+    where total head $H$ and turbine\slash{}pump head $h$ are defined in
+    Section \ref{sec:bernoulli-eq}
   \end{description*}
 \end{description*}
 
