@@ -87,11 +87,11 @@ momentum, $\vec{H}$.
 \subsection{Pressure Gradient}
 \begin{description*}
 \item[Force (per unit volume) on fluid due to pressure gradient]
-  \(\vec{f}_\mathrm{press} = -\vec\nabla p\)
+  \(\vec{f}_\mathrm{press} = -\del p\)
 \item[Pressure gradient due to accelerating reference frame]
-  \(\vec\nabla p = \rho \left(\vec{g}-\vec{a}\right)\)
+  \(\del p = \rho \left(\vec{g}-\vec{a}\right)\)
 \item[Pressure due to gravity]
-  \(\vec\nabla p = \rho \vec g \implies p = \rho g h\)
+  \(\del p = \rho \vec g \implies p = \rho g h\)
 \end{description*}
 
 \subsection{Hydrostatic Forces on Surfaces}
@@ -173,14 +173,14 @@ momentum, $\vec{H}$.
 \subsection{Material Derivative Operator}
 \begin{description*}
 \item[Material derivative operator]
-  \(\frac{\Dif{(\;)}}{\Dif t} = \pd{(\;)}{t} + (\vec V \cdot \vec\nabla)(\;)
+  \(\frac{\Dif{(\;)}}{\Dif t} = \pd{(\;)}{t} + (\vec V \cdot \del)(\;)
   = \pd{(\;)}{t} + u\pd{(\;)}{x} + v\pd{(\;)}{y} + w\pd{(\;)}{z}\)
 \end{description*}
 
 \subsection{Acceleration}
 \begin{description*}
 \item[Acceleration field]
-  \(\vec a = \frac{\Dif\vec{V}}{\Dif t} = \pd{\vec V}{t} + (\vec{V}\cdot\vec\nabla)\vec{V}\)
+  \(\vec a = \frac{\Dif\vec{V}}{\Dif t} = \pd{\vec V}{t} + (\vec{V}\cdot\del)\vec{V}\)
 \item[$x$ component]
   \(a_x = \pd{u}{t} + u\pd{u}{x} + v\pd{u}{y} + w\pd{u}{z}\)
 \item[Streamwise and normal components]
@@ -292,13 +292,13 @@ momentum, $\vec{H}$.
 \subsection{Mass Conservation (Continuity Equation)}
 \begin{description*}
 \item[Continuity equation]
-  \(0 = \pd{\rho}{t} + \vec\nabla\cdot\rho\vec{V}
+  \(0 = \pd{\rho}{t} + \del\cdot\rho\vec{V}
   = \pd{\rho}{t}+\pd{\rho u}{x}+\pd{\rho v}{y}+\pd{\rho w}{z}\)
 \item[Cylindrical coordinates]
   \(0 = \pd{\rho}{t} + \frac{1}{r}\pd{(r\rho v_r)}{r}
   + \frac{1}{r}\pd{(\rho v_\theta)}{\theta} + \pd{(\rho v_z)}{z}\)
 \item[Steady flow]
-  \(0 = \vec\nabla\cdot\rho\vec{V}\)
+  \(0 = \del\cdot\rho\vec{V}\)
 \item[Stream function for 2-D flow ($\psi$ is constant along streamlines)]~
   \begin{description*}
   \item[Rectangular coordinates]
@@ -313,13 +313,13 @@ momentum, $\vec{H}$.
 \subsection{Fluid Rotation}
 \begin{description*}
 \item[Vorticity vector]
-  \(\vec\varsigma = \vec\nabla\times\vec{V}\)
+  \(\vec\varsigma = \del\times\vec{V}\)
 \item[Irrotational flow]
-  \(\vec\nabla\times\vec{V} = 0\)
+  \(\del\times\vec{V} = 0\)
 \item[Velocity potential $\phi(x,y,z,t)$] for irrotational, inviscid flow
   \begin{description*}
   \item[Definition]
-    \(\vec V = \vec\nabla\phi\)
+    \(\vec V = \del\phi\)
   \item[Rectangular coordinates]
     \(u = \pd{\phi}{x}\),
     \(v = \pd{\phi}{y}\),
@@ -329,7 +329,7 @@ momentum, $\vec{H}$.
     \(v_\theta = \frac{1}{r}\pd{\phi}{\theta}\),
     \(v_z = \pd{\phi}{z}\)
   \item[Laplace's equation] due to irrotationality,
-    \(\vec\nabla^2\psi = 0\)
+    \(\del^2\psi = 0\)
   \end{description*}
 \end{description*}
 
@@ -338,7 +338,7 @@ momentum, $\vec{H}$.
 \item[Assumptions] While the Navier-Stokes equations can apply more generally, the equations in this
   sheet assume Newtonian, incompressible fluid flow
 \item[Navier-Stokes equations]
-  \(\rho\vec{g} - \vec\nabla p + \mu\vec\nabla^2\vec{V} = \rho\frac{\Dif\vec V}{\Dif t}\)
+  \(\rho\vec{g} - \del p + \mu\del^2\vec{V} = \rho\frac{\Dif\vec V}{\Dif t}\)
   \begin{description*}
   \item[Rectangular, $x$ direction]
     \(\rho g_x - \pd{p}{x} + \mu\left(\pd[2]{u}{x}+\pd[2]{u}{y}+\pd[2]{u}{z}\right)
