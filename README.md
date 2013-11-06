@@ -7,6 +7,7 @@ update this repository periodically.
 
 So far, I have created equations sheets for the following subjects:
 - Fluid Mechanics
+- Heat Transfer
 
 ## Building
 
