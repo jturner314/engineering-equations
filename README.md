@@ -18,10 +18,10 @@ or specify an individual sheet by its name, e.g.:
 
     $ latexmk fluid-mechanics
 
-`latexmk` can also rebuild the sheets continuously as the source files are updated. To do this, add
-the `-pvc` option, e.g.:
+`latexmk` can also rebuild a sheet continuously as its source files are updated. To do this, add the
+`-pvc` option, e.g.:
 
-    $ latexmk -pvc
+    $ latexmk -pvc fluid-mechanics
 
 ## Contributing
 
