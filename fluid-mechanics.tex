@@ -172,14 +172,15 @@ momentum, $\vec{H}$.
 \subsection{Material Derivative Operator}
 \begin{description*}
 \item[Material derivative operator]
-  \(\frac{\Dif ()}{\Dif t} = \pd{()}{t} + u\pd{()}{x} + v\pd{()}{y} + w\pd{()}{z}\)
+  \(\frac{\Dif{(\;)}}{\Dif t} = \pd{(\;)}{t} + (\vec V \cdot \nabla)(\;)
+  = \pd{(\;)}{t} + u\pd{(\;)}{x} + v\pd{(\;)}{y} + w\pd{(\;)}{z}\)
 \end{description*}
 
 
 \subsection{Acceleration}
 \begin{description*}
 \item[Acceleration field]
-  \(\vec a = \frac{\Dif\vec{V}}{\Dif t} = \pd{\vec V}{t} + (\vec{V}\cdot\nabla\vec{V})\)
+  \(\vec a = \frac{\Dif\vec{V}}{\Dif t} = \pd{\vec V}{t} + (\vec{V}\cdot\nabla)\vec{V}\)
 \item[$x$ component]
   \(a_x = \pd{u}{t} + u\pd{u}{x} + v\pd{u}{y} + w\pd{u}{z}\)
 \item[Streamwise and normal components]
