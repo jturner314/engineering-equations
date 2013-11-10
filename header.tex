@@ -21,10 +21,8 @@
 
 % Title without author and date
 \makeatletter
-\renewcommand{\@maketitle}{
-\newpage\null\vskip 2em%
-\begin{center}{\LARGE \@title \par}\end{center}%
-\par} \makeatother
+\renewcommand{\@maketitle}{\newpage\null\begin{center}{\LARGE \@title \par}\end{center}\par}
+\makeatother
 
 % Description environment labels are not bold and are followed by colon
 \renewcommand*\descriptionlabel[1]{\hspace\labelsep\normalfont #1:}
