@@ -268,7 +268,7 @@ $\vec{H}$.
   - \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{in}\)
 \item[Work of viscous forces]
   \(\dot{W}_\mathrm{visc} = -\int_\mathrm{cs}\vec\tau\cdot\vec{V}\dif{A}\)
-\item[Extended Bernoulli Equation]~
+\item[Extended Bernoulli Equation (EBE)]~
   \begin{description*}
   \item[Energy formulation]
     \(q - w_\mathrm{visc} - w_\mathrm{shaft}
@@ -380,7 +380,81 @@ $\vec{H}$.
 \end{description*}
 
 \section{Dimensional Analysis}
-\emph{TODO: Add this section (Lectures 19--)}
+\begin{description*}
+\item[Pi theorem procedure]~
+  \begin{enumerate*}
+  \item List all $n$ independent dimensional parameters (e.g. $\rho$, $D$, $V$, $\mu$).
+  \item List the $r$ basic dimensions of the parameters (e.g. mass, length, time, temperature).
+  \item Write the parameters in terms of their primary dimensions (e.g. $\rho\rightarrow M/L^3$).
+    See Table \ref{tab:dimensional} for some common parameters.
+  \item Select $r$ dimensional parameters that include all of the basic dimensions
+    (e.g. $\rho$, $V$, $D$).
+  \item Write $n-r$ equations for the dimensionless $\Pi$ groups, with each group containing the
+    selected parameters and one other (e.g. \(\Pi_1 = \rho^a V^b D^c \mu = M^0L^0t^0\)). Solve these
+    equations to find the exponents (e.g. $a$, $b$, $c$).
+  \item Write the dimensionless $\Pi$ groups in terms of the dimensional parameters and double check
+    that they are dimensionless (e.g. \(\Pi_1 = \frac{\rho{}VD}{\mu}
+    = \frac{\frac{M}{L^3}\frac{L}{t}L}{\frac{M}{Lt}} = \textrm{dimensionless}\)).
+  \item Write one $\Pi$ group as a function of the other $\Pi$ groups
+    (e.g. \(\Pi_1 = G(\Pi_1,\Pi_2,\Pi_3)\)).
+  \end{enumerate*}
+\item[Important parameters] See Table \ref{tab:params}
+\end{description*}
+
+\begin{table}
+  \centering
+  \subcaptionbox{Dimensional\label{tab:dimensional}}{
+  \begin{tabu}{lc}
+  \toprule
+  Name & Dimensions \\
+  \midrule
+  mass, \(m\) & \(M\) \\
+  length, \(\ell\) & \(L\) \\
+  temperature, \(T\) & \(T\) \\
+  time, \(t\) & \(t\) \\
+  velocity, \(V\) & \(L/t\) \\
+  force, \(F\) & \(ML/t^2\) \\
+  energy, \(E\) & \(ML^2/t^2\) \\
+  pressure, \(p\) & \(M/(Lt^2)\) \\
+  volume, \(\volsym\) & \(L^3\) \\
+  volume flow rate, \(Q\) & \(L^3/t\) \\
+  density, \(\rho\) & \(M/L^3\) \\
+  specific weight, \(\gamma\) & \(M/(L^2t^2)\) \\
+  dynamic viscosity, \(\mu\) & \(M/(Lt)\) \\
+  kinematic viscosity, \(\nu\) & \(L^2/t\) \\
+  \bottomrule
+  \end{tabu}}
+  ~
+  \subcaptionbox{Dimensionless\label{tab:dimensionless}}{
+  \tabulinesep=_2pt^2pt
+  \begin{tabu}{lcc}
+  \toprule
+  Name & Meaning & Definition \\
+  \midrule
+  Reynolds number, \(\mathit{Re}\) & \(\frac{\textrm{inertia force}}{\textrm{viscous force}}\)
+  & \(\frac{\rho{}V\ell}{\mu}\) \\
+  Euler number, \(\mathit{Eu}\) & \(\frac{\textrm{pressure force}}{\textrm{inertia force}}\)
+  & \(\frac{\Delta p}{\rho{}V^2}\) \\
+  Froude number, \(\mathit{Fr}\) & \(\frac{\textrm{inertia force}}{\textrm{gravity force}}\)
+  & \(\frac{V}{\sqrt{g\ell}}\) \\
+  Mach number, \(\mathit{Ma}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
+  & \(\frac{V}{c}\) \\
+  Cauchy number, \(\mathit{Ca}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
+  & \(\frac{\rho{}V^2}{E_v}\) \\
+  Weber number, \(\mathit{We}\) & \(\frac{\textrm{inertia force}}{\textrm{surface tension force}}\)
+  & \(\frac{\rho{}V^2\ell}{\sigma}\) \\
+  Strouhal number, \(\mathit{St}\)
+  & \(\frac{\textrm{local inertia force}}{\textrm{convective inertia force}}\)
+  & \(\frac{\omega\ell}{V}\) \\
+  lift coefficient, \(C_\mathrm{L}\) & \(\frac{\textrm{lift force}}{\textrm{dynamic pressure force}}\)
+  & \(\frac{F_\mathrm{L}}{\frac12\rho{}V^2\ell^2}\) \\
+  drag coefficient, \(C_\mathrm{D}\) & \(\frac{\textrm{drag force}}{\textrm{dynamic pressure force}}\)
+  & \(\frac{F_\mathrm{D}}{\frac12\rho{}V^2\ell^2}\) \\
+  \bottomrule
+  \end{tabu}}
+  \caption{Important parameters}\label{tab:params}
+\end{table}
+
 
 \begin{thebibliography}{99}
 \bibitem{fofm} Munson, B. R., Okiishi, T. H., Huebsch, W. W., and Rothmayer, A. P., 2013,
