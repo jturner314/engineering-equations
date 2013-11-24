@@ -40,6 +40,13 @@ def format_num(num, precision=1):
         return format_str.format(mantissa, exponent)
 
 def main():
+    """Plot a Moody chart and write it to moody-diagram.eps in the working directory.
+
+    This plots a basic moody chart with the relevant lines and annotations for
+    transitional flow and smooth pipes. The friction factors for the turbulent
+    region are calculated by solving the implicit Colebrook equation.
+
+    """
     # Change figure size and font to match LaTeX
     fig_width = 450 / 72.27
     plt.rc('axes', labelsize=10)
