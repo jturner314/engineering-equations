@@ -455,6 +455,26 @@ $\vec{H}$.
   \caption{Important parameters}\label{tab:params}
 \end{table}
 
+\section{Viscous Pipe Flow}
+
+\begin{description*}
+\item[Major losses] head losses due to viscous effects in straight pipe sections; given by
+  \(h_{L\mathrm{major}} = f\frac{L}{D}\frac{V^2}{2g}\)
+\item[EBE with major losses only]
+  \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}\)
+\item[Friction factor, $f$] determine flow type with Reynolds number,
+  \(\mathit{Re} = \frac{\rho{}VD}{\mu}\), then use:
+  \begin{description}
+  \item[Laminar (\(\mathit{Re}<2100\))]
+    \(f = \frac{64}{\mathit{Re}}\)
+  \item[Transitional (\(2100<\mathit{Re}<4000\))]
+    highly variable $f$; in general, use turbulent value
+  \item[Turbulent (\(\mathit{Re}>4000\))]
+    \(\frac{1}{\sqrt{f}}
+    = -1.8\log\left[\left(\frac{\varepsilon/D}{3.7}\right)^{1.11}
+      + \frac{6.9}{\mathit{Re}}\right]\)
+  \end{description}
+\end{description*}
 
 \begin{thebibliography}{99}
 \bibitem{fofm} Munson, B. R., Okiishi, T. H., Huebsch, W. W., and Rothmayer, A. P., 2013,
