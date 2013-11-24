@@ -8,6 +8,7 @@ _region_.tex
 *.bbl
 *.blg
 *.dvi
+*.eps
 *.fdb_latexmk
 *.fls
 *.glg

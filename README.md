@@ -11,18 +11,14 @@ So far, I have created equations sheets for the following subjects:
 
 ## Building
 
-The easiest way to build the equations sheets is to use `latexmk`. To build all of them, simply run:
+The build process depends on GNU Make, `latexmk`, and Python 3 (with the `numpy`, `scipy`, and
+`matplotlib` packages). To build all sheets, run:
 
-    $ latexmk
+    $ make
 
-or specify an individual sheet by its name, e.g.:
+or, to build an individual sheet, specify its name:
 
-    $ latexmk fluid-mechanics
-
-`latexmk` can also rebuild a sheet continuously as its source files are updated. To do this, add the
-`-pvc` option, e.g.:
-
-    $ latexmk -pvc fluid-mechanics
+    $ make fluid-mechanics.pdf
 
 ## Contributing
 
