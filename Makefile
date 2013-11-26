@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-.PHONY: default
+.PHONY: default clean
 
 default: fluid-mechanics.pdf heat-transfer.pdf
 
