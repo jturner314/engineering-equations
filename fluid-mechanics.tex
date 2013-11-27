@@ -390,17 +390,21 @@ $\vec{H}$.
 \item[Pi theorem procedure]~
   \begin{enumerate*}
   \item List all $n$ independent dimensional parameters (e.g. $\rho$, $D$, $V$, $\mu$).
-  \item List the $r$ basic dimensions of the parameters (e.g. mass, length, time, temperature).
-  \item Write the parameters in terms of their primary dimensions (e.g. $\rho\rightarrow M/L^3$).
-    See Table \ref{tab:dimensional} for some common parameters.
+  \item List the $r$ basic dimensions of the parameters (e.g. mass, $\mathsf{M}$; length,
+    $\mathsf{L}$; time, $\mathsf{T}$; temperature, $\mathsf{\Theta}$).
+  \item Write the parameters in terms of their primary dimensions (e.g. $\rho\rightarrow
+    \mathsf{M}/\mathsf{L}^3$).  See Table \ref{tab:dimensional} for some common parameters.
   \item Select $r$ dimensional parameters that include all of the basic dimensions
     (e.g. $\rho$, $V$, $D$).
   \item Write $n-r$ equations for the dimensionless $\Pi$ groups, with each group containing the
-    selected parameters and one other (e.g. \(\Pi_1 = \rho^a V^b D^c \mu = M^0L^0t^0\)). Solve these
-    equations to find the exponents (e.g. $a$, $b$, $c$).
+    selected parameters and one other (e.g.
+    \(\Pi_1 = \rho^aV^bD^c\mu = \mathsf{M}^0\mathsf{L}^0\mathsf{T}^0\)).
+    Solve these equations to find the exponents (e.g. $a$, $b$, $c$).
   \item Write the dimensionless $\Pi$ groups in terms of the dimensional parameters and double check
     that they are dimensionless (e.g. \(\Pi_1 = \frac{\rho{}VD}{\mu}
-    = \frac{\frac{M}{L^3}\frac{L}{t}L}{\frac{M}{Lt}} = \textrm{dimensionless}\)).
+    \rightarrow \frac{\frac{\mathsf{M}}{\mathsf{L}^3}\frac{\mathsf{L}}{\mathsf{T}}\mathsf{L}}
+                     {\frac{\mathsf{M}}{\mathsf{L}\mathsf{T}}}
+    = \textrm{dimensionless}\)).
   \item Write one $\Pi$ group as a function of the other $\Pi$ groups
     (e.g. \(\Pi_1 = G(\Pi_1,\Pi_2,\Pi_3)\)).
   \end{enumerate*}
@@ -414,20 +418,20 @@ $\vec{H}$.
   \toprule
   Name & Dimensions \\
   \midrule
-  mass, \(m\) & \(M\) \\
-  length, \(\ell\) & \(L\) \\
-  temperature, \(T\) & \(T\) \\
-  time, \(t\) & \(t\) \\
-  velocity, \(V\) & \(L/t\) \\
-  force, \(F\) & \(ML/t^2\) \\
-  energy, \(E\) & \(ML^2/t^2\) \\
-  pressure, \(p\) & \(M/(Lt^2)\) \\
-  volume, \(\volsym\) & \(L^3\) \\
-  volume flow rate, \(Q\) & \(L^3/t\) \\
-  density, \(\rho\) & \(M/L^3\) \\
-  specific weight, \(\gamma\) & \(M/(L^2t^2)\) \\
-  dynamic viscosity, \(\mu\) & \(M/(Lt)\) \\
-  kinematic viscosity, \(\nu\) & \(L^2/t\) \\
+  mass, \(m\) & \(\mathsf{M}\) \\
+  length, \(\ell\) & \(\mathsf{L}\) \\
+  temperature, \(T\) & \(\mathsf{\Theta}\) \\
+  time, \(t\) & \(\mathsf{T}\) \\
+  velocity, \(V\) & \(\mathsf{L}/\mathsf{T}\) \\
+  force, \(F\) & \(\mathsf{M}\mathsf{L}/\mathsf{T}^2\) \\
+  energy, \(E\) & \(\mathsf{M}\mathsf{L}^2/\mathsf{T}^2\) \\
+  pressure, \(p\) & \(\mathsf{M}/(\mathsf{L}\mathsf{T}^2)\) \\
+  volume, \(\volsym\) & \(\mathsf{L}^3\) \\
+  volume flow rate, \(Q\) & \(\mathsf{L}^3/\mathsf{T}\) \\
+  density, \(\rho\) & \(\mathsf{M}/\mathsf{L}^3\) \\
+  specific weight, \(\gamma\) & \(\mathsf{M}/(\mathsf{L}^2\mathsf{T}^2)\) \\
+  dynamic viscosity, \(\mu\) & \(\mathsf{M}/(\mathsf{L}\mathsf{T})\) \\
+  kinematic viscosity, \(\nu\) & \(\mathsf{L}^2/\mathsf{T}\) \\
   \bottomrule
   \end{tabu}}
   ~
