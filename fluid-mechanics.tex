@@ -469,13 +469,14 @@ $\vec{H}$.
 
 \begin{description*}
 \item[Major losses] head losses due to viscous effects in straight pipe sections; given by
-  \(h_{L\mathrm{major}} = f\frac{L}{D}\frac{V^2}{2g}\)
+  \(h_{L\mathrm{major}} = f\frac{L}{D}\frac{V^2}{2g} = f\frac{L}{D^5}\frac{8Q^2}{\pi^2g}\)
 \item[EBE with major losses only]
-  \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}\)
+  \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}
+  = \rho{}g(z_2-z_1) + f\frac{L}{D^5}\frac{8\rho{}Q^2}{\pi^2}\)
 \item[Absolute pipe roughness, $\varepsilon$] a measure of the roughness of pipe walls; has units of
   length. Search online or see Table 8.1 of~\cite{fofm} for values of $\varepsilon$.
 \item[Friction factor, $f$] determine flow type with Reynolds number,
-  \(\mathit{Re} = \frac{\rho{}VD}{\mu}\), then use:
+  \(\mathit{Re} = \frac{\rho{}VD}{\mu} = \frac{4\rho{}Q}{\pi\mu{}D}\), then use:
   \begin{description}
   \item[Laminar (\(\mathit{Re}<2100\))]
     \(f = \frac{64}{\mathit{Re}}\)
