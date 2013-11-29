@@ -113,7 +113,7 @@ def main():
     # Friction factor labels (left vertical axis)
     plt.ylim(ymin, ymax)
     plt.yscale('log')
-    plt.gca().get_yaxis().tick_left()
+    plt.gca().tick_params(which='both', right='off', top='off')
     plt.yticks(friction_labels, [format_num(fric) for fric in friction_labels])
     plt.ylabel(r"Friction Factor, $f$")
 
@@ -123,7 +123,7 @@ def main():
     plt.yscale('log')
     plt.yticks(solve_colebrook(rel_roughness, xmax),
                [format_num(rough, 0) for rough in rel_roughness])
-    plt.setp(plt.gca().get_yticklines(), visible=False)
+    plt.gca().tick_params(which='both', bottom='off', top='off', left='off', right='off')
     plt.ylabel(r"Relative Roughness, $\varepsilon/D$")
 
     # Save figure
