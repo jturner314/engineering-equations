@@ -1,4 +1,4 @@
-% Copyright (C) 2013  Jim Turner
+% Copyright (C) 2013, 2014  Jim Turner
 %
 % This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To
 % view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/deed.en_US.
@@ -7,6 +7,7 @@
 \title{Heat Transfer Equations}
 
 \input{preamble.tex}
+\usepackage{amssymb}
 
 \begin{document}
 
@@ -304,6 +305,88 @@
     \(q''_\mathrm{rad} = h_r(T_\mathrm{s}-T_\mathrm{sur})\) where
     \(h_r = \varepsilon\sigma(T_\mathrm{s}+T_\mathrm{sur})(T_\mathrm{s}^2+T_\mathrm{sur}^2)\)
   \item[Planck distribution] See Table 12.2 of \cite{hamt}
+\end{description*}
+
+\section{Convection}
+\label{sec:convection}
+
+\begin{description*}
+\item[Reynolds number]
+  \(\mathit{Re}_\ell = \frac{\rho{}V\ell}{\mu} = \frac{V\ell}{\nu}\)
+\item[Prandtl number]
+  \(\mathit{Pr} = \frac{c_p\mu}{k} = \frac{\nu}{a}\)
+\item[Nusselt number]
+  \(\mathit{Nu}_\ell = \frac{h\ell}{k_\mathrm{f}}\)
+\item[Drag coefficient]
+  \(C_\mathrm{D} \equiv \frac{F_\mathrm{D}}{A_\mathrm{f}(\rho V^2/2)}\)
+\end{description*}
+
+\subsection{Flat Plate}
+\begin{description*}
+\item[Critical Reynolds number]
+  \(\mathit{Re}_{x,\mathrm{c}} = \num{5e5}\)
+\item[Steady, incompressible flow with constant fluid properties over isothermal plate]~
+  \begin{description*}
+  \item[Laminar]
+    \(\mathit{Nu}_x \equiv \frac{h_xx}{k} = 0.332\mathit{Re}_x^{1/2}\mathit{Pr}^{1/3}\) for
+    \(\mathit{Pr} \gtrsim 0.6\)
+  \item[Turbulent]
+    \(\mathit{Nu}_x = \mathit{St}\mathit{Re}_x\mathit{Pr} = 0.0296\mathit{Re}_x^{4/5}Pr^{1/3}\) for
+    \(0.6 \lesssim \mathit{Pr} \lesssim 60\)
+  \item[Average]
+    \(\overline{\mathit{Nu}}_L = (0.037\mathit{Re}_L^{4/5} - A)\mathit{Pr}^{1/3}\) for
+    \(0.6 \lesssim \mathit{Pr} \lesssim 60\) and \(\mathit{Re}_{x,\mathrm{c}} \lesssim Re_L \lesssim 10^8\) where
+    \(A = 0.037\mathit{Re}_{x,\mathrm{c}}^{4/5} - 0.664\mathit{Re}_{x,\mathrm{c}}^{1/2}\)
+    or \(A = 0\) when fully turbulent
+  \end{description*}
+\item[Steady, incompressible flow with constant fluid properties over plate with constant heat flux]~
+  \begin{description*}
+  \item[Laminar]
+    \(\mathit{Nu}_x = 0.453\mathit{Re}_x^{1/2}\mathit{Pr}^{1/3}\) for \(\mathit{Pr} \gtrsim 0.6\)
+  \item[Turbulent]
+    \(\mathit{Nu}_x = 0.0308\mathit{Re}_x^{4/5}\mathit{Pr}^{1/3}\) for \(0.6 \lesssim \mathit{Pr} \lesssim 60\)
+  \end{description*}
+\end{description*}
+
+\subsection{Cylinder in Cross Flow}
+\begin{description*}
+\item[Nusselt number]
+  \(\overline{\mathit{Nu}}_D
+  = 0.3 + \frac{0.62\mathit{Re}_D^{1/2}\mathit{Pr}^{1/3}}
+               {[1+(0.4/\mathit{Pr})^{2/3}]^{1/4}}
+          \left[1 + \left(\frac{\mathit{Re}_D}{282000}\right)^{5/8}\right]^{4/5}\)
+  for \(\mathit{Re}_D\mathit{Pr} \gtrsim 0.2\)
+\end{description*}
+
+\subsection{Internal Flow}
+\begin{description*}
+\item[Critical Reynolds number]
+  \(\mathit{Re}_{D,\mathrm{c}} = \num{2300}\)
+\item[Heat rate]
+  \(q = \dot{m}c_p\Delta{}T\)
+\end{description*}
+
+\subsubsection{Viscous Pipe Flow}
+\begin{description*}
+\item[Major losses] head losses due to viscous effects in straight pipe sections; given by
+  \(h_{L\mathrm{major}} = f\frac{L}{D}\frac{V^2}{2g} = f\frac{L}{D^5}\frac{8Q^2}{\pi^2g}\)
+\item[EBE with major losses only]
+  \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}
+  = \rho{}g(z_2-z_1) + f\frac{L}{D^5}\frac{8\rho{}Q^2}{\pi^2}\)
+\item[Absolute pipe roughness, $\varepsilon$] a measure of the roughness of pipe walls; has units of
+  length. Search online or see Figure 8.3 of~\cite{hamt} for values of $\varepsilon$.
+\item[Friction factor, $f$] determine flow type with Reynolds number,
+  \(\mathit{Re}_D = \frac{\rho{}VD}{\mu} = \frac{4\rho{}Q}{\pi\mu{}D}\), then use:
+  \begin{description}
+  \item[Laminar]
+    \(f = \frac{64}{\mathit{Re}_D}\)
+  \item[Transitional]
+    highly variable $f$; in general, use turbulent value
+  \item[Turbulent]
+    \(\frac{1}{\sqrt{f}}
+    = -1.8\log\left[\left(\frac{\varepsilon/D}{3.7}\right)^{1.11}
+      + \frac{6.9}{\mathit{Re}_D}\right]\)
+  \end{description}
 \end{description*}
 
 \begin{thebibliography}{99}
