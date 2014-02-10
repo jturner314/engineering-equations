@@ -1,4 +1,4 @@
-# Copyright (C) 2013  Jim Turner
+# Copyright (C) 2013, 2014  Jim Turner
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,10 @@ SHELL = /bin/bash
 
 .PHONY: default clean
 
-default: fluid-mechanics.pdf heat-transfer.pdf
+default: dynamics.pdf fluid-mechanics.pdf heat-transfer.pdf
+
+dynamics.pdf: dynamics.tex preamble.tex firstpage.tex
+	latexmk dynamics.tex
 
 fluid-mechanics.pdf: fluid-mechanics.tex moody-diagram.eps preamble.tex firstpage.tex
 	latexmk fluid-mechanics.tex

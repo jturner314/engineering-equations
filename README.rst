@@ -1,4 +1,4 @@
-.. Copyright (C) 2013  Jim Turner
+.. Copyright (C) 2013, 2014  Jim Turner
 
    This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To
    view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/deed.en_US.
@@ -15,6 +15,7 @@ Sheets
 
 So far, I have created equations sheets for the following subjects:
 
+* Dynamics
 * Fluid Mechanics
 * Heat Transfer
 

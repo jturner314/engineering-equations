@@ -1,0 +1,347 @@
+% Copyright (C) 2013, 2014  Jim Turner
+%
+% This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To
+% view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/deed.en_US.
+
+\documentclass{article}
+\title{Dynamics Equations}
+
+\input{preamble.tex}
+\newcommand{\uuvec}[1]{\widehat{\vec{u}_{#1}}}
+\usepackage{pict2e}
+
+\begin{document}
+
+\input{firstpage.tex}
+
+\section{Particle Motion}
+\label{sec:particle-motion}
+
+\subsection{Kinematics}
+\label{sec:particle-kinematics}
+
+\begin{description*}
+\item[Rectilinear motion]~
+  \begin{description*}
+    \item[Position] $s$
+    \item[Velocity]
+      \(v = \od{s}{t}\)
+    \item[Acceleration]
+      \(a = \od{v}{t}\)
+    \item[Time-independent relationship]
+      \(a\dif{s} = v\dif{v}\)
+  \end{description*}
+\item[Rectilinear motion with constant acceleration]~
+  \begin{description*}
+  \item[Velocity]
+    \(v = v_0 + a_\mathrm{c}t\)
+  \item[Position]
+    \(s = s_0 + v_0t + \frac12a_\mathrm{c}t^2\)
+  \item[Time-independent relationship]
+    \(v^2 = v_0^2 + 2a_\mathrm{c}(s-s_0)\)
+  \end{description*}
+\item[Normal and tangential coordinates]~
+  \begin{description*}
+  \item[Velocity]
+    \(\vec{v} = v\uvec{s}\)
+  \item[Acceleration]
+    \(\vec{a} = \dot{v}\uvec{s} + v\od{\uvec{s}}{t}
+    = \dot{v}\uvec{s} + \frac{v^2}{\rho}\uvec{n}\)
+  \item[Radius of curvature of plane curve]
+    \(\rho = \frac{\left[1+\left(\od{y}{x}\right)^2\right]^{3/2}}{\left|\od[2]{y}{x}\right|}\)
+  \end{description*}
+\item[Cylindrical coordinates]~
+  \begin{description*}
+  \item[Position]
+    \(\vec{r} = r\uuvec{r} + z\uuvec{z}\)
+  \item[Velocity]
+    \(\vec{v} = \dot{r}\uuvec{r} + r\dot{\theta}\uuvec{\theta} + \dot{z}\uuvec{z}\)
+  \item[Acceleration]
+    \(\vec{a}
+    = (\ddot{r}-r\dot\theta^2)\uuvec{r}
+    + (r\ddot\theta+2\dot{r}\dot\theta)\uuvec\theta
+    + \ddot{z}\uuvec{z}\)
+  \item[Angle $\psi$ between $\uuvec{r}$ and $\uvec{s}$]
+    \(\tan\psi = r\od{\theta}{r}\)
+  \end{description*}
+\end{description*}
+
+\subsection{Kinetics and Static forces}
+\label{sec:particle-kinetics}
+
+\begin{description*}
+\item[Newton's second law]
+  \(\sum\vec{F} = m\vec{a}\)
+\item[Gravitational force]
+  \(F_G = G\frac{m_1m_2}{r^2}\) where
+  \(G = \SI{6.67e-11}{\cubic\meter\per\kilogram\per\square\second}\)
+\item[Spring force]
+  \(F_s = ks\) where $s$ is the displacement
+\end{description*}
+
+\subsection{Work and Energy}
+\label{sec:particle-energy}
+
+\begin{description*}
+\item[Kinetic energy]
+  \(T = \frac12mv^2\)
+\item[Work]
+  \(U_{1\rightarrow2} = \int_{\vec{r}_1}^{\vec{r}_2}\vec{F}\cdot\dif\vec{r}
+  = \int_{s_1}^{s_2}F\cos\theta\dif{s} = \int_{\theta_1}^{\theta_2}M\dif{\theta}\)
+\item[Work--Kinetic Energy Principle]
+  \(\sum U_{1\rightarrow2} = T_2 - T_1\)
+\item[Power]
+  \(P = \od{}{t}U\)
+\item[Gravitational potential energy]
+  \(V_\mathrm{g} = mgh\)
+\item[Elastic potential energy]
+  \(V_\mathrm{e} = \frac12ks^2\)
+\item[When only conservative forces are present]
+  \(E = V_1 + T_1 = V_2 + T_2\)
+
+\end{description*}
+
+\subsection{Impulse and Momentum}
+\label{sec:particle-momentum}
+
+\begin{description*}
+\item[Linear momentum]
+  \(\vec{L} = m\vec{v}\)
+\item[Linear impulse]
+  \(\vec{I}_{1\rightarrow2} = \int_{t_1}^{t_2}\vec{F}\dif{t} = \vec{L}_2 - \vec{L}_1\)
+\item[Rotational momentum]
+  \(\vec{H}_O = \vec{r} \times (m\vec{v})\)
+\item[Rotational impulse]
+  \(\int_{t_1}^{t_2}\vec{M}_O\dif{t} = (\vec{H}_O)_2 - (\vec{H}_O)_1\)
+\end{description*}
+
+\subsection{Central Impact Collisions}
+\label{sec:particle-collisions}
+
+Collisions consist of a deformation impulse \(\int P \dif{t}\) as the particles push against each
+other and deform, and a restitution impulse \(\int R \dif{t}\) as the particles push away from each
+other.
+
+\begin{description*}
+\item[Deformation]
+  \(mv_1 - \int P \dif{t} = mv_2\)
+\item[Restitution]
+  \(mv_2 - \int R \dif{t} = mv_3\)
+\item[Coefficient of restitution]
+  \(e = \frac{\int R \dif{t}}{\int P \dif{t}} = \frac{(v_B)_2 - (v_A)_2}{(v_A)_1 - (v_B)_1}\)
+\end{description*}
+
+\section{Rigid Body Planar Motion}
+\label{sec:rigid-body-motion}
+
+We analyze a rigid body as a system of particles attached to each other such that they move as one
+unit. In general, rigid body motion can be expressed as a combination of translation and
+rotation. $A$ and $B$ are particles within a rigid body.
+
+\subsection{Kinematics}
+\label{sec:rigid-body-kinematics}
+
+\subsubsection{Angular Position, Velocity, and Acceleration}
+
+\begin{description*}
+\item[Angular position] \(\vec\theta\) where the direction of the vector is the axis about which the
+  angular position is taken
+\item[Angular velocity]
+  \(\vec\omega = \dot{\vec\theta}\)
+\item[Angular acceleration]
+  \(\vec\alpha = \dot{\vec\omega}\)
+\end{description*}
+
+\subsubsection{Fixed axis rotation with constant angular acceleration \(a_\mathrm{c}\)}
+
+\begin{description*}
+\item[Angular velocity]
+  \(\omega = \omega_0 + \alpha_\mathrm{c}t\)
+\item[Angular position]
+  \(\theta = \theta_0 + \omega_0t + \frac12\alpha_\mathrm{c}t^2\)
+\item[Time-independent relationship]
+  \(\omega^2 = \omega_0^2 + 2\alpha_\mathrm{c}(\theta-\theta_0)\)
+\end{description*}
+
+\subsubsection{Relative Motion Analysis}
+
+The subscript ${}_{B/A}$ means ``of $B$ relative to $A$''.
+
+\begin{description*}
+\item[Position]
+  \(\vec{r}_B = \vec{r}_A + \vec{r}_{B/A}\)
+\item[Velocity]
+  \(\vec{v}_B = \vec{v}_A + \vec{v}_{B/A}\)
+\item[Acceleration]
+  \(\vec{a}_B = \vec{a}_A + \vec{a}_{B/A}\)
+\end{description*}
+
+\subsubsection{General Planar Motion}
+
+\begin{description*}
+\item[Non-rotating reference frame]~
+  \begin{description*}
+  \item[Velocity]
+    \(\vec{v}_{B/A} = \vec{\omega}\times\vec{r}_{B/A}\)
+  \item[Acceleration]
+    \(\vec{a}_{B/A} = \vec\alpha\times\vec{r}_{B/A} - \omega^2\vec{r}_{B/A}\)
+  \end{description*}
+\item[Rotating reference frame] axes $xyz$ rotating with angular velocity $\vec\Omega$
+  relative to fixed axes $XYZ$
+  \begin{description*}
+  \item[Velocity]
+    \(\vec{v}_{B/A} = \vec\Omega\times\vec{r}_{B/A} + (\vec{v}_{B/A})_{xyz}\)
+  \item[Acceleration]
+    \(\vec{a}_{B/A} = \dot{\vec\Omega}\times\vec{r}_{B/A} + \vec\Omega\times(\vec\Omega\times\vec{r}_{B/A})
+    + 2\vec\Omega\times(\vec{v}_{B/A})_{xyz} + (\vec{a}_{B/A})_{xyz}\)
+  \end{description*}
+\end{description*}
+
+\subsubsection{Instantaneous Center of Zero Velocity}
+
+A combined planar translation and rotation at any instant in time can be treated as a rotation about
+a specially chosen point called the instantaneous instantaneous center of zero velocity
+($\mathit{IC}$). This simplifies finding the velocities of points within the body. (Note that in
+general, this method does not work for accelerations because the $\mathit{IC}$ may be accelerating.)
+The location of the $\mathit{IC}$ can be found from two known velocities on the rigid body by
+constructing lines as shown in Figure \ref{fig:instantaneous-center}. Using the $\mathit{IC}$, the
+velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\mathit{IC}}\]
+
+\begin{figure}
+  \centering
+  \setlength{\unitlength}{2mm}
+  \begin{subfigure}[b]{34mm}
+    \centering
+    \begin{picture}(13,16)(0,-2)
+      \thicklines
+      \put(0,0){\circle*{0.5}}
+      \put(0,8){\circle*{0.5}}
+      \put(0,8){\vector(1,0){6}}
+      \put(0,12){\circle*{0.5}}
+      \put(0,12){\vector(1,0){9}}
+
+      \thinlines
+      \put(0,0){\line(0,1){12}}
+      \put(0,0){\line(3,4){9}}
+
+      \thinlines
+      \put(0,7){\line(1,0){1}}
+      \put(1,7){\line(0,1){1}}
+      \put(0,11){\line(1,0){1}}
+      \put(1,11){\line(0,1){1}}
+
+      \put(1,-0.5){$\mathit{IC}$}
+      \put(7,7.5){$\vec{v}_A$}
+      \put(10,11.5){$\vec{v}_B$}
+    \end{picture}
+    \caption{For parallel $\vec{v}$}
+  \end{subfigure}
+  \quad
+  \begin{subfigure}[b]{34mm}
+    \centering
+    \begin{picture}(13,16)(0,-2)
+      \thicklines
+      \put(0,0){\circle*{0.5}}
+      \put(6,8){\circle*{0.5}}
+      \put(6,8){\vector(4,-3){4.8}}
+      \put(0,12){\circle*{0.5}}
+      \put(0,12){\vector(1,0){6}}
+
+      \thinlines
+      \put(0,0){\line(0,1){12}}
+      \put(0,0){\line(3,4){6}}
+
+      \thinlines
+      \put(5.4,7.2){\line(4,-3){0.8}}
+      \put(6.2,6.6){\line(3,4){0.6}}
+      \put(0,11){\line(1,0){1}}
+      \put(1,11){\line(0,1){1}}
+
+      \put(1,-0.5){$\mathit{IC}$}
+      \put(11.6,3.8){$\vec{v}_A$}
+      \put(7,11.5){$\vec{v}_B$}
+    \end{picture}
+    \caption{For nonparallel $\vec{v}$}
+  \end{subfigure}
+  \caption{Geometric construction to find the instantaneous center of velocity}
+  \label{fig:instantaneous-center}
+\end{figure}
+
+\subsection{Kinetics}
+\label{sec:rigid-body-planar-kinetics}
+
+\subsubsection{Moment of Inertia and Center of Mass}
+
+\begin{description*}
+\item[Moment of inertia]
+  \(I_G = \int_m r^2 \dif{m}\)
+\item[Parallel axis theorem]
+  \(I_A = I_G + md^2\)
+\item[Radius of gyration]
+  \(k = \sqrt{I_G/m}\)
+\item[Center of mass]
+  \(\bar{x} = \frac{\int x \dif{m}}{\int \dif{m}}\) and
+  \(\bar{y} = \frac{\int y \dif{m}}{\int \dif{m}}\)
+\end{description*}
+
+\subsubsection{Equations of Motion}
+\label{sec:rigid-body-equations-of-motion}
+
+\begin{description*}
+\item[Translation only (no rotation)]~
+  \begin{description*}
+  \item[Forces]
+    \(\sum \vec{F}_i = m\vec{a}_G\)
+  \item[Moments]
+    \(\sum (M_i)_G = 0\) or \(\sum (M_i)_A = ma_Gd\)
+  \end{description*}
+\item[Fixed axis rotation (no translation)]~
+  \begin{description*}
+  \item[Forces]
+    \(\sum (F_i)_r = -m r_G \omega^2\) and
+    \(\sum (F_i)_\theta = m r_G \alpha\)
+  \item[Moments]
+    \(\sum (M_i)_G = I_G \alpha\) or
+    \(\sum (M_i)_O = I_O \alpha\)
+  \end{description*}
+\item[General 2-D motion]~
+  \begin{description*}
+  \item[Forces]
+    \(\sum \vec{F}_i = m \vec{a}_G\)
+  \item[Moments]
+    \(\sum (M_i)_A = -\bar{y} m (a_G)_x + \bar{x} m (a_G)_y + I_G \alpha\)
+  \end{description*}
+\end{description*}
+
+\subsection{Work and Energy}
+\label{sec:rigid-body-energy}
+
+\begin{description*}
+\item[Kinetic energy]
+  \(T = \frac12 m v_G^2 + \frac12 I_G \omega^2\)
+\item[Other equations] Particle energy equations (section \ref{sec:particle-energy}) also apply.
+\end{description*}
+
+\subsection{Impulse and Momentum}
+\label{sec:rigid-body-momentum}
+
+\begin{description*}
+\item[Linear momentum]
+  \(\vec{L} = m\vec{v}_G\)
+\item[Linear impulse]
+  \(\vec{I}_{1\rightarrow2} = \vec{L}_2 - \vec{L}_1\)
+\item[Rotational momentum]
+  \(\vec{H}_G = I_G \vec{\omega}\) or
+  \(H_A = I_G \omega \pm m v_G d\)
+\item[Rotational impulse]
+  \(\int_{t_1}^{t_2}\vec{M}_G\dif{t} = (\vec{H}_G)_2 - (\vec{H}_G)_1\)
+\end{description*}
+
+\begin{thebibliography}{99}
+\bibitem{Hibbeler2010} Hibbeler, R. C., 2010, \emph{Engineering Mechanics: Dynamics}, 12th ed.,
+  Pearson Prentice Hall, Upper Saddle River, NJ.
+\bibitem{Wu2012} Wu, Fen, 2012, \emph{Engineering Dynamics}, MAE 208 course lectures, North Carolina
+  State University, Raleigh, NC.
+\end{thebibliography}
+
+\end{document}
