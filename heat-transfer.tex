@@ -310,6 +310,10 @@
 \section{Convection}
 \label{sec:convection}
 
+\emph{Note that many of the equations listed in this section are empirical approximations. For more
+  detail about the conditions under which you can apply these equations and for better
+  approximations, see \cite{hamt}.}
+
 \begin{description*}
 \item[Reynolds number]
   \(\mathit{Re}_\ell = \frac{\rho{}V\ell}{\mu} = \frac{V\ell}{\nu}\)
@@ -364,6 +368,18 @@
   \(\mathit{Re}_{D,\mathrm{c}} = \num{2300}\)
 \item[Heat rate]
   \(q = \dot{m}c_p\Delta{}T\)
+\item[Fully developed laminar flow in circular tube]
+  \(\mathit{Nu}_D =
+  \begin{cases}
+    4.36 & q_\mathrm{s}'' = \textrm{constant} \\
+    3.66 & T_\mathrm{s} = \textrm{constant}
+  \end{cases}\)
+\item[Fully developed turbulent flow in smooth circular tube]
+  \(\mathit{Nu}_D =
+  \begin{cases}
+    0.023\mathit{Re}_D^{0.8}\mathit{Pr}^{0.4} & \textrm{for heating} \\
+    0.023\mathit{Re}_D^{0.8}\mathit{Pr}^{0.3} & \textrm{for cooling}
+  \end{cases}\)
 \end{description*}
 
 \subsubsection{Viscous Pipe Flow}
