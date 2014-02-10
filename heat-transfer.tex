@@ -7,6 +7,7 @@
 \title{Heat Transfer Equations}
 
 \input{preamble.tex}
+\setcounter{tocdepth}{1}
 \usepackage{amssymb}
 
 \begin{document}
@@ -143,6 +144,8 @@
 \setlength{\columnseprule}{0.5pt}
 
 \section{Fins}
+\label{sec:fins}
+
 \begin{description*}
 \item[Uniform fin]
   \(\od[2]{\theta}{x} - m^2\theta = 0\) where
@@ -405,10 +408,75 @@
   \end{description}
 \end{description*}
 
+\section{Heat Exchangers}
+\label{sec:heat-exchangers}
+
+\begin{description*}
+\item[Overall heat transfer coefficient]
+  \(\frac{1}{UA} = \frac{1}{(\eta_0hA)_\mathrm{c}} + \frac{R_\mathrm{f,c}''}{(\eta_0A)_\mathrm{c}}
+  + R_\mathrm{w} + \frac{R_\mathrm{f,h}''}{(\eta_0A)_\mathrm{h}} + \frac{1}{(\eta_0hA)_\mathrm{c}}\)
+  where $R_\mathrm{w}$ is the wall resistance, $\eta_0$ is defined in Section~\ref{sec:fins}, and
+  fouling factors $R_\mathrm{f}''$ can be found in Table~11.1 of \cite{hamt}.
+\item[First law analysis]
+  \(q = \dot{m}_\mathrm{h}(i_\mathrm{h,i} - i_\mathrm{h,o})
+  = \dot{m}_\mathrm{c}(i_\mathrm{c,o} - i_\mathrm{c,i})
+  = \dot{m}_\mathrm{h}c_{p,\mathrm{h}}(T_\mathrm{h,i} - T_\mathrm{h,o})
+  = \dot{m}_\mathrm{c}c_{p,\mathrm{c}}(T_\mathrm{c,o} - T_\mathrm{c,i})\)
+\end{description*}
+
+\subsection{Log Mean Temperature Difference (LMTD) Method}
+\label{sec:lmtd}
+
+\begin{description*}
+\item[First law]
+  \(q = UA\Delta T_\mathrm{lm}\) where
+  \(\Delta T_\mathrm{lm} = \frac{\Delta T_2 - \Delta T_1}{\ln(\Delta T_2 / \Delta T_1)}
+  = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}\),
+  \(\Delta T_1 \equiv T_{\mathrm{h},1} - T_{\mathrm{c},1}\), and
+  \(\Delta T_2 \equiv T_{\mathrm{h},2} - T_{\mathrm{c},2}\)
+\item[Parallel flow heat exchanger]
+  \(\Delta T_1 = T_\mathrm{h,i} - T_\mathrm{c,i}\) and
+  \(\Delta T_2 = T_\mathrm{h,o} - T_\mathrm{c,o}\)
+\item[Counterflow heat exchanger]
+  \(\Delta T_1 = T_\mathrm{h,i} - T_\mathrm{c,o}\) and
+  \(\Delta T_2 = T_\mathrm{h,o} - T_\mathrm{c,i}\)
+\item[Special operating conditions] Depending on the values of $C_\mathrm{h}$ and $C_\mathrm{c}$,
+  some simplifications may be made. See Section 11.3.3 of \cite{hamt} for details.
+\item[Multipass and cross-flow heat exchangers]
+  \(\Delta T_\mathrm{lm} = F \Delta T_\mathrm{lm,CF}\) where $\Delta T_\mathrm{lm,CF}$ is the value
+  that would be obtained under the counterflow condition. Values of $F$ can be found in
+  Supplement~11S.1 of \cite{hamt}.
+\end{description*}
+
+\subsection{Effectiveness--NTU Method}
+\label{sec:eff-ntu}
+
+\begin{description*}
+\item[Heat capacity rate]
+  \(C \equiv \dot{m} c_p\)
+\item[Max heat rate]
+  \(q_\mathrm{max} = C_\mathrm{min}(T_\mathrm{h,i} - T_\mathrm{c,i})\)
+\item[Effectiveness]
+  \(\varepsilon \equiv \frac{q}{q_\mathrm{max}}\)
+\item[Number of transfer units]
+  \(\mathit{NTU} \equiv \frac{UA}{C_\mathrm{min}}\)
+\item[Relationship between $\varepsilon$ and $\mathit{NTU}$]
+  \(\varepsilon = f_1(\mathit{NTU}, C_\mathrm{r})\) and
+  \(\mathit{NTU} = f_2(\varepsilon, C_\mathrm{r})\) where
+  \(C_\mathrm{r} \equiv \frac{C_\mathrm{min}}{C_\mathrm{max}}\)
+  \begin{description*}
+  \item[When \(C_\mathrm{r} = 0\)]
+    \(\varepsilon = 1 - e^{-\mathit{NTU}}\) and \(\mathit{NTU} = -\ln(1 - \varepsilon)\)
+  \item[Other conditions] See Table 11.3, Table 11.4, and Figures 11.10 through 11.15 of \cite{hamt}.
+  \end{description*}
+\end{description*}
+
 \begin{thebibliography}{99}
 \bibitem{hamt} Bergman, T. L., Lavine, A. S., Incropera, F. P., and Dewitt, D. P., 2011,
   \emph{Fundamentals of Heat and Mass Transfer}, John Wiley \& Sons, Inc., Jefferson City.
 \bibitem{klec} Kuznetsov, A. V., 2013, \emph{Heat Transfer Fundamentals}, MAE 310 course lectures,
+  North Carolina State University, Raleigh, NC.
+\bibitem{Lyons2014} Lyons, K. M., 2014, \emph{Design of Thermal Systems}, MAE 412 course lectures,
   North Carolina State University, Raleigh, NC.
 \end{thebibliography}
 
