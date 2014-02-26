@@ -36,7 +36,7 @@
   \(\vec{q''} = -k \del T\)
 \item[Convection (Newton's law of cooling)]~\\
   \(q'' = h(T_\mathrm{s}-T_\infty)\)
-\item[Radiation] See Section \ref{sec:radiation}
+\item[Radiation] See Section~\ref{sec:radiation}
 \item[First Law of Thermodynamics]
   \(\dot{E}_\mathrm{in}-\dot{E}_\mathrm{out}+\dot{E}_\mathrm{g} = \dot{E}_\mathrm{st}\)
 \end{description*}
@@ -73,7 +73,7 @@
   \end{description*}
 \item[1-D steady-state solutions]~
   \begin{description*}
-  \item[No generation] See Table \ref{tab:1-d-solutions}
+  \item[No generation] See Table~\ref{tab:1-d-solutions}
   \item[Plane wall of width $2L$ with uniform $\dot q$]
     \(T(x) \\
     = \frac{\dot{q}L^2}{2k}\left(1-\frac{x^2}{L^2}\right)
@@ -81,7 +81,7 @@
     + \frac{T_\mathrm{s,1}+T_\mathrm{s,2}}{2}\)
   \item[Uniform Joule heating]
     \(\dot q = I^2R_\mathrm{e}/\volsym\)
-  \item[Other conditions] See Appendix C of \cite{hamt}
+  \item[Other conditions] See Appendix C of~\cite{hamt}
   \end{description*}
 \end{description*}
 
@@ -92,11 +92,11 @@
   \(R_\mathrm{t} \equiv \Delta{}T/q\);
   the following are also used for transfer per unit area\slash{}length:
   \(R''_\mathrm{t} = RA\) and \(R'_\mathrm{t} = RL\)
-\item[Conduction] See Table \ref{tab:1-d-solutions}
+\item[Conduction] See Table~\ref{tab:1-d-solutions}
 \item[Convection]
   \(R_\mathrm{t,conv} = \frac{1}{hA}\)
 \item[Radiation]
-  \(R_\mathrm{t,rad} = \frac{1}{h_rA}\)
+  \(R_\mathrm{t,rad} = \frac{1}{h_r A}\)
 \item[Contact]
   \(R_\mathrm{t,c}\)
 \item[Overall heat transfer coefficient, $U$]
@@ -109,8 +109,7 @@
 \begin{table}[htb]
   \centering
   \caption{One-dimensional, steady-state solutions to the heat equation with no
-    generation~\cite{hamt}}
-  \label{tab:1-d-solutions}
+    generation~\cite{hamt}}\label{tab:1-d-solutions}
   \tabulinesep=_3pt^3pt
   \begin{tabu}[c]{l c c c}
     \toprule
@@ -156,7 +155,7 @@
   \begin{description*}
   \item[Solution]
     \(\theta = C_1e^{mx} + C_2e^{-mx}\)
-  \item[Boundary conditions] See Table 3.4 of \cite{hamt}
+  \item[Boundary conditions] See Table~3.4 of~\cite{hamt}
   \end{description*}
 \item[Fin efficiency]
   \(\eta_f \equiv \frac{q_\mathrm{f}}{q_\mathrm{f,max}}
@@ -188,7 +187,7 @@
 \item[Method] For each node, assume all heat flows in, then
   \(\dot{E}_\mathrm{in} + \dot{E}_\mathrm{g} = 0 \\
   \implies \sum_{i=1}^4q_{(i)\rightarrow(m,n)} + \dot{q}(\Delta{}x\cdot\Delta{}y\cdot{}l) = 0\)
-\item[E.g. for conduction from $(m-1,n)$ to $(m,n)$]
+\item[E.g.\ for conduction from $(m-1,n)$ to $(m,n)$]
   \(q_{(m-1,n)\rightarrow(m,n)} = k(\Delta{}y\cdot{}l)\frac{T_{m-1,n}-T_{m,n}}{\Delta{}x}\)
 \end{description*}
 
@@ -229,7 +228,7 @@
     \(\frac{\theta}{\theta_\mathrm{i}} = \frac{T-T_\infty}{T_\mathrm{i}-T_\infty}
     = e^{-at} + \frac{b/a}{T_\mathrm{i}-T_\infty}\left(1-e^{-at}\right)\)
   \item[Total energy loss from convection when $q''_\mathrm{s}=0$, $\dot{q}=0$]
-    \(Q(t) = \int_0^tq\dif{t}
+    \(Q(t) = \int_0^t q \dif{t}
     = hA_\mathrm{s}\int_0^t\theta\dif{t} \\
     = \rho\volsym{}c\theta_\mathrm{i}(1-e^{-at})\)
   \end{description*}
@@ -268,7 +267,7 @@
       \toprule
       Name & Symbol & Meaning \\
       \midrule
-      Emissivity & $\varepsilon$ & Ratio of amt. of actual emission to that of blackbody \\
+      Emissivity & $\varepsilon$ & Ratio of amt.\ of actual emission to that of blackbody \\
       Absorptivity & $\alpha$ & Portion of irradiation that is absorbed \\
       Reflectivity & $\rho$ & Portion of irradiation that is reflected \\
       Transmissivity & $\tau$ & Portion of irradiation that is transmitted \\
@@ -307,7 +306,7 @@
   \item[Radiation heat transfer coefficient, $h_r$]
     \(q''_\mathrm{rad} = h_r(T_\mathrm{s}-T_\mathrm{sur})\) where
     \(h_r = \varepsilon\sigma(T_\mathrm{s}+T_\mathrm{sur})(T_\mathrm{s}^2+T_\mathrm{sur}^2)\)
-  \item[Planck distribution] See Table 12.2 of \cite{hamt}
+  \item[Planck distribution] See Table~12.2 of~\cite{hamt}
 \end{description*}
 
 \section{Convection}
@@ -315,7 +314,7 @@
 
 \emph{Note that many of the equations listed in this section are empirical approximations. For more
   detail about the conditions under which you can apply these equations and for better
-  approximations, see \cite{hamt}.}
+  approximations, see~\cite{hamt}.}
 
 \begin{description*}
 \item[Reynolds number]
@@ -335,7 +334,7 @@
 \item[Steady, incompressible flow with constant fluid properties over isothermal plate]~
   \begin{description*}
   \item[Laminar]
-    \(\mathit{Nu}_x \equiv \frac{h_xx}{k} = 0.332\mathit{Re}_x^{1/2}\mathit{Pr}^{1/3}\) for
+    \(\mathit{Nu}_x \equiv \frac{h_x x}{k} = 0.332\mathit{Re}_x^{1/2}\mathit{Pr}^{1/3}\) for
     \(\mathit{Pr} \gtrsim 0.6\)
   \item[Turbulent]
     \(\mathit{Nu}_x = \mathit{St}\mathit{Re}_x\mathit{Pr} = 0.0296\mathit{Re}_x^{4/5}Pr^{1/3}\) for
@@ -360,8 +359,8 @@
 \item[Nusselt number]
   \(\overline{\mathit{Nu}}_D
   = 0.3 + \frac{0.62\mathit{Re}_D^{1/2}\mathit{Pr}^{1/3}}
-               {[1+(0.4/\mathit{Pr})^{2/3}]^{1/4}}
-          \left[1 + \left(\frac{\mathit{Re}_D}{282000}\right)^{5/8}\right]^{4/5}\)
+               {{\left[1+{(0.4/\mathit{Pr})}^{2/3}\right]}^{1/4}}
+          {\left[1 + {\left(\frac{\mathit{Re}_D}{282000}\right)}^{5/8}\right]}^{4/5}\)
   for \(\mathit{Re}_D\mathit{Pr} \gtrsim 0.2\)
 \end{description*}
 
@@ -393,7 +392,7 @@
   \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}
   = \rho{}g(z_2-z_1) + f\frac{L}{D^5}\frac{8\rho{}Q^2}{\pi^2}\)
 \item[Absolute pipe roughness, $\varepsilon$] a measure of the roughness of pipe walls; has units of
-  length. Search online or see Figure 8.3 of~\cite{hamt} for values of $\varepsilon$.
+  length. Search online or see Figure~8.3 of~\cite{hamt} for values of $\varepsilon$.
 \item[Friction factor, $f$] determine flow type with Reynolds number,
   \(\mathit{Re}_D = \frac{\rho{}VD}{\mu} = \frac{4\rho{}Q}{\pi\mu{}D}\), then use:
   \begin{description}
@@ -403,7 +402,7 @@
     highly variable $f$; in general, use turbulent value
   \item[Turbulent]
     \(\frac{1}{\sqrt{f}}
-    = -1.8\log\left[\left(\frac{\varepsilon/D}{3.7}\right)^{1.11}
+    = -1.8\log\left[{\left(\frac{\varepsilon/D}{3.7}\right)}^{1.11}
       + \frac{6.9}{\mathit{Re}_D}\right]\)
   \end{description}
 \end{description*}
@@ -413,10 +412,10 @@
 
 \begin{description*}
 \item[Overall heat transfer coefficient]
-  \(\frac{1}{UA} = \frac{1}{(\eta_0hA)_\mathrm{c}} + \frac{R_\mathrm{f,c}''}{(\eta_0A)_\mathrm{c}}
-  + R_\mathrm{w} + \frac{R_\mathrm{f,h}''}{(\eta_0A)_\mathrm{h}} + \frac{1}{(\eta_0hA)_\mathrm{c}}\)
+  \(\frac{1}{UA} = \frac{1}{{(\eta_0 h A)}_\mathrm{c}} + \frac{R_\mathrm{f,c}''}{{(\eta_0 A)}_\mathrm{c}}
+  + R_\mathrm{w} + \frac{R_\mathrm{f,h}''}{{(\eta_0 A)}_\mathrm{h}} + \frac{1}{{(\eta_0 h A)}_\mathrm{c}}\)
   where $R_\mathrm{w}$ is the wall resistance, $\eta_0$ is defined in Section~\ref{sec:fins}, and
-  fouling factors $R_\mathrm{f}''$ can be found in Table~11.1 of \cite{hamt}.
+  fouling factors $R_\mathrm{f}''$ can be found in Table~11.1 of~\cite{hamt}.
 \item[First law analysis]
   \(q = \dot{m}_\mathrm{h}(i_\mathrm{h,i} - i_\mathrm{h,o})
   = \dot{m}_\mathrm{c}(i_\mathrm{c,o} - i_\mathrm{c,i})
@@ -441,11 +440,11 @@
   \(\Delta T_1 = T_\mathrm{h,i} - T_\mathrm{c,o}\) and
   \(\Delta T_2 = T_\mathrm{h,o} - T_\mathrm{c,i}\)
 \item[Special operating conditions] Depending on the values of $C_\mathrm{h}$ and $C_\mathrm{c}$,
-  some simplifications may be made. See Section 11.3.3 of \cite{hamt} for details.
+  some simplifications may be made. See Section 11.3.3 of~\cite{hamt} for details.
 \item[Multipass and cross-flow heat exchangers]
   \(\Delta T_\mathrm{lm} = F \Delta T_\mathrm{lm,CF}\) where $\Delta T_\mathrm{lm,CF}$ is the value
   that would be obtained under the counterflow condition. Values of $F$ can be found in
-  Supplement~11S.1 of \cite{hamt}.
+  Supplement~11S.1 of~\cite{hamt}.
 \end{description*}
 
 \subsection{Effectiveness--NTU Method}
@@ -467,7 +466,7 @@
   \begin{description*}
   \item[When \(C_\mathrm{r} = 0\)]
     \(\varepsilon = 1 - e^{-\mathit{NTU}}\) and \(\mathit{NTU} = -\ln(1 - \varepsilon)\)
-  \item[Other conditions] See Table 11.3, Table 11.4, and Figures 11.10 through 11.15 of \cite{hamt}.
+  \item[Other conditions] See Table~11.3, Table~11.4, and Figures~11.10 through 11.15 of~\cite{hamt}.
   \end{description*}
 \end{description*}
 

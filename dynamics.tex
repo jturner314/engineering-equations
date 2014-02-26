@@ -48,7 +48,7 @@
     \(\vec{a} = \dot{v}\uvec{s} + v\od{\uvec{s}}{t}
     = \dot{v}\uvec{s} + \frac{v^2}{\rho}\uvec{n}\)
   \item[Radius of curvature of plane curve]
-    \(\rho = \frac{\left[1+\left(\od{y}{x}\right)^2\right]^{3/2}}{\left|\od[2]{y}{x}\right|}\)
+    \(\rho = \frac{{\left[1+{\left(\od{y}{x}\right)}^2\right]}^{3/2}}{\left|\od[2]{y}{x}\right|}\)
   \end{description*}
 \item[Cylindrical coordinates]~
   \begin{description*}
@@ -112,7 +112,7 @@
 \item[Rotational momentum]
   \(\vec{H}_O = \vec{r} \times (m\vec{v})\)
 \item[Rotational impulse]
-  \(\int_{t_1}^{t_2}\vec{M}_O\dif{t} = (\vec{H}_O)_2 - (\vec{H}_O)_1\)
+  \(\int_{t_1}^{t_2}\vec{M}_O\dif{t} = {(\vec{H}_O)}_2 - {(\vec{H}_O)}_1\)
 \end{description*}
 
 \subsection{Central Impact Collisions}
@@ -128,7 +128,7 @@ other.
 \item[Restitution]
   \(mv_2 - \int R \dif{t} = mv_3\)
 \item[Coefficient of restitution]
-  \(e = \frac{\int R \dif{t}}{\int P \dif{t}} = \frac{(v_B)_2 - (v_A)_2}{(v_A)_1 - (v_B)_1}\)
+  \(e = \frac{\int R \dif{t}}{\int P \dif{t}} = \frac{{(v_B)}_2 - {(v_A)}_2}{{(v_A)}_1 - {(v_B)}_1}\)
 \end{description*}
 
 \section{Rigid Body Planar Motion}
@@ -190,10 +190,10 @@ The subscript ${}_{B/A}$ means ``of $B$ relative to $A$''.
   relative to fixed axes $XYZ$
   \begin{description*}
   \item[Velocity]
-    \(\vec{v}_{B/A} = \vec\Omega\times\vec{r}_{B/A} + (\vec{v}_{B/A})_{xyz}\)
+    \(\vec{v}_{B/A} = \vec\Omega\times\vec{r}_{B/A} + {(\vec{v}_{B/A})}_{xyz}\)
   \item[Acceleration]
     \(\vec{a}_{B/A} = \dot{\vec\Omega}\times\vec{r}_{B/A} + \vec\Omega\times(\vec\Omega\times\vec{r}_{B/A})
-    + 2\vec\Omega\times(\vec{v}_{B/A})_{xyz} + (\vec{a}_{B/A})_{xyz}\)
+    + 2\vec\Omega\times{(\vec{v}_{B/A})}_{xyz} + {(\vec{a}_{B/A})}_{xyz}\)
   \end{description*}
 \end{description*}
 
@@ -204,7 +204,7 @@ a specially chosen point called the instantaneous instantaneous center of zero v
 ($\mathit{IC}$). This simplifies finding the velocities of points within the body. (Note that in
 general, this method does not work for accelerations because the $\mathit{IC}$ may be accelerating.)
 The location of the $\mathit{IC}$ can be found from two known velocities on the rigid body by
-constructing lines as shown in Figure \ref{fig:instantaneous-center}. Using the $\mathit{IC}$, the
+constructing lines as shown in Figure~\ref{fig:instantaneous-center}. Using the $\mathit{IC}$, the
 velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\mathit{IC}}\]
 
 \begin{figure}
@@ -263,8 +263,8 @@ velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\
     \end{picture}
     \caption{For nonparallel $\vec{v}$}
   \end{subfigure}
-  \caption{Geometric construction to find the instantaneous center of velocity}
-  \label{fig:instantaneous-center}
+  \caption{Geometric construction to find the instantaneous center of
+    velocity}\label{fig:instantaneous-center}
 \end{figure}
 
 \subsection{Kinetics}
@@ -293,23 +293,23 @@ velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\
   \item[Forces]
     \(\sum \vec{F}_i = m\vec{a}_G\)
   \item[Moments]
-    \(\sum (M_i)_G = 0\) or \(\sum (M_i)_A = ma_Gd\)
+    \(\sum {(M_i)}_G = 0\) or \(\sum {(M_i)}_A = m a_G d\)
   \end{description*}
 \item[Fixed axis rotation (no translation)]~
   \begin{description*}
   \item[Forces]
-    \(\sum (F_i)_r = -m r_G \omega^2\) and
-    \(\sum (F_i)_\theta = m r_G \alpha\)
+    \(\sum {(F_i)}_r = -m r_G \omega^2\) and
+    \(\sum {(F_i)}_\theta = m r_G \alpha\)
   \item[Moments]
-    \(\sum (M_i)_G = I_G \alpha\) or
-    \(\sum (M_i)_O = I_O \alpha\)
+    \(\sum {(M_i)}_G = I_G \alpha\) or
+    \(\sum {(M_i)}_O = I_O \alpha\)
   \end{description*}
 \item[General 2-D motion]~
   \begin{description*}
   \item[Forces]
     \(\sum \vec{F}_i = m \vec{a}_G\)
   \item[Moments]
-    \(\sum (M_i)_A = -\bar{y} m (a_G)_x + \bar{x} m (a_G)_y + I_G \alpha\)
+    \(\sum {(M_i)}_A = -\bar{y} m {(a_G)}_x + \bar{x} m {(a_G)}_y + I_G \alpha\)
   \end{description*}
 \end{description*}
 
@@ -319,7 +319,7 @@ velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\
 \begin{description*}
 \item[Kinetic energy]
   \(T = \frac12 m v_G^2 + \frac12 I_G \omega^2\)
-\item[Other equations] Particle energy equations (section \ref{sec:particle-energy}) also apply.
+\item[Other equations] Particle energy equations (Section~\ref{sec:particle-energy}) also apply.
 \end{description*}
 
 \subsection{Impulse and Momentum}
@@ -334,7 +334,7 @@ velocity of a point $A$ on the rigid body can by found by: \[v_A = \omega r_{A/\
   \(\vec{H}_G = I_G \vec{\omega}\) or
   \(H_A = I_G \omega \pm m v_G d\)
 \item[Rotational impulse]
-  \(\int_{t_1}^{t_2}\vec{M}_G\dif{t} = (\vec{H}_G)_2 - (\vec{H}_G)_1\)
+  \(\int_{t_1}^{t_2}\vec{M}_G\dif{t} = {(\vec{H}_G)}_2 - {(\vec{H}_G)}_1\)
 \end{description*}
 
 \begin{thebibliography}{99}

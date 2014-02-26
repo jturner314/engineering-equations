@@ -52,7 +52,7 @@ $\vec{H}$.
 \item[Speed of sound in water]
   \(c_\mathrm{H_2O} = \SI{1560}{\meter\per\second}\)
 \item[Speed of sound]
-  \(c = \sqrt{\left(\od{P}{\rho}\right)_s}\)
+  \(c = \sqrt{{\left(\od{P}{\rho}\right)}_s}\)
 \item[Mach number]
   \(\mathit{Ma} = u/c\)
 \end{description*}
@@ -223,16 +223,16 @@ $\vec{H}$.
 \begin{description*}
 \item[RTT, $\vec{L}$]
   \(\sum{\vec{F}}
-  = \frac{\Dif (m\vec{V})_\mathrm{sys}}{\Dif t}
-  = \pd{(m\vec{V})_\mathrm{cv}}{t}
-  + \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
-  - \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{in}
+  = \frac{\Dif{(m\vec{V})}_\mathrm{sys}}{\Dif t}
+  = \pd{{(m\vec{V})}_\mathrm{cv}}{t}
+  + \sum{\left(\dot{m}_i\vec{V}_i\right)}_\mathrm{out}
+  - \sum{\left(\dot{m}_i\vec{V}_i\right)}_\mathrm{in}
   = \pd{}{t}\left(\int_\mathrm{cv}\rho\vec{V}\dif{\volsym}\right)
   + \int_\mathrm{cs}\rho\vec{V}(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[Steady flow]
   \(\sum{\vec{F}}
-  = \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{out}
-  - \sum\left(\dot{m}_i\vec{V}_i\right)_\mathrm{in}\)
+  = \sum{\left(\dot{m}_i\vec{V}_i\right)}_\mathrm{out}
+  - \sum{\left(\dot{m}_i\vec{V}_i\right)}_\mathrm{in}\)
 \item[Possible forces]~
   \begin{description*}
     \item[Pressure force]
@@ -253,8 +253,8 @@ $\vec{H}$.
   + \int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[1-D uniform flow inlets and outlets]
   \(\int_\mathrm{cs}(\vec{r}\times\vec{V})\rho(\vec{V}\cdot\uvec{n})\dif{A}
-  = \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{out}
-  - \sum(\dot{m}_i(\vec{r}\times\vec{V})_i)_\mathrm{in}\)
+  = \sum{\left(\dot{m}_i{(\vec{r}\times\vec{V})}_i\right)}_\mathrm{out}
+  - \sum{\left(\dot{m}_i{(\vec{r}\times\vec{V})}_i\right)}_\mathrm{in}\)
 \end{description*}
 
 \subsection{Energy}
@@ -270,25 +270,25 @@ $\vec{H}$.
   + \int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\uvec{n})\dif{A}\)
 \item[1-D uniform flow inlets and outlets]~\\
   \(\int_\mathrm{cs}\rho(\hat{h}+\frac{1}{2}V^2+gz)(\vec{V}\cdot\uvec{n})\dif{A}
-  = \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{out}
-  - \sum\left(\dot{m}_i(\hat{h}+\frac{1}{2}V^2+gz)_i\right)_\mathrm{in}\)
+  = \sum{\left(\dot{m}_i{(\hat{h}+\frac{1}{2}V^2+gz)}_i\right)}_\mathrm{out}
+  - \sum{\left(\dot{m}_i{(\hat{h}+\frac{1}{2}V^2+gz)}_i\right)}_\mathrm{in}\)
 \item[Work of viscous forces]
   \(\dot{W}_\mathrm{visc} = -\int_\mathrm{cs}\vec\tau\cdot\vec{V}\dif{A}\)
 \item[Extended Bernoulli Equation (EBE)]~
   \begin{description*}
   \item[Energy formulation]
     \(q - w_\mathrm{visc} - w_\mathrm{shaft}
-    = \left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{out}
-    - \left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{in}\)
+    = {\left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)}_\mathrm{out}
+    - {\left(\hat{u}+\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)}_\mathrm{in}\)
   \item[Alternatively]
     Let \(e_\mathrm{loss} = \hat{u}_\mathrm{out}-\hat{u}_\mathrm{in}-q+w_\mathrm{visc}\), then \\
-    \(\left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{out}
-    = \left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)_\mathrm{in}
+    \({\left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)}_\mathrm{out}
+    = {\left(\frac{P}{\rho}+\frac{1}{2}V^2+gz\right)}_\mathrm{in}
     - w_\mathrm{shaft} - e_\mathrm{loss}\)
   \item[Head formulation]
     \(H_\mathrm{out} = H_\mathrm{in} + (h_P-h_T) - h_L\)
     where total head $H$ and turbine\slash{}pump head $h$ are defined in
-    Section \ref{sec:bernoulli-eq}
+    Section~\ref{sec:bernoulli-eq}
   \end{description*}
 \end{description*}
 
@@ -389,16 +389,16 @@ $\vec{H}$.
 \begin{description*}
 \item[Pi theorem procedure]~
   \begin{enumerate*}
-  \item List all $n$ independent dimensional parameters (e.g. $\rho$, $D$, $V$, $\mu$).
-  \item List the $r$ basic dimensions of the parameters (e.g. mass, $\mathsf{M}$; length,
+  \item List all $n$ independent dimensional parameters (e.g.\ $\rho$, $D$, $V$, $\mu$).
+  \item List the $r$ basic dimensions of the parameters (e.g.\ mass, $\mathsf{M}$; length,
     $\mathsf{L}$; time, $\mathsf{T}$; temperature, $\mathsf{\Theta}$).
   \item Write the parameters in terms of their primary dimensions (e.g. $\rho\rightarrow
-    \mathsf{M}/\mathsf{L}^3$).  See Table \ref{tab:dimensional} for some common parameters.
+    \mathsf{M}/\mathsf{L}^3$).  See Table~\ref{tab:dimensional} for some common parameters.
   \item Select $r$ dimensional parameters that include all of the basic dimensions
     (e.g. $\rho$, $V$, $D$).
   \item Write $n-r$ equations for the dimensionless $\mathnormal\Pi$ groups, with each group
     containing the selected parameters and one other (e.g.
-    \(\mathnormal\Pi_1 = \rho^aV^bD^c\mu = \mathsf{M}^0\mathsf{L}^0\mathsf{T}^0\)).
+    \(\mathnormal\Pi_1 = \rho^a V^b D^c \mu = \mathsf{M}^0\mathsf{L}^0\mathsf{T}^0\)).
     Solve these equations to find the exponents (e.g. $a$, $b$, $c$).
   \item Write the dimensionless $\mathnormal\Pi$ groups in terms of the dimensional parameters and
     double check that they are dimensionless (e.g. \(\mathnormal\Pi_1 = \frac{\rho{}VD}{\mu}
@@ -408,7 +408,7 @@ $\vec{H}$.
   \item Write one $\mathnormal\Pi$ group as a function of the other $\mathnormal\Pi$ groups
     (e.g. \(\mathnormal\Pi_1 = G(\mathnormal\Pi_1,\mathnormal\Pi_2,\mathnormal\Pi_3)\)).
   \end{enumerate*}
-\item[Important parameters] See Table \ref{tab:params}
+\item[Important parameters] See Table~\ref{tab:params}
 \end{description*}
 
 \begin{table}
@@ -484,18 +484,16 @@ $\vec{H}$.
     highly variable $f$; in general, use turbulent value
   \item[Turbulent (\(\mathit{Re}>4000\))]
     \(\frac{1}{\sqrt{f}}
-    = -1.8\log\left[\left(\frac{\varepsilon/D}{3.7}\right)^{1.11}
+    = -1.8\log\left[{\left(\frac{\varepsilon/D}{3.7}\right)}^{1.11}
       + \frac{6.9}{\mathit{Re}}\right]\)
   \end{description}
-  Alternatively, you can look up values graphically with the Moody diagram in Figure
-  \ref{fig:moody}.
+  Alternatively, you can look up values graphically with the Moody diagram in Figure~\ref{fig:moody}.
 \end{description*}
 
 \begin{figure}
   \centering
   \includegraphics{moody-diagram.eps}
-  \caption{Moody diagram}
-  \label{fig:moody}
+  \caption{Moody diagram}\label{fig:moody}
 \end{figure}
 
 \begin{thebibliography}{99}
