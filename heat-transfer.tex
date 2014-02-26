@@ -35,10 +35,10 @@
 \item[Conduction (Fourier's law)]
   \(\vec{q''} = -k \del T\)
 \item[Convection (Newton's law of cooling)]~\\
-  \(q'' = h(T_\mathrm{s}-T_\infty)\)
+  \(q'' = h(T_\mrm{s}-T_\infty)\)
 \item[Radiation] See Section~\ref{sec:radiation}
 \item[First Law of Thermodynamics]
-  \(\dot{E}_\mathrm{in}-\dot{E}_\mathrm{out}+\dot{E}_\mathrm{g} = \dot{E}_\mathrm{st}\)
+  \(\dot{E}_\mrm{in}-\dot{E}_\mrm{out}+\dot{E}_\mrm{g} = \dot{E}_\mrm{st}\)
 \end{description*}
 
 \section{Heat Equation}
@@ -67,9 +67,9 @@
 \item[1-D steady-state boundary conditions]~
   \begin{description*}
   \item[Known surface temperature]
-    \(T(0,t) = T_\mathrm{s}\)
+    \(T(0,t) = T_\mrm{s}\)
   \item[Known heat flux]
-    \(\left.-k\pd{T}{x}\right|_{x=0} = q''_\mathrm{s}\)
+    \(\left.-k\pd{T}{x}\right|_{x=0} = q''_\mrm{s}\)
   \end{description*}
 \item[1-D steady-state solutions]~
   \begin{description*}
@@ -77,10 +77,10 @@
   \item[Plane wall of width $2L$ with uniform $\dot q$]
     \(T(x) \\
     = \frac{\dot{q}L^2}{2k}\left(1-\frac{x^2}{L^2}\right)
-    + \frac{T_\mathrm{s,2}-T_\mathrm{s,1}}{2L}\frac{x}{L}
-    + \frac{T_\mathrm{s,1}+T_\mathrm{s,2}}{2}\)
+    + \frac{T_\mrm{s,2}-T_\mrm{s,1}}{2L}\frac{x}{L}
+    + \frac{T_\mrm{s,1}+T_\mrm{s,2}}{2}\)
   \item[Uniform Joule heating]
-    \(\dot q = I^2R_\mathrm{e}/\volsym\)
+    \(\dot q = I^2R_\mrm{e}/\volsym\)
   \item[Other conditions] See Appendix C of~\cite{hamt}
   \end{description*}
 \end{description*}
@@ -89,19 +89,19 @@
 
 \begin{description*}
 \item[Definition]
-  \(R_\mathrm{t} \equiv \Delta{}T/q\);
+  \(R_\mrm{t} \equiv \Delta{}T/q\);
   the following are also used for transfer per unit area\slash{}length:
-  \(R''_\mathrm{t} = RA\) and \(R'_\mathrm{t} = RL\)
+  \(R''_\mrm{t} = RA\) and \(R'_\mrm{t} = RL\)
 \item[Conduction] See Table~\ref{tab:1-d-solutions}
 \item[Convection]
-  \(R_\mathrm{t,conv} = \frac{1}{hA}\)
+  \(R_\mrm{t,conv} = \frac{1}{hA}\)
 \item[Radiation]
-  \(R_\mathrm{t,rad} = \frac{1}{h_r A}\)
+  \(R_\mrm{t,rad} = \frac{1}{h_r A}\)
 \item[Contact]
-  \(R_\mathrm{t,c}\)
+  \(R_\mrm{t,c}\)
 \item[Overall heat transfer coefficient, $U$]
-  \(q_x = UA\Delta{}T_\mathrm{overall}\); note that
-  \(R_\mathrm{tot} = \frac{1}{UA}\)
+  \(q_x = UA\Delta{}T_\mrm{overall}\); note that
+  \(R_\mrm{tot} = \frac{1}{UA}\)
 \end{description*}
 
 \end{multicols}
@@ -120,10 +120,10 @@
     & \(\frac{1}{r}\od{}{r}\left(r\od{T}{r}\right) = 0\)
     & \(\frac{1}{r^2}\od{}{r}\left(r^2\od{T}{r}\right) = 0\) \\
     Temperature distribution
-    & \(T_\mathrm{s,1} - \Delta{}T\frac{x}{L}\)
-    & \(T_\mathrm{s,2} + \Delta{}T\left[\frac{\ln(r/r_2)}{\ln{(r_1/r_2)}}\right]\)
-    & \(T_\mathrm{s,1} - \Delta{}T\left[\frac{1-(r_1/r)}{1-(r_1/r_2)}\right]\) \\
-    Critical radius of insulation, $r_\mathrm{cr}$
+    & \(T_\mrm{s,1} - \Delta{}T\frac{x}{L}\)
+    & \(T_\mrm{s,2} + \Delta{}T\left[\frac{\ln(r/r_2)}{\ln{(r_1/r_2)}}\right]\)
+    & \(T_\mrm{s,1} - \Delta{}T\left[\frac{1-(r_1/r)}{1-(r_1/r_2)}\right]\) \\
+    Critical radius of insulation, $r_\mrm{cr}$
     & none
     & \(\frac k h\)
     & \(\frac{2k}{h}\) \\
@@ -131,7 +131,7 @@
     & \(kA\frac{\Delta{}T}{L}\)
     & \(\frac{2\pi{}Lk\Delta{}T}{\ln(r_2/r_1)}\)
     & \(\frac{4\pi{}k\Delta{}T}{(1/r_1)-(1/r_2)}\) \\
-    Thermal resistance, $R_\mathrm{t,cond}$
+    Thermal resistance, $R_\mrm{t,cond}$
     & \(\frac{L}{kA}\)
     & \(\frac{\ln(r_2/r_1)}{2\pi{}Lk}\)
     & \(\frac{(1/r_1)-(1/r_2)}{4\pi{}k}\) \\
@@ -149,43 +149,43 @@
 \item[Uniform fin]
   \(\od[2]{\theta}{x} - m^2\theta = 0\) where
   \(\theta \equiv T-T_\infty\),
-  \(m^2 \equiv \frac{hP}{kA_\mathrm{c}}\),
+  \(m^2 \equiv \frac{hP}{kA_\mrm{c}}\),
   $P$ is perimeter, and
-  $A_\mathrm{c}$ is cross-sectional area
+  $A_\mrm{c}$ is cross-sectional area
   \begin{description*}
   \item[Solution]
     \(\theta = C_1e^{mx} + C_2e^{-mx}\)
   \item[Boundary conditions] See Table~3.4 of~\cite{hamt}
   \end{description*}
 \item[Fin efficiency]
-  \(\eta_f \equiv \frac{q_\mathrm{f}}{q_\mathrm{f,max}}
-  = \frac{q_\mathrm{f}}{hA_\mathrm{f}\theta_\mathrm{b}}\)
-  where $A_\mathrm{f}$ is the surface area of the fin excluding the base
+  \(\eta_f \equiv \frac{q_\mrm{f}}{q_\mrm{f,max}}
+  = \frac{q_\mrm{f}}{hA_\mrm{f}\theta_\mrm{b}}\)
+  where $A_\mrm{f}$ is the surface area of the fin excluding the base
 \item[Fin effectiveness]
-  \(\varepsilon_\mathrm{f} \equiv \frac{q_\mathrm{f}}{hA_\mathrm{c,b}\theta_\mathrm{b}}
-  = \frac{R_\mathrm{t,b}}{R_\mathrm{t,f}}\)
+  \(\varepsilon_\mrm{f} \equiv \frac{q_\mrm{f}}{hA_\mrm{c,b}\theta_\mrm{b}}
+  = \frac{R_\mrm{t,b}}{R_\mrm{t,f}}\)
 \item[Fin resistance]
-  \(R_\mathrm{t,f} \equiv \frac{\theta_\mathrm{b}}{q_\mathrm{f}}
-  = \frac{1}{hA_\mathrm{f}\eta_\mathrm{f}}\)
+  \(R_\mrm{t,f} \equiv \frac{\theta_\mrm{b}}{q_\mrm{f}}
+  = \frac{1}{hA_\mrm{f}\eta_\mrm{f}}\)
 \item[Infinite fin]
-  \(\eta_\mathrm{f} = 0\) and
-  \(\varepsilon_\mathrm{f} = \sqrt{\frac{kP}{hA_\mathrm{c}}}\)
+  \(\eta_\mrm{f} = 0\) and
+  \(\varepsilon_\mrm{f} = \sqrt{\frac{kP}{hA_\mrm{c}}}\)
 \item[Fin array]~
   \begin{description*}
   \item[Total surface area]
-    \(A_\mathrm{t} = NA_\mathrm{f} + A_\mathrm{b}\)
+    \(A_\mrm{t} = NA_\mrm{f} + A_\mrm{b}\)
   \item[Overall surface efficiency]
-    \(\eta_\mathrm{o} = 1 - \frac{NA_\mathrm{f}}{A_\mathrm{t}}(1-\eta_\mathrm{f})\)
+    \(\eta_\mrm{o} = 1 - \frac{NA_\mrm{f}}{A_\mrm{t}}(1-\eta_\mrm{f})\)
   \item[Overall resistance]
-    \(R_\mathrm{t,o} = \frac{\theta_\mathrm{b}}{q_\mathrm{t}}
-    = \frac{1}{\eta_\mathrm{o}hA_\mathrm{t}}\)
+    \(R_\mrm{t,o} = \frac{\theta_\mrm{b}}{q_\mrm{t}}
+    = \frac{1}{\eta_\mrm{o}hA_\mrm{t}}\)
   \end{description*}
 \end{description*}
 
 \section{Energy Balance Method for Nodal Analysis}
 \begin{description*}
 \item[Method] For each node, assume all heat flows in, then
-  \(\dot{E}_\mathrm{in} + \dot{E}_\mathrm{g} = 0 \\
+  \(\dot{E}_\mrm{in} + \dot{E}_\mrm{g} = 0 \\
   \implies \sum_{i=1}^4q_{(i)\rightarrow(m,n)} + \dot{q}(\Delta{}x\cdot\Delta{}y\cdot{}l) = 0\)
 \item[E.g.\ for conduction from $(m-1,n)$ to $(m,n)$]
   \(q_{(m-1,n)\rightarrow(m,n)} = k(\Delta{}y\cdot{}l)\frac{T_{m-1,n}-T_{m,n}}{\Delta{}x}\)
@@ -199,38 +199,38 @@
   this is valid when the Biot number \(\mathit{Bi} \ll 1\).
   \begin{description*}
   \item[Definition]
-    \(\mathit{Bi} \equiv hL_\mathrm{c}/k\) where \(L_\mathrm{c}\) is the characteristic length,
-    usually defined as \(\volsym / A_\mathrm{s}\).
+    \(\mathit{Bi} \equiv hL_\mrm{c}/k\) where \(L_\mrm{c}\) is the characteristic length,
+    usually defined as \(\volsym / A_\mrm{s}\).
   \item[Physical interpretation]~\\
-    \(\mathit{Bi} = \frac{L_\mathrm{c}/(kA_\mathrm{s})}{1/(hA_\mathrm{s})}
-    \approx R_\mathrm{cond}/R_\mathrm{conv}\)
+    \(\mathit{Bi} = \frac{L_\mrm{c}/(kA_\mrm{s})}{1/(hA_\mrm{s})}
+    \approx R_\mrm{cond}/R_\mrm{conv}\)
   \end{description*}
 \item[General lumped capacitance method]
   \(\rho \volsym c \od{T}{t} \\
-  = q''_\mathrm{s}A_\mathrm{s,h} - hA_\mathrm{s,c}(T-T_\infty)
-  - h_\mathrm{r}A_\mathrm{s,r}(T-T_\mathrm{sur}) + \dot{E}_\mathrm{g}\)
-  for applied heat flux \(q''_\mathrm{s}\) on \(A_\mathrm{s,h}\), convection on \(A_\mathrm{s,c}\),
-  radiation on \(A_\mathrm{s,r}\), and generation \(\dot{E}_\mathrm{g}\).
+  = q''_\mrm{s}A_\mrm{s,h} - hA_\mrm{s,c}(T-T_\infty)
+  - h_\mrm{r}A_\mrm{s,r}(T-T_\mrm{sur}) + \dot{E}_\mrm{g}\)
+  for applied heat flux \(q''_\mrm{s}\) on \(A_\mrm{s,h}\), convection on \(A_\mrm{s,c}\),
+  radiation on \(A_\mrm{s,r}\), and generation \(\dot{E}_\mrm{g}\).
 \item[Thermal time constant]
-  \(\tau_\mathrm{t} \equiv R_\mathrm{t}C_\mathrm{t}
-  = \left(\frac{1}{hA_\mathrm{s}}\right)(\rho\volsym{}c)\)
-\item[With radiation and \(T_\mathrm{sur}=\SI{0}{\kelvin}\)]
-  \(t = \frac{\rho\volsym{}c}{3\varepsilon\sigma A}\left(\frac{1}{T^3}-\frac{1}{T_\mathrm{i}^3}\right)\)
+  \(\tau_\mrm{t} \equiv R_\mrm{t}C_\mrm{t}
+  = \left(\frac{1}{hA_\mrm{s}}\right)(\rho\volsym{}c)\)
+\item[With radiation and \(T_\mrm{sur}=\SI{0}{\kelvin}\)]
+  \(t = \frac{\rho\volsym{}c}{3\varepsilon\sigma A}\left(\frac{1}{T^3}-\frac{1}{T_\mrm{i}^3}\right)\)
 \item[Negligible radiation]~
   \begin{description*}
   \item[Differential equation]
     \(\od{\theta}{t} + a\theta - b = 0\) where
     \(\theta \equiv T-T_\infty\),
-    \(a \equiv 1/\tau_\mathrm{t}\), and
-    \(b \equiv \frac{q''_\mathrm{s}A_\mathrm{s,h}+\dot{E}_\mathrm{g}}{\rho\volsym{}c}\)
+    \(a \equiv 1/\tau_\mrm{t}\), and
+    \(b \equiv \frac{q''_\mrm{s}A_\mrm{s,h}+\dot{E}_\mrm{g}}{\rho\volsym{}c}\)
   \item[Solution]
-    \(\frac{\theta-b/a}{\theta_\mathrm{i}-b/a} = e^{-at}\) or, expanded, \\
-    \(\frac{\theta}{\theta_\mathrm{i}} = \frac{T-T_\infty}{T_\mathrm{i}-T_\infty}
-    = e^{-at} + \frac{b/a}{T_\mathrm{i}-T_\infty}\left(1-e^{-at}\right)\)
-  \item[Total energy loss from convection when $q''_\mathrm{s}=0$, $\dot{q}=0$]
+    \(\frac{\theta-b/a}{\theta_\mrm{i}-b/a} = e^{-at}\) or, expanded, \\
+    \(\frac{\theta}{\theta_\mrm{i}} = \frac{T-T_\infty}{T_\mrm{i}-T_\infty}
+    = e^{-at} + \frac{b/a}{T_\mrm{i}-T_\infty}\left(1-e^{-at}\right)\)
+  \item[Total energy loss from convection when $q''_\mrm{s}=0$, $\dot{q}=0$]
     \(Q(t) = \int_0^t q \dif{t}
-    = hA_\mathrm{s}\int_0^t\theta\dif{t} \\
-    = \rho\volsym{}c\theta_\mathrm{i}(1-e^{-at})\)
+    = hA_\mrm{s}\int_0^t\theta\dif{t} \\
+    = \rho\volsym{}c\theta_\mrm{i}(1-e^{-at})\)
   \end{description*}
 \end{description*}
 
@@ -239,18 +239,18 @@
   \item[Thermal diffusivity]
     \(\alpha = \frac{k}{\rho c}\)
   \item[Constant surface temperature]~\\
-    \(T(0,t) = T_\mathrm{s} \neq T(x,0) = T_\mathrm{i} \\
-    \implies \frac{T(x,t)-T_\mathrm{s}}{T_\mathrm{i}-T_\mathrm{s}}
+    \(T(0,t) = T_\mrm{s} \neq T(x,0) = T_\mrm{i} \\
+    \implies \frac{T(x,t)-T_\mrm{s}}{T_\mrm{i}-T_\mrm{s}}
     = \erf\left(\frac{x}{2\sqrt{\alpha t}}\right) \\
-    \implies q''_\mathrm{s}(t) = \frac{k(T_\mathrm{s}-T_\mathrm{i})}{\sqrt{\pi\alpha t}}\)
+    \implies q''_\mrm{s}(t) = \frac{k(T_\mrm{s}-T_\mrm{i})}{\sqrt{\pi\alpha t}}\)
   \item[Constant surface heat flux]
-    \(q''_\mathrm{s} = q''_0 \\
-    \implies T(x,t)-T_\mathrm{i}
+    \(q''_\mrm{s} = q''_0 \\
+    \implies T(x,t)-T_\mrm{i}
     = \frac{2q''_0\sqrt{\alpha t/\pi}}{k}\exp\left(\frac{-x^2}{4\alpha t}\right) \\
     - \frac{q''_0x}{k}\erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)\)
   \item[Constant surface convection]~\\
     \(\left.-k\pd{T}{x}\right|_{x=0} = h[T_\infty-T(0,t)]
-    \implies \frac{T(x,t)-T_\mathrm{i}}{T_\infty-T_\mathrm{i}} \\
+    \implies \frac{T(x,t)-T_\mrm{i}}{T_\infty-T_\mrm{i}} \\
       = \erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)
       - \left[\exp\left(\frac{hx}{k}+\frac{h^2\alpha t}{k^2}\right)\right]
       \left[\erfc\left(\frac{x}{2\sqrt{\alpha t}}+\frac{h\sqrt{\alpha t}}{k}\right)\right]\)
@@ -279,33 +279,33 @@
       Flux (\si{\watt\per\square\meter}) & Meaning & Equation \\
       \midrule
       Irradiation & Incident flux & \(G = (\rho+\alpha+\tau)G\) \\
-      Emission & Emitted flux & \(E = \varepsilon\sigma{}T^4_\mathrm{s}\) \\
+      Emission & Emitted flux & \(E = \varepsilon\sigma{}T^4_\mrm{s}\) \\
       Radiosity & Flux leaving the surface & When opaque, \(J = E + \rho{}G\)\\
       Net radiative flux & Net flux leaving surface & When opaque,
-      \(q''_\mathrm{rad} = \varepsilon\sigma{}T^4_\mathrm{s}-\alpha{}G\) \\
+      \(q''_\mrm{rad} = \varepsilon\sigma{}T^4_\mrm{s}-\alpha{}G\) \\
       \bottomrule
     \end{tabu}
   \item[Stefan-Boltzmann constant]
     \(\sigma = \SI{5.67e-8}{\watt\per\square\meter\per\kelvin\tothe{4}}\)
   \item[Solid angle]
-    \(\dif{\omega} \equiv \frac{\dif{A_\mathrm{n}}}{r^2}\) where
-    $A_\mathrm{n}$ is the area normal to $\vec{r}$
+    \(\dif{\omega} \equiv \frac{\dif{A_\mrm{n}}}{r^2}\) where
+    $A_\mrm{n}$ is the area normal to $\vec{r}$
   \item[Spectral intensity]
-    \(I_{\lambda,\mathrm{e}}(\lambda,\theta,\phi)
+    \(I_{\lambda,\mrm{e}}(\lambda,\theta,\phi)
     \equiv \frac{\dif q}{(\dif{A_1}\cos\theta)\cdot\dif{\omega}\cdot\dif{\lambda}}\)
   \item[Heat rate due to radiation]
     \(q_{1\rightarrow2} = I_1A_1\cos\theta_1 \cdot \omega_{2\rightarrow1}\) where
     \(\omega_{2\rightarrow1} = \frac{A_2\cos\theta_2}{r^2}\)
   \item[For diffuse surface]
-    total intensity \(I_\mathrm{e} = \textrm{constant}\) and
-    total emissive power \(E = \pi{}I_\mathrm{e}\)
+    total intensity \(I_\mrm{e} = \textrm{constant}\) and
+    total emissive power \(E = \pi{}I_\mrm{e}\)
   \item[For gray surface ($\alpha=\varepsilon$)]
-    \(q''_\mathrm{rad} = \varepsilon E_\mathrm{b} - \alpha G
-    = \varepsilon\sigma(T_\mathrm{s}^4-T_\mathrm{sur}^4)\)
+    \(q''_\mrm{rad} = \varepsilon E_\mrm{b} - \alpha G
+    = \varepsilon\sigma(T_\mrm{s}^4-T_\mrm{sur}^4)\)
   \item[For blackbody] $\varepsilon=1$ and $\alpha=1$
   \item[Radiation heat transfer coefficient, $h_r$]
-    \(q''_\mathrm{rad} = h_r(T_\mathrm{s}-T_\mathrm{sur})\) where
-    \(h_r = \varepsilon\sigma(T_\mathrm{s}+T_\mathrm{sur})(T_\mathrm{s}^2+T_\mathrm{sur}^2)\)
+    \(q''_\mrm{rad} = h_r(T_\mrm{s}-T_\mrm{sur})\) where
+    \(h_r = \varepsilon\sigma(T_\mrm{s}+T_\mrm{sur})(T_\mrm{s}^2+T_\mrm{sur}^2)\)
   \item[Planck distribution] See Table~12.2 of~\cite{hamt}
 \end{description*}
 
@@ -322,15 +322,15 @@
 \item[Prandtl number]
   \(\mathit{Pr} = \frac{c_p\mu}{k} = \frac{\nu}{a}\)
 \item[Nusselt number]
-  \(\mathit{Nu}_\ell = \frac{h\ell}{k_\mathrm{f}}\)
+  \(\mathit{Nu}_\ell = \frac{h\ell}{k_\mrm{f}}\)
 \item[Drag coefficient]
-  \(C_\mathrm{D} \equiv \frac{F_\mathrm{D}}{A_\mathrm{f}(\rho V^2/2)}\)
+  \(C_\mrm{D} \equiv \frac{F_\mrm{D}}{A_\mrm{f}(\rho V^2/2)}\)
 \end{description*}
 
 \subsection{Flat Plate}
 \begin{description*}
 \item[Critical Reynolds number]
-  \(\mathit{Re}_{x,\mathrm{c}} = \num{5e5}\)
+  \(\mathit{Re}_{x,\mrm{c}} = \num{5e5}\)
 \item[Steady, incompressible flow with constant fluid properties over isothermal plate]~
   \begin{description*}
   \item[Laminar]
@@ -341,8 +341,8 @@
     \(0.6 \lesssim \mathit{Pr} \lesssim 60\)
   \item[Average]
     \(\overline{\mathit{Nu}}_L = (0.037\mathit{Re}_L^{4/5} - A)\mathit{Pr}^{1/3}\) for
-    \(0.6 \lesssim \mathit{Pr} \lesssim 60\) and \(\mathit{Re}_{x,\mathrm{c}} \lesssim Re_L \lesssim 10^8\) where
-    \(A = 0.037\mathit{Re}_{x,\mathrm{c}}^{4/5} - 0.664\mathit{Re}_{x,\mathrm{c}}^{1/2}\)
+    \(0.6 \lesssim \mathit{Pr} \lesssim 60\) and \(\mathit{Re}_{x,\mrm{c}} \lesssim Re_L \lesssim 10^8\) where
+    \(A = 0.037\mathit{Re}_{x,\mrm{c}}^{4/5} - 0.664\mathit{Re}_{x,\mrm{c}}^{1/2}\)
     or \(A = 0\) when fully turbulent
   \end{description*}
 \item[Steady, incompressible flow with constant fluid properties over plate with constant heat flux]~
@@ -367,14 +367,14 @@
 \subsection{Internal Flow}
 \begin{description*}
 \item[Critical Reynolds number]
-  \(\mathit{Re}_{D,\mathrm{c}} = \num{2300}\)
+  \(\mathit{Re}_{D,\mrm{c}} = \num{2300}\)
 \item[Heat rate]
   \(q = \dot{m}c_p\Delta{}T\)
 \item[Fully developed laminar flow in circular tube]
   \(\mathit{Nu}_D =
   \begin{cases}
-    4.36 & q_\mathrm{s}'' = \textrm{constant} \\
-    3.66 & T_\mathrm{s} = \textrm{constant}
+    4.36 & q_\mrm{s}'' = \textrm{constant} \\
+    3.66 & T_\mrm{s} = \textrm{constant}
   \end{cases}\)
 \item[Fully developed turbulent flow in smooth circular tube]
   \(\mathit{Nu}_D =
@@ -387,7 +387,7 @@
 \subsubsection{Viscous Pipe Flow}
 \begin{description*}
 \item[Major losses] head losses due to viscous effects in straight pipe sections; given by
-  \(h_{L\mathrm{major}} = f\frac{L}{D}\frac{V^2}{2g} = f\frac{L}{D^5}\frac{8Q^2}{\pi^2g}\)
+  \(h_{L\mrm{major}} = f\frac{L}{D}\frac{V^2}{2g} = f\frac{L}{D^5}\frac{8Q^2}{\pi^2g}\)
 \item[EBE with major losses only]
   \(p_1-p_2 = \rho{}g(z_2-z_1)+\rho{}gh_L = \rho{}g(z_2-z_1) + f\frac{L}{D}\frac{\rho{}V^2}{2}
   = \rho{}g(z_2-z_1) + f\frac{L}{D^5}\frac{8\rho{}Q^2}{\pi^2}\)
@@ -412,15 +412,15 @@
 
 \begin{description*}
 \item[Overall heat transfer coefficient]
-  \(\frac{1}{UA} = \frac{1}{{(\eta_0 h A)}_\mathrm{c}} + \frac{R_\mathrm{f,c}''}{{(\eta_0 A)}_\mathrm{c}}
-  + R_\mathrm{w} + \frac{R_\mathrm{f,h}''}{{(\eta_0 A)}_\mathrm{h}} + \frac{1}{{(\eta_0 h A)}_\mathrm{c}}\)
-  where $R_\mathrm{w}$ is the wall resistance, $\eta_0$ is defined in Section~\ref{sec:fins}, and
-  fouling factors $R_\mathrm{f}''$ can be found in Table~11.1 of~\cite{hamt}.
+  \(\frac{1}{UA} = \frac{1}{{(\eta_0 h A)}_\mrm{c}} + \frac{R_\mrm{f,c}''}{{(\eta_0 A)}_\mrm{c}}
+  + R_\mrm{w} + \frac{R_\mrm{f,h}''}{{(\eta_0 A)}_\mrm{h}} + \frac{1}{{(\eta_0 h A)}_\mrm{c}}\)
+  where $R_\mrm{w}$ is the wall resistance, $\eta_0$ is defined in Section~\ref{sec:fins}, and
+  fouling factors $R_\mrm{f}''$ can be found in Table~11.1 of~\cite{hamt}.
 \item[First law analysis]
-  \(q = \dot{m}_\mathrm{h}(i_\mathrm{h,i} - i_\mathrm{h,o})
-  = \dot{m}_\mathrm{c}(i_\mathrm{c,o} - i_\mathrm{c,i})
-  = \dot{m}_\mathrm{h}c_{p,\mathrm{h}}(T_\mathrm{h,i} - T_\mathrm{h,o})
-  = \dot{m}_\mathrm{c}c_{p,\mathrm{c}}(T_\mathrm{c,o} - T_\mathrm{c,i})\)
+  \(q = \dot{m}_\mrm{h}(i_\mrm{h,i} - i_\mrm{h,o})
+  = \dot{m}_\mrm{c}(i_\mrm{c,o} - i_\mrm{c,i})
+  = \dot{m}_\mrm{h}c_{p,\mrm{h}}(T_\mrm{h,i} - T_\mrm{h,o})
+  = \dot{m}_\mrm{c}c_{p,\mrm{c}}(T_\mrm{c,o} - T_\mrm{c,i})\)
 \end{description*}
 
 \subsection{Log Mean Temperature Difference (LMTD) Method}
@@ -428,21 +428,21 @@
 
 \begin{description*}
 \item[First law]
-  \(q = UA\Delta T_\mathrm{lm}\) where
-  \(\Delta T_\mathrm{lm} = \frac{\Delta T_2 - \Delta T_1}{\ln(\Delta T_2 / \Delta T_1)}
+  \(q = UA\Delta T_\mrm{lm}\) where
+  \(\Delta T_\mrm{lm} = \frac{\Delta T_2 - \Delta T_1}{\ln(\Delta T_2 / \Delta T_1)}
   = \frac{\Delta T_1 - \Delta T_2}{\ln(\Delta T_1 / \Delta T_2)}\),
-  \(\Delta T_1 \equiv T_{\mathrm{h},1} - T_{\mathrm{c},1}\), and
-  \(\Delta T_2 \equiv T_{\mathrm{h},2} - T_{\mathrm{c},2}\)
+  \(\Delta T_1 \equiv T_{\mrm{h},1} - T_{\mrm{c},1}\), and
+  \(\Delta T_2 \equiv T_{\mrm{h},2} - T_{\mrm{c},2}\)
 \item[Parallel flow heat exchanger]
-  \(\Delta T_1 = T_\mathrm{h,i} - T_\mathrm{c,i}\) and
-  \(\Delta T_2 = T_\mathrm{h,o} - T_\mathrm{c,o}\)
+  \(\Delta T_1 = T_\mrm{h,i} - T_\mrm{c,i}\) and
+  \(\Delta T_2 = T_\mrm{h,o} - T_\mrm{c,o}\)
 \item[Counterflow heat exchanger]
-  \(\Delta T_1 = T_\mathrm{h,i} - T_\mathrm{c,o}\) and
-  \(\Delta T_2 = T_\mathrm{h,o} - T_\mathrm{c,i}\)
-\item[Special operating conditions] Depending on the values of $C_\mathrm{h}$ and $C_\mathrm{c}$,
+  \(\Delta T_1 = T_\mrm{h,i} - T_\mrm{c,o}\) and
+  \(\Delta T_2 = T_\mrm{h,o} - T_\mrm{c,i}\)
+\item[Special operating conditions] Depending on the values of $C_\mrm{h}$ and $C_\mrm{c}$,
   some simplifications may be made. See Section 11.3.3 of~\cite{hamt} for details.
 \item[Multipass and cross-flow heat exchangers]
-  \(\Delta T_\mathrm{lm} = F \Delta T_\mathrm{lm,CF}\) where $\Delta T_\mathrm{lm,CF}$ is the value
+  \(\Delta T_\mrm{lm} = F \Delta T_\mrm{lm,CF}\) where $\Delta T_\mrm{lm,CF}$ is the value
   that would be obtained under the counterflow condition. Values of $F$ can be found in
   Supplement~11S.1 of~\cite{hamt}.
 \end{description*}
@@ -454,17 +454,17 @@
 \item[Heat capacity rate]
   \(C \equiv \dot{m} c_p\)
 \item[Max heat rate]
-  \(q_\mathrm{max} = C_\mathrm{min}(T_\mathrm{h,i} - T_\mathrm{c,i})\)
+  \(q_\mrm{max} = C_\mrm{min}(T_\mrm{h,i} - T_\mrm{c,i})\)
 \item[Effectiveness]
-  \(\varepsilon \equiv \frac{q}{q_\mathrm{max}}\)
+  \(\varepsilon \equiv \frac{q}{q_\mrm{max}}\)
 \item[Number of transfer units]
-  \(\mathit{NTU} \equiv \frac{UA}{C_\mathrm{min}}\)
+  \(\mathit{NTU} \equiv \frac{UA}{C_\mrm{min}}\)
 \item[Relationship between $\varepsilon$ and $\mathit{NTU}$]
-  \(\varepsilon = f_1(\mathit{NTU}, C_\mathrm{r})\) and
-  \(\mathit{NTU} = f_2(\varepsilon, C_\mathrm{r})\) where
-  \(C_\mathrm{r} \equiv \frac{C_\mathrm{min}}{C_\mathrm{max}}\)
+  \(\varepsilon = f_1(\mathit{NTU}, C_\mrm{r})\) and
+  \(\mathit{NTU} = f_2(\varepsilon, C_\mrm{r})\) where
+  \(C_\mrm{r} \equiv \frac{C_\mrm{min}}{C_\mrm{max}}\)
   \begin{description*}
-  \item[When \(C_\mathrm{r} = 0\)]
+  \item[When \(C_\mrm{r} = 0\)]
     \(\varepsilon = 1 - e^{-\mathit{NTU}}\) and \(\mathit{NTU} = -\ln(1 - \varepsilon)\)
   \item[Other conditions] See Table~11.3, Table~11.4, and Figures~11.10 through 11.15 of~\cite{hamt}.
   \end{description*}
