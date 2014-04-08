@@ -14,9 +14,6 @@
 
 \input{firstpage.tex}
 
-\begin{multicols}{2}
-\setlength{\columnseprule}{0.5pt}
-
 \section{Notation}
 \begin{tabu}{lcc}
   \toprule
@@ -34,7 +31,7 @@
 \begin{description*}
 \item[Conduction (Fourier's law)]
   \(\vec{q''} = -k \del T\)
-\item[Convection (Newton's law of cooling)]~\\
+\item[Convection (Newton's law of cooling)]
   \(q'' = h(T_\mrm{s}-T_\infty)\)
 \item[Radiation] See Section~\ref{sec:radiation}
 \item[First Law of Thermodynamics]
@@ -48,19 +45,19 @@
   \item[Rectangular]
     \(\rho c_p \pd{T}{t}
     = \dot q
-    + \pd{}{x}\left(k\pd{T}{x}\right) \\
+    + \pd{}{x}\left(k\pd{T}{x}\right)
     + \pd{}{y}\left(k\pd{T}{y}\right)
     + \pd{}{z}\left(k\pd{T}{z}\right)\)
   \item[Cylindrical]
     \(\rho c_p \pd{T}{t}
     = \dot q
-    + \frac{1}{r}\pd{}{r}\left(kr\pd{T}{r}\right) \\
+    + \frac{1}{r}\pd{}{r}\left(kr\pd{T}{r}\right)
     + \frac{1}{r^2}\pd{}{\phi}\left(k\pd{T}{\phi}\right)
     + \pd{}{z}\left(k\pd{T}{z}\right)\)
   \item[Spherical]
     \(\rho c_p \pd{T}{t}
     = \dot q
-    + \frac{1}{r^2}\pd{}{r}\left(kr^2\pd{T}{r}\right) \\
+    + \frac{1}{r^2}\pd{}{r}\left(kr^2\pd{T}{r}\right)
     + \frac{1}{r^2\sin^2\theta}\pd{}{\phi}\left(k\pd{T}{\phi}\right)
     + \frac{1}{r^2\sin\theta}\pd{}{\theta}\left(k\sin\theta\pd{T}{\theta}\right)\)
   \end{description*}
@@ -75,7 +72,7 @@
   \begin{description*}
   \item[No generation] See Table~\ref{tab:1-d-solutions}
   \item[Plane wall of width $2L$ with uniform $\dot q$]
-    \(T(x) \\
+    \(T(x)
     = \frac{\dot{q}L^2}{2k}\left(1-\frac{x^2}{L^2}\right)
     + \frac{T_\mrm{s,2}-T_\mrm{s,1}}{2L}\frac{x}{L}
     + \frac{T_\mrm{s,1}+T_\mrm{s,2}}{2}\)
@@ -103,8 +100,6 @@
   \(q_x = UA\Delta{}T_\mrm{overall}\); note that
   \(R_\mrm{tot} = \frac{1}{UA}\)
 \end{description*}
-
-\end{multicols}
 
 \begin{table}[htb]
   \centering
@@ -138,9 +133,6 @@
     \bottomrule
   \end{tabu}
 \end{table}
-
-\begin{multicols}{2}
-\setlength{\columnseprule}{0.5pt}
 
 \section{Fins}
 \label{sec:fins}
@@ -183,13 +175,12 @@
 \end{description*}
 
 \section{Energy Balance Method for Nodal Analysis}
-\begin{description*}
-\item[Method] For each node, assume all heat flows in, then
-  \(\dot{E}_\mrm{in} + \dot{E}_\mrm{g} = 0 \\
-  \implies \sum_{i=1}^4q_{(i)\rightarrow(m,n)} + \dot{q}(\Delta{}x\cdot\Delta{}y\cdot{}l) = 0\)
-\item[E.g.\ for conduction from $(m-1,n)$ to $(m,n)$]
-  \(q_{(m-1,n)\rightarrow(m,n)} = k(\Delta{}y\cdot{}l)\frac{T_{m-1,n}-T_{m,n}}{\Delta{}x}\)
-\end{description*}
+
+For each node, assume that heat flows inward from the four neighboring nodes, then
+\[\dot{E}_\mrm{in} + \dot{E}_\mrm{g} = 0
+\implies \sum_{i=1}^4q_{(i)\rightarrow(m,n)} + \dot{q}(\Delta{}x\cdot\Delta{}y\cdot{}l) = 0\]
+where, for example from node $(m-1,n)$ to node $(m,n)$,
+\[q_{(m-1,n)\rightarrow(m,n)} = k(\Delta{}y\cdot{}l)\frac{T_{m-1,n}-T_{m,n}}{\Delta{}x}\]
 
 \section{Transient Conduction}
 
@@ -201,12 +192,12 @@
   \item[Definition]
     \(\mathit{Bi} \equiv hL_\mrm{c}/k\) where \(L_\mrm{c}\) is the characteristic length,
     usually defined as \(\volsym / A_\mrm{s}\).
-  \item[Physical interpretation]~\\
+  \item[Physical interpretation]
     \(\mathit{Bi} = \frac{L_\mrm{c}/(kA_\mrm{s})}{1/(hA_\mrm{s})}
     \approx R_\mrm{cond}/R_\mrm{conv}\)
   \end{description*}
 \item[General lumped capacitance method]
-  \(\rho \volsym c \od{T}{t} \\
+  \(\rho \volsym c \od{T}{t}
   = q''_\mrm{s}A_\mrm{s,h} - hA_\mrm{s,c}(T-T_\infty)
   - h_\mrm{r}A_\mrm{s,r}(T-T_\mrm{sur}) + \dot{E}_\mrm{g}\)
   for applied heat flux \(q''_\mrm{s}\) on \(A_\mrm{s,h}\), convection on \(A_\mrm{s,c}\),
@@ -216,7 +207,7 @@
   = \left(\frac{1}{hA_\mrm{s}}\right)(\rho\volsym{}c)\)
 \item[With radiation and \(T_\mrm{sur}=\SI{0}{\kelvin}\)]
   \(t = \frac{\rho\volsym{}c}{3\varepsilon\sigma A}\left(\frac{1}{T^3}-\frac{1}{T_\mrm{i}^3}\right)\)
-\item[Negligible radiation]~
+\item[With negligible radiation]~
   \begin{description*}
   \item[Differential equation]
     \(\od{\theta}{t} + a\theta - b = 0\) where
@@ -224,67 +215,79 @@
     \(a \equiv 1/\tau_\mrm{t}\), and
     \(b \equiv \frac{q''_\mrm{s}A_\mrm{s,h}+\dot{E}_\mrm{g}}{\rho\volsym{}c}\)
   \item[Solution]
-    \(\frac{\theta-b/a}{\theta_\mrm{i}-b/a} = e^{-at}\) or, expanded, \\
+    \(\frac{\theta-b/a}{\theta_\mrm{i}-b/a} = e^{-at}\) or, expanded,
     \(\frac{\theta}{\theta_\mrm{i}} = \frac{T-T_\infty}{T_\mrm{i}-T_\infty}
     = e^{-at} + \frac{b/a}{T_\mrm{i}-T_\infty}\left(1-e^{-at}\right)\)
   \item[Total energy loss from convection when $q''_\mrm{s}=0$, $\dot{q}=0$]
     \(Q(t) = \int_0^t q \dif{t}
-    = hA_\mrm{s}\int_0^t\theta\dif{t} \\
+    = hA_\mrm{s}\int_0^t\theta\dif{t}
     = \rho\volsym{}c\theta_\mrm{i}(1-e^{-at})\)
   \end{description*}
 \end{description*}
 
 \subsection{Semi-Infinite Solid}
 \begin{description*}
-  \item[Thermal diffusivity]
-    \(\alpha = \frac{k}{\rho c}\)
-  \item[Constant surface temperature]~\\
-    \(T(0,t) = T_\mrm{s} \neq T(x,0) = T_\mrm{i} \\
-    \implies \frac{T(x,t)-T_\mrm{s}}{T_\mrm{i}-T_\mrm{s}}
-    = \erf\left(\frac{x}{2\sqrt{\alpha t}}\right) \\
-    \implies q''_\mrm{s}(t) = \frac{k(T_\mrm{s}-T_\mrm{i})}{\sqrt{\pi\alpha t}}\)
-  \item[Constant surface heat flux]
-    \(q''_\mrm{s} = q''_0 \\
-    \implies T(x,t)-T_\mrm{i}
-    = \frac{2q''_0\sqrt{\alpha t/\pi}}{k}\exp\left(\frac{-x^2}{4\alpha t}\right) \\
-    - \frac{q''_0x}{k}\erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)\)
-  \item[Constant surface convection]~\\
-    \(\left.-k\pd{T}{x}\right|_{x=0} = h[T_\infty-T(0,t)]
-    \implies \frac{T(x,t)-T_\mrm{i}}{T_\infty-T_\mrm{i}} \\
-      = \erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)
-      - \left[\exp\left(\frac{hx}{k}+\frac{h^2\alpha t}{k^2}\right)\right]
-      \left[\erfc\left(\frac{x}{2\sqrt{\alpha t}}+\frac{h\sqrt{\alpha t}}{k}\right)\right]\)
-\end{description*}
+\item[Semi-infinite solid] Solid that extends infinitely in all directions but one; has a single
+  flat surface. The temperature $T(x,t)$ in the solid is a function of distance $x$ away from the
+  surface and time $t$.
+\item[Thermal diffusivity]
+  \(\alpha = \frac{k}{\rho c}\)
 
-\end{multicols}
+\item[Constant surface temperature] \(T(0,t) = T_\mrm{s} \neq T(x,0) = T_\mrm{i}\)
+
+  \(\frac{T(x,t)-T_\mrm{s}}{T_\mrm{i}-T_\mrm{s}}
+  = \erf\left(\frac{x}{2\sqrt{\alpha t}}\right)
+  \implies q''_\mrm{s}(t) = \frac{k(T_\mrm{s}-T_\mrm{i})}{\sqrt{\pi\alpha t}}\)
+
+\item[Constant surface heat flux] \(q''_\mrm{s} = q''_0\)
+
+  \(T(x,t)-T_\mrm{i}
+  = \frac{2q''_0\sqrt{\alpha t/\pi}}{k}\exp\left(\frac{-x^2}{4\alpha t}\right)
+  - \frac{q''_0x}{k}\erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)\)
+
+\item[Constant surface convection] \(\left.-k\pd{T}{x}\right|_{x=0} = h[T_\infty-T(0,t)]\)
+
+  \(\frac{T(x,t)-T_\mrm{i}}{T_\infty-T_\mrm{i}}
+  = \erfc\left(\frac{x}{2\sqrt{\alpha t}}\right)
+  - \left[\exp\left(\frac{hx}{k}+\frac{h^2\alpha t}{k^2}\right)\right]
+  \left[\erfc\left(\frac{x}{2\sqrt{\alpha t}}+\frac{h\sqrt{\alpha t}}{k}\right)\right]\)
+\end{description*}
 
 \section{Radiation}
 \label{sec:radiation}
 
+\begin{table}[htb]
+  \centering
+  \caption{Surface properties with respect to radiation}\label{tab:radiation-props}
+  \begin{tabu}{lcl}
+    \toprule
+    Name & Symbol & Meaning \\
+    \midrule
+    Emissivity & $\varepsilon$ & Ratio of amount of actual emission to that of blackbody \\
+    Absorptivity & $\alpha$ & Portion of irradiation that is absorbed \\
+    Reflectivity & $\rho$ & Portion of irradiation that is reflected \\
+    Transmissivity & $\tau$ & Portion of irradiation that is transmitted \\
+    \bottomrule
+  \end{tabu}
+\end{table}
+
+\begin{table}[htb]
+  \centering
+  \caption{Important definitions for radiation analysis}\label{tab:radiation-defs}
+  \begin{tabu}{lll}
+    \toprule
+    Flux (\si{\watt\per\square\meter}) & Meaning & Equation \\
+    \midrule
+    Irradiation & Incident flux & \(G = (\rho+\alpha+\tau)G\) \\
+    Emission & Emitted flux & \(E = \varepsilon\sigma{}T^4_\mrm{s}\) \\
+    Radiosity & Flux leaving the surface & When opaque, \(J = E + \rho{}G\)\\
+    Net radiative flux & Net flux leaving surface & When opaque,
+    \(q''_\mrm{rad} = \varepsilon\sigma{}T^4_\mrm{s}-\alpha{}G\) \\
+    \bottomrule
+  \end{tabu}
+\end{table}
+
 \begin{description*}
-  \item[Surface properties]
-    \begin{tabu}{lcl}
-      \toprule
-      Name & Symbol & Meaning \\
-      \midrule
-      Emissivity & $\varepsilon$ & Ratio of amt.\ of actual emission to that of blackbody \\
-      Absorptivity & $\alpha$ & Portion of irradiation that is absorbed \\
-      Reflectivity & $\rho$ & Portion of irradiation that is reflected \\
-      Transmissivity & $\tau$ & Portion of irradiation that is transmitted \\
-      \bottomrule
-    \end{tabu}
-  \item[Other definitions]
-    \begin{tabu}{lll}
-      \toprule
-      Flux (\si{\watt\per\square\meter}) & Meaning & Equation \\
-      \midrule
-      Irradiation & Incident flux & \(G = (\rho+\alpha+\tau)G\) \\
-      Emission & Emitted flux & \(E = \varepsilon\sigma{}T^4_\mrm{s}\) \\
-      Radiosity & Flux leaving the surface & When opaque, \(J = E + \rho{}G\)\\
-      Net radiative flux & Net flux leaving surface & When opaque,
-      \(q''_\mrm{rad} = \varepsilon\sigma{}T^4_\mrm{s}-\alpha{}G\) \\
-      \bottomrule
-    \end{tabu}
   \item[Stefan-Boltzmann constant]
     \(\sigma = \SI{5.67e-8}{\watt\per\square\meter\per\kelvin\tothe{4}}\)
   \item[Solid angle]
@@ -341,8 +344,9 @@
     \(0.6 \lesssim \mathit{Pr} \lesssim 60\)
   \item[Average]
     \(\overline{\mathit{Nu}}_L = (0.037\mathit{Re}_L^{4/5} - A)\mathit{Pr}^{1/3}\) for
-    \(0.6 \lesssim \mathit{Pr} \lesssim 60\) and \(\mathit{Re}_{x,\mrm{c}} \lesssim Re_L \lesssim 10^8\) where
-    \(A = 0.037\mathit{Re}_{x,\mrm{c}}^{4/5} - 0.664\mathit{Re}_{x,\mrm{c}}^{1/2}\)
+    \(0.6 \lesssim \mathit{Pr} \lesssim 60\) and
+    \(\mathit{Re}_{x,\mrm{c}} \lesssim Re_L \lesssim 10^8\) \\
+    where \(A = 0.037\mathit{Re}_{x,\mrm{c}}^{4/5} - 0.664\mathit{Re}_{x,\mrm{c}}^{1/2}\)
     or \(A = 0\) when fully turbulent
   \end{description*}
 \item[Steady, incompressible flow with constant fluid properties over plate with constant heat flux]~
