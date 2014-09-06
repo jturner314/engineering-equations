@@ -180,6 +180,21 @@ calls to \(f\), the space is reduced to about \(\Phi^n\) of its original size.
   converged, go to step~\ref{itm:update-golden-section}.
 \end{enumerate*}
 
+\subsection{Bisection Region Elimination Method}\label{sec:bisection-region}
+
+This method uses first derivative information to eliminate half of the space on each iteration.
+
+\begin{enumerate*}
+\setcounter{enumi}{-1}
+\item Should already know \((x_\mrm{L}, f_\mrm{L})\) and \((x_\mrm{R}, f_\mrm{R})\) from bounding
+  algorithm. Also compute \(f'_\mrm{L} < 0\) and \(f'_\mrm{R} > 0\).
+\item \label{itm:update-bisection-xm} Compute \(x_\mrm{m} = \frac{x_\mrm{L} + x_\mrm{R}}{2}\).
+\item Compute \(f_\mrm{m} = f(x_\mrm{m})\) and \(f'_\mrm{m} = f'(x_\mrm{m})\).
+\item If \(f'_\mrm{m} > 0\), then \(x_\mrm{R} := x_\mrm{m}\), else \(x_\mrm{L} := x_\mrm{m}\).
+\item Compute \(\epsilon = \frac{x_\mrm{R} - x_\mrm{L}}{L_0}\) and check convergence. If not
+  converged, go to step~\ref{itm:update-bisection-xm}.
+\end{enumerate*}
+
 
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
