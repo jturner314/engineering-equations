@@ -78,7 +78,12 @@ then
   else the minimum is between \((x^{k-1}, x^{k+1})\)
 \end{enumerate*}
 
-\subsection{Three-Point Quadratic Non-Derivative Optimization with Refinement}\label{sec:quadratic-interpolation}
+\subsection{Interpolation\slash{}Approximation Methods}\label{sec:interp-approx}
+
+Interpolation\slash{}approximation methods approximate the objective function with simpler functions
+for which the minima are known, then iteratively improve their approximations.
+
+\subsubsection{Three-Point Quadratic Non-Derivative Optimization with Refinement}\label{sec:quadratic-interpolation}
 
 \begin{enumerate*}
 \item Start with three points: \((x_1, f_1)\), \((x_2, f_2)\), \((x_3, f_3)\) where \(x_1\),
@@ -106,7 +111,7 @@ a_2(\tilde{x}^* - x_2) + a_2(\tilde{x}^* - x_1) = 0\). Solving for \(\tilde{x}^*
   \(f_3\). Go to step~\ref{itm:define-interp}.
 \end{enumerate*}
 
-\subsection{Newton--Raphson Method}\label{sec:newton-raphson}
+\subsubsection{Newton--Raphson Method}\label{sec:newton-raphson}
 
 Select a value \(x^0\) and build a linear approximation of \(f'\):
 \[\tilde{f}'(x) = f'(x^k) + f''(x^k)(x - x^k)\]
@@ -114,12 +119,17 @@ Solve \(\tilde{f}'(x^{k+1}) = 0\) for \(x^{k+1}\):
 \[x^{k+1} = x^k - \frac{f'(x^k)}{f''(x^k)}\]
 Iterate until \(\abs{x^{k+1} - x^k}\) is small. Note that divergence is possible.
 
-\subsection{Two-Point Cubic Optimization with Refinement}\label{sec:cubic-interpolation}
+\subsubsection{Two-Point Cubic Optimization with Refinement}\label{sec:cubic-interpolation}
 
 This interpolation-based method uses first derivative information to generate splines for
 \(\tilde{f}(x)\) and \(\tilde{f}'(x)\).
 
-\subsection{Interval Halving Region Elimination Method}\label{sec:interval-halving}
+\subsection{Region Elimination Methods}\label{sec:region-elimination}
+
+Region elimination methods iteratively eliminate subintervals of the design space from
+consideration. They generally eliminate the same percentage of the space on each iteration.
+
+\subsubsection{Interval Halving Method}\label{sec:interval-halving}
 
 After \(n\) calls to \(f\), the space is reduced to about \({\left(\frac12\right)}^{n/2}\) of its
 original size.
@@ -146,7 +156,7 @@ original size.
   step~\ref{itm:update-x1-x2} if not converged.
 \end{enumerate*}
 
-\subsection{Golden Section Region Elimination Method}\label{sec:golden-section-region}
+\subsubsection{Golden Section Method}\label{sec:golden-section-region}
 
 Define the golden ratio conjugate as \(\Phi = \frac{\sqrt5-1}{2} \approx 0.61803\). After \(n\)
 calls to \(f\), the space is reduced to about \(\Phi^n\) of its original size.
@@ -180,7 +190,7 @@ calls to \(f\), the space is reduced to about \(\Phi^n\) of its original size.
   converged, go to step~\ref{itm:update-golden-section}.
 \end{enumerate*}
 
-\subsection{Bisection Region Elimination Method}\label{sec:bisection-region}
+\subsubsection{Bisection Method}\label{sec:bisection-region}
 
 This method uses first derivative information to eliminate half of the space on each iteration.
 
