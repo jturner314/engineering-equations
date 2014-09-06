@@ -19,6 +19,10 @@ So far, I have created equations sheets for the following subjects:
 * Fluid Mechanics
 * Heat Transfer
 
+I am currently working on equation sheets for the following subjects:
+
+* Engineering Design Optimization
+
 To download already-built equation sheets, go to the `releases
 <https://github.com/jturner314/engineering-equations/releases>`_ page.
 
