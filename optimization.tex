@@ -429,6 +429,73 @@ Lower and upper bounds on \(x_i\) can often be written as a single constraint on
   x_i &= \ell_i + (u_i - \ell_i) \frac{y_i^2}{1 + y_i^2} \\
 \end{align*}
 
+\section{Sequential Unconstrained Minimization Techniques (SUMT)}
+
+These techniques transform a constrained optimization problem into an unconstrained one. They
+typically use an unconstrained pseudo-objective function for the optimization. This is pseudo-objective function is typically written as \(\Phi(\vec{x}, r_\mrm{p})\) where \(r_\mrm{p}\) is a penalty parameter and \(P(\vec{x})\) is a penalty function:
+\[\Phi(\vec{x}, r_\mrm{p}) = F(\vec{x}) + r_\mrm{p} P(\vec{x})\]
+
+\subsection{Exterior Penalty Function}
+
+This method approaches the optimum starting from the infeasible region.
+
+\paragraph{Advantages}
+\begin{itemize}
+\item Finding an initial point is easy.
+\end{itemize}
+
+\paragraph{Disadvantages}
+\begin{itemize}
+\item The method never gets back into the feasible region (although it gets close).
+\end{itemize}
+
+\paragraph{Method}
+The penalty function is defined as follows:
+\[P(\vec{x})
+= \sum_{j=1}^m{\left[\max\left(0, g_j(\vec{x})\right)\right]}^2
++ \sum_{k=1}^\ell{\left[h_k(\vec{x})\right]}^2\]
+This function has a slope of 0 at the constraint boundary and has a continuous slope for
+\(\Phi\). However, the second derivative is not continuous. The penalty parameter \(r_\mrm{p}\) is
+chosen small initially and is increased as the method progresses, typically by the relation:
+\[r_\mrm{p}^\textrm{next} = \gamma r_\mrm{p} \quad \textrm{where usually} \quad \gamma \in [3, 10]\]
+
+\subsection{Interior Penalty Function}
+
+This method approaches the optimum starting from the feasible region.
+
+\paragraph{Advantages}
+\begin{itemize}
+\item If you stop the method early, you still have a feasible design.
+\end{itemize}
+
+\paragraph{Disadvantages}
+\begin{itemize}
+\item The pseudo-objective function is discontinuous at the boundaries of the constraints.
+\item The constraints need to be normalized.
+\item Region elimination (which can be slower) is safer for the 1-D search.
+\end{itemize}
+
+\paragraph{Method}
+The pseudo-objective function is defined as follows:
+\[\Phi(\vec{x}, r_\mrm{p}, r'_\mrm{p})
+= F(\vec{x}) + r'_\mrm{p} \sum_{j=1}^m{\frac{-1}{g_j(\vec{x})}}
++ r_\mrm{p} \sum_{k=1}^\ell{\left[h_k(\vec{x})\right]}^2\]
+\(r_\mrm{p}\) behaves the same as for the exterior penalty function. \(r'_\mrm{p}\) starts large and then decreases:
+\begin{align*}
+  {r'_\mrm{p}}^\textrm{init} &= (0.1 \textrm{ to } 1) \left(\frac{f(\vec{x})}{-\sum_{j=1}^m{\frac{1}{g_j(\vec{x})}}}\right) \\
+  {r'_\mrm{p}}^\textrm{next} &= \gamma r'_\mrm{p} \quad \textrm{where} \quad \gamma \in \{0.1, 0.2, 0.5\}
+\end{align*}
+
+\paragraph{Extended Method}
+This extension helps keep the penalty function from ``blowing up'' near the optimimum. The portion
+of \(P(\vec{x})\) for each \(g(\vec{x})\) is defined as:
+\[\textrm{portion of } P(\vec{x}) \textrm{ for each } g(\vec{x}) =
+\begin{cases}
+  \frac{-1}{g_j(\vec{x})} & \textrm{if } g_j(\vec{x}) < \varepsilon \\
+  \frac{-2\varepsilon - g_j(\vec{x})}{\varepsilon^2} & \textrm{if } g_j(\vec{x}) > \varepsilon
+\end{cases}\] where \(\varepsilon\) is a small negative number defined as
+\(\varepsilon = -c {(r'_\mrm{p})}^a\)
+
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
   lectures, North Carolina State University, Raleigh, NC.
