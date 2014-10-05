@@ -322,6 +322,77 @@ gradients for subsequent moves.
 \item Check convergence. If not converged, go to step~\ref{itm:fletcher-beta}.
 \end{enumerate*}
 
+\subsection{Newton's Method}
+
+The search direction for Newton's Method is:
+\[\vec{S}^q = -{\left[H(\vec{x}^q)\right]}^{-1} \del F(\vec{x}^q)\]
+The basic method is to set \(\alpha^* = 1\). As long as \(H(\vec{x}^q)\) is positive definite, this
+is a good move. The method can diverge or overshoot the minimum. To reduce overshoots, a modified
+update relation is to solve for the \(\alpha^*\) that gives the 1-D minimum for \(F(\vec{x}^q +
+\alpha^* \vec{S}^q)\) instead of just setting it to \(1\).
+
+\subsection{Variable Metric Methods (Quasi-Newton)}
+
+These methods iteratively improve their approximation of the Hessian or its inverse. This allows
+them to work similarly to Newton's method, but with only first order information.
+
+\subsubsection{Davidon--Fletcher--Powell (DFP) Method}
+
+This method approximates the inverse of the Hessian.
+
+\begin{enumerate*}
+\item Set
+  \begin{itemize*}
+  \item the initial point \(\vec{x}^0\)
+  \item the inverse Hessian approximation \(H^0 = I_n\)
+  \item the vector \(\vec{c}^0 = \del F(\vec{x}^0)\)
+  \item the convergence criterion \(\varepsilon\)
+  \item the iteration number \(q = 0\).
+  \end{itemize*}
+\item \label{itm:dfp-converge} If \(\norm{\vec{c}^q} < \varepsilon\), stop because the method has converged. Otherwise,
+  continue to the next step.
+\item Set \(\vec{S}^q = -H^q \vec{c}^q\).
+\item Find \(\alpha^*\) to minimize \(F(\vec{x}^q + \alpha^* \vec{S}^q)\).
+\item Set \(\vec{x}^{q+1} = \vec{x}^q + \alpha^* \vec{S}^q\).
+\item Set \(H^{q+1} = H^q + B^q + C^q\) where:
+  \begin{align*}
+    B^q &= \frac{\vec{p}\transpose{\vec{p}}}{\transpose{\vec{p}}\vec{y}} \\
+    C^q &= \frac{-\vec{z}\transpose{\vec{z}}}{\transpose{\vec{y}}\vec{z}} \\
+    \vec{p} &= \vec{x}^{q+1} - \vec{x}^q \\
+    \vec{y} &= \del F(\vec{x}^{q+1}) - \del F(\vec{x}^q) \\
+    \vec{z} &= H^q \vec{y}
+  \end{align*}
+\item Increment \(q\) and go to step~\ref{itm:dfp-converge}.
+\end{enumerate*}
+
+\subsubsection{Broyden--Fletcher--Goldfarb--Shanno (BFGS) Method}
+
+This method approximates the Hessian directly.
+
+\begin{enumerate*}
+\item Set
+  \begin{itemize*}
+  \item the initial point \(\vec{x}^0\)
+  \item the Hessian approximation \(H^0 = I_n\)
+  \item the vector \(\vec{c}^0 = \del F(\vec{x}^0)\)
+  \item the convergence criterion \(\varepsilon\)
+  \item the iteration number \(q = 0\).
+  \end{itemize*}
+\item \label{itm:bfgs-converge} If \(\norm{\vec{c}^q} < \varepsilon\), stop because the method has converged. Otherwise,
+  continue to the next step.
+\item Solve \(H^q\vec{S}^q = -\vec{c}^q\) for \(\vec{S}^q\).
+\item Find \(\alpha^*\) to minimize \(F(\vec{x}^q + \alpha^* \vec{S}^q)\).
+\item Set \(\vec{x}^{q+1} = \vec{x}^q + \alpha^* \vec{S}^q\).
+\item Set \(H^{q+1} = H^q + D^q + E^q\) where:
+  \begin{align*}
+    D^q &= \frac{\vec{y}\transpose{\vec{y}}}{\transpose{\vec{y}}\vec{p}} \\
+    E^q &= \frac{\vec{c}\transpose{\vec{c}}}{\transpose{\vec{c}}\vec{S}} \\
+    \vec{p} &= \vec{x}^{q+1} - \vec{x}^q \\
+    \vec{y} &= \del F(\vec{x}^{q+1}) - \del F(\vec{x}^q) \\
+  \end{align*}
+\item Increment \(q\) and go to step~\ref{itm:bfgs-converge}.
+\end{enumerate*}
+
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
   lectures, North Carolina State University, Raleigh, NC.
