@@ -220,6 +220,11 @@ This method uses first derivative information to eliminate half of the space on 
   converged, go to step~\ref{itm:update-bisection-xm}.
 \end{enumerate*}
 
+\subsection{Hybrid Methods}
+
+Often, the best general method is to use a region elimination method for a few iterations to reduce
+the size of the bounds, then use an interpolation\slash{}approximation method to quickly converge on
+the minimum.
 
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
