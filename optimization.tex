@@ -229,8 +229,8 @@ the minimum.
 \section{\textit{n}-D Optimization}
 
 Unconstrained \(n\)-D optimization methods are typically formulated as a series of 1-D searches. The
-individual methods determine the direction \(\vec{S}^q\) for each search. This is typically written
-as the following for iteration \(q\):
+individual methods determine the direction \(\vec{S}^q\) for each search. The update relation is
+typically written as the following for iteration \(q\):
 \[\vec{x}^{q+1} = \vec{x}^q + \alpha^* \vec{S}^q\]
 where the 1-D optimization varies \(\alpha^*\) to find the minimum of \(F(\vec{x}^q + \alpha^*
 \vec{S}^q)\).
@@ -277,7 +277,7 @@ general.
 
 \paragraph{Methods}
 \begin{enumerate*}
-\item Set the initial search directions to the identity matrix:
+\item Set the initial search directions to the \(n \times n\) identity matrix:
   \(S^0
   = \begin{bmatrix}\vec{S}^0_1 & \vec{S}^0_2 & \cdots & \vec{S}^0_n\end{bmatrix}
   = I_n\)
