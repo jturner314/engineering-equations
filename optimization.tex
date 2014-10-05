@@ -52,13 +52,14 @@ ensure a global minimum at \(\vec{x}^*\) for convex programming problems:
   \item \(\lambda_j g_j(\vec{x}^*) = 0\) where \(j = 1, 2, \dots, m\) and \(\lambda_j \ge 0\)
   \item \(0 = \del f(\vec{x}^*) + \sum_{j=1}^m{\lambda_j \del g_j(\vec{x}^*)} +
     \sum_{k=1}^l{\lambda_{m+k} \del h_k(\vec{x}^*)}\)
+    where \(\lambda_{m+k}\) are unrestricted in sign
 \end{enumerate*}
 To solve for \(\lambda_j\) for problems with only inequality constraints, let
 \[\vec{B} = \del f(\vec{x}^*) \textrm{ and } A =
 \begin{bmatrix}
   \del g_1(\vec{x}^*) & \del g_2(\vec{x}^*) & \cdots & \del g_n(\vec{x}^*)
 \end{bmatrix}\]
-then
+where \(A\) only contains active constraints, then
 \[\vec{\lambda} = -{\left[A^\top A\right]}^{-1} A^\top \vec{B}\]
 
 \section{1-D Optimization}\label{sec:1-d-optimization}
