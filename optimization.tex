@@ -393,6 +393,42 @@ This method approximates the Hessian directly.
 \item Increment \(q\) and go to step~\ref{itm:bfgs-converge}.
 \end{enumerate*}
 
+\section{Scaling\slash{}Normalization of Design Variables and Constraints}
+
+\subsection{Scaling Design Variables}
+
+Scaling design variables helps some of the algorithms perform more effectively. One method is to use
+elements from the Hessian matrix:
+\[\tilde{\vec{x}} = D \vec{x} \quad \textrm{where} \quad D =
+\begin{bmatrix}
+  \frac{1}{\sqrt{H_{11}}} & 0 & \cdots & 0 \\
+  0 & \frac{1}{\sqrt{H_{22}}} & \cdots & 0 \\
+  \vdots & \vdots & \ddots & \vdots \\
+  0 & 0 & \cdots & \frac{1}{\sqrt{H_{nn}}}
+\end{bmatrix}\]
+Another method is to \(\vec{x}\) directly:
+\[\tilde{\vec{x}} = D \vec{x} \quad \textrm{where} \quad D =
+\begin{bmatrix}
+  \frac{1}{\abs{x_1}} & 0 & \cdots & 0 \\
+  0 & \frac{1}{\abs{x_2}} & \cdots & 0 \\
+  \vdots & \vdots & \ddots & \vdots \\
+  0 & 0 & \cdots & \frac{1}{\abs{x_n}}
+\end{bmatrix}\]
+
+\subsection{Normalization of Constraints}
+
+Normalizing constraints provides similar benefits to normalizing design variables. To normalize,
+they can be written as:
+\[g_\textrm{normalized}(\vec{x}) = \frac{g(\vec{x})}{g_\textrm{allowable}} - 1 \le 0\]
+
+\subsection{Combining Bounds}
+
+Lower and upper bounds on \(x_i\) can often be written as a single constraint on another variable \(y_i\). For example, if \(\ell_i \le x_i \le u_i\), then two options are:
+\begin{align*}
+  x_i &= \ell_i + (u_i - \ell_i) \sin^2 y_i \\
+  x_i &= \ell_i + (u_i - \ell_i) \frac{y_i^2}{1 + y_i^2} \\
+\end{align*}
+
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
   lectures, North Carolina State University, Raleigh, NC.
