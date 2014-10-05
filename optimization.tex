@@ -226,6 +226,102 @@ Often, the best general method is to use a region elimination method for a few i
 the size of the bounds, then use an interpolation\slash{}approximation method to quickly converge on
 the minimum.
 
+\section{\textit{n}-D Optimization}
+
+Unconstrained \(n\)-D optimization methods are typically formulated as a series of 1-D searches. The
+individual methods determine the direction \(\vec{S}^q\) for each search. This is typically written
+as the following for iteration \(q\):
+\[\vec{x}^{q+1} = \vec{x}^q + \alpha^* \vec{S}^q\]
+where the 1-D optimization varies \(\alpha^*\) to find the minimum of \(F(\vec{x}^q + \alpha^*
+\vec{S}^q)\).
+
+\subsection{Zero Order Methods}
+
+\subsubsection{Brute Force}
+
+Don't actually use this method unless your objective function is very fast to evaluate.
+
+\begin{enumerate*}
+\item Pick a base point \(\vec{x}^0\).
+\item \label{itm:brute-force-eval} Evaluate \(F(\vec{x}^q)\).
+\item Pick sample points around the base point and evaluate \(F\) at those points.
+\item Set the new base point \(\vec{x}^{q+1}\) to the point with the lowest value of \(F\). Stop if
+  converged or increment \(q\) and go to step~\ref{itm:brute-force-eval}.
+\end{enumerate*}
+
+\subsubsection{Global Random Search}
+
+This can be useful to get an understanding of your search space. Otherwise, it's not a good idea in
+general.
+
+\begin{enumerate*}
+\item \label{itm:random-pick} Pick a random \(\vec{x}^q\) and evaluate \(F(\vec{x}^q)\).
+\item If converged (\(n\) or \(F\) cutoff), stop. Otherwise, go to step~\ref{itm:random-pick}.
+\end{enumerate*}
+
+\subsubsection{Powell's Method of Conjugate Directions}
+
+\paragraph{Advantages}
+\begin{itemize}
+\item Faster than a series of univariate moves because it doesn't slow down as much near the
+  optimum. (The conjugate search direction generally points toward the optimum.)
+\item Minimizes a quadratic function in a finite number of steps.
+\end{itemize}
+
+\paragraph{Disadvantages}
+\begin{itemize}
+\item If a search gains no improvement, conjugacy is lost and the method breaks down.
+\item The method slows down near the optimum. If this becomes too extreme, it may be helpful to
+  restart the algorithm from the latest point.
+\end{itemize}
+
+\paragraph{Methods}
+\begin{enumerate*}
+\item Set the initial search directions to the identity matrix:
+  \(S^0
+  = \begin{Bmatrix}\vec{S}^0_1 & \vec{S}^0_2 & \cdots & \vec{S}^0_n\end{Bmatrix}
+  = I_n\)
+\item \label{itm:powell-n-searches} For each \(\vec{S}^q_i\) in \(S^q\):
+  \begin{enumerate*}
+  \item Find the corresponding \(\alpha^*\) to minimize \(F(\vec{x}^q_i + \alpha^* \vec{S}^q_i)\).
+  \item Set \(\vec{x}^q_{i+1} = \vec{x}^q_i + \alpha^* \vec{S}^q_i\).
+  \end{enumerate*}
+\item Calculate the conjugate direction \(\vec{S}^q_\mathrm{c} = \vec{x}^q_n - \vec{x}^q_0\).
+\item Find the corresponding \(\alpha^*\) to minimize \(F(\vec{x}^q_n + \alpha^*
+  \vec{S}^q_\mathrm{c})\).
+\item Set \(\vec{x}^{q+1}_0 = \vec{x}^q_n + \alpha^* \vec{S}^q_\mathrm{c}\).
+\item Set the new search matrix \(S^{q+1} =
+\begin{Bmatrix}
+\vec{S}^q_2 & \vec{S}^q_3 & \cdots & \vec{S}^q_n & \vec{S}^q_\mathrm{c}
+\end{Bmatrix}\).
+\item If not converged, increment \(q\) and go to step~\ref{itm:powell-n-searches}.
+\end{enumerate*}
+
+\subsection{First Order Methods}
+
+First order methods are usually more efficient than zero order methods, but they need gradient
+information and perform poorly when the gradient is not continuous.
+
+\subsubsection{Steepest Descent (Cauchy's Method)}
+
+This method is simple to implement but slows down near the optimum. The method is to always set the
+search direction to \(\vec{S}^q = -\del F(\vec{x}^q)\).
+
+\subsubsection{Fletcher--Reeves Conjugate Direction Method}
+
+This method uses steepest descent as a first move, and then uses a conjugate version of successive
+gradients for subsequent moves.
+
+\begin{enumerate*}
+\item Pick a starting point \(\vec{x}^0\).
+\item Set \(\vec{S}^0 = -\del F(\vec{x}^0)\).
+\item Find \(\alpha^*\) and set \(\vec{x}^1 = \vec{x}^0 + \alpha^* \vec{S}^0\). Increment \(q\).
+\item \label{itm:fletcher-beta} Set \(\displaystyle \beta^{q-1} = \frac{{\abs{\del F(\vec{x}^q)}}^2}{{\abs{\del F(\vec{x}^{q-1})}}^2}\).
+\item Set \(\vec{S}^q = -\del F(\vec{x}^q) + \beta^{q-1} \vec{S}^{q-1}\).
+\item Find \(\alpha^*\) and set \(\vec{x}^{q+1} = \vec{x}^q + \alpha^* \vec{S}^q\).
+\item Check convergence. If not converged, go to step~\ref{itm:fletcher-beta}.
+\end{enumerate*}
+
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
   lectures, North Carolina State University, Raleigh, NC.
