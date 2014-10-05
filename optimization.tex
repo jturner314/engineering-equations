@@ -67,7 +67,9 @@ where \(A\) only contains active constraints, then
 \subsection{Bounding\slash{}Range Finding}\label{sec:bounding}
 
 \begin{enumerate*}
-\item \label{itm:choose-init-and-step} Choose \(x^0\) and a step size \(\Delta\). Set \(k = 0\).
+\item \label{itm:choose-init-and-step} Choose \(x^0\) and a step size \(\Delta\). Set \(k = 0\). The
+  larger the value of \(\Delta\), the fewer the function calls required for bounding but the larger
+  the final bounds will be.
 \item If \(f(x^0 - \abs{\Delta}) \ge f(x^0) \ge f(x^0 + \abs{\Delta})\),
   then \(\Delta\) is positive \\
   else if \(f(x^0 - \abs{\Delta}) \le f(x^0) \le f(x^0 + \abs{\Delta})\),
@@ -82,7 +84,9 @@ where \(A\) only contains active constraints, then
 \subsection{Interpolation\slash{}Approximation Methods}\label{sec:interp-approx}
 
 Interpolation\slash{}approximation methods approximate the objective function with simpler functions
-for which the minima are known, then iteratively improve their approximations.
+for which the minima are known, then iteratively improve their approximations. They are more
+unpredictable and less robust than region elimination methods but converge faster for continuous and
+well-conditioned problems.
 
 \subsubsection{Three-Point Quadratic Non-Derivative Optimization with Refinement}\label{sec:quadratic-interpolation}
 
@@ -114,7 +118,9 @@ a_2(\tilde{x}^* - x_2) + a_2(\tilde{x}^* - x_1) = 0\). Solving for \(\tilde{x}^*
 
 \subsubsection{Newton--Raphson Method}\label{sec:newton-raphson}
 
-Select a value \(x^0\) and build a linear approximation of \(f'\):
+This method uses first and second derivative information to speed up convergence. However,
+discontinuities are a problem, for some problems it can be expensive to get the derivative, and the
+algorithm can diverge in some cases.
 \[\tilde{f}'(x) = f'(x^k) + f''(x^k)(x - x^k)\]
 Solve \(\tilde{f}'(x^{k+1}) = 0\) for \(x^{k+1}\):
 \[x^{k+1} = x^k - \frac{f'(x^k)}{f''(x^k)}\]
@@ -128,7 +134,9 @@ This interpolation-based method uses first derivative information to generate sp
 \subsection{Region Elimination Methods}\label{sec:region-elimination}
 
 Region elimination methods iteratively eliminate subintervals of the design space from
-consideration. They generally eliminate the same percentage of the space on each iteration.
+consideration. They generally eliminate the same percentage of the space on each iteration. They are
+more robust than interpolation\slash{}approximation method, particularly for discontinuous or
+ill-conditioned functions, but may be slower for well-conditioned problems.
 
 \subsubsection{Interval Halving Method}\label{sec:interval-halving}
 
