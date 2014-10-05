@@ -279,7 +279,7 @@ general.
 \begin{enumerate*}
 \item Set the initial search directions to the identity matrix:
   \(S^0
-  = \begin{Bmatrix}\vec{S}^0_1 & \vec{S}^0_2 & \cdots & \vec{S}^0_n\end{Bmatrix}
+  = \begin{bmatrix}\vec{S}^0_1 & \vec{S}^0_2 & \cdots & \vec{S}^0_n\end{bmatrix}
   = I_n\)
 \item \label{itm:powell-n-searches} For each \(\vec{S}^q_i\) in \(S^q\):
   \begin{enumerate*}
@@ -291,9 +291,9 @@ general.
   \vec{S}^q_\mathrm{c})\).
 \item Set \(\vec{x}^{q+1}_0 = \vec{x}^q_n + \alpha^* \vec{S}^q_\mathrm{c}\).
 \item Set the new search matrix \(S^{q+1} =
-\begin{Bmatrix}
+\begin{bmatrix}
 \vec{S}^q_2 & \vec{S}^q_3 & \cdots & \vec{S}^q_n & \vec{S}^q_\mathrm{c}
-\end{Bmatrix}\).
+\end{bmatrix}\).
 \item If not converged, increment \(q\) and go to step~\ref{itm:powell-n-searches}.
 \end{enumerate*}
 
