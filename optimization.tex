@@ -242,7 +242,7 @@ where the 1-D optimization varies \(\alpha^*\) to find the minimum of \(F(\vec{x
 Don't actually use this method unless your objective function is very fast to evaluate.
 
 \begin{enumerate*}
-\item Pick a base point \(\vec{x}^0\).
+\item Pick a base point \(\vec{x}^0\) and set \(q = 0\).
 \item \label{itm:brute-force-eval} Evaluate \(F(\vec{x}^q)\).
 \item Pick sample points around the base point and evaluate \(F\) at those points.
 \item Set the new base point \(\vec{x}^{q+1}\) to the point with the lowest value of \(F\). Stop if
@@ -277,10 +277,10 @@ general.
 
 \paragraph{Methods}
 \begin{enumerate*}
-\item Set the initial search directions to the \(n \times n\) identity matrix:
+\item Set the initial search directions to the identity matrix
   \(S^0
   = \begin{bmatrix}\vec{S}^0_1 & \vec{S}^0_2 & \cdots & \vec{S}^0_n\end{bmatrix}
-  = I_n\)
+  = I_n\) and set \(q = 0\).
 \item \label{itm:powell-n-searches} For each \(\vec{S}^q_i\) in \(S^q\):
   \begin{enumerate*}
   \item Find the corresponding \(\alpha^*\) to minimize \(F(\vec{x}^q_i + \alpha^* \vec{S}^q_i)\).
@@ -313,7 +313,7 @@ This method uses steepest descent as a first move, and then uses a conjugate ver
 gradients for subsequent moves.
 
 \begin{enumerate*}
-\item Pick a starting point \(\vec{x}^0\).
+\item Pick a starting point \(\vec{x}^0\) and set \(q = 0\).
 \item Set \(\vec{S}^0 = -\del F(\vec{x}^0)\).
 \item Find \(\alpha^*\) and set \(\vec{x}^1 = \vec{x}^0 + \alpha^* \vec{S}^0\). Increment \(q\).
 \item \label{itm:fletcher-beta} Set \(\displaystyle \beta^{q-1} = \frac{{\abs{\del F(\vec{x}^q)}}^2}{{\abs{\del F(\vec{x}^{q-1})}}^2}\).
