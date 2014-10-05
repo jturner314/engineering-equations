@@ -121,10 +121,16 @@ a_2(\tilde{x}^* - x_2) + a_2(\tilde{x}^* - x_1) = 0\). Solving for \(\tilde{x}^*
 This method uses first and second derivative information to speed up convergence. However,
 discontinuities are a problem, for some problems it can be expensive to get the derivative, and the
 algorithm can diverge in some cases.
+
+\begin{enumerate*}
+\item Select a value \(x^0\).
+\item \label{itm:newton-linear-approx} Build a linear approximation of \(f'\):
 \[\tilde{f}'(x) = f'(x^k) + f''(x^k)(x - x^k)\]
-Solve \(\tilde{f}'(x^{k+1}) = 0\) for \(x^{k+1}\):
+\item Solve \(\tilde{f}'(x^{k+1}) = 0\) for \(x^{k+1}\):
 \[x^{k+1} = x^k - \frac{f'(x^k)}{f''(x^k)}\]
-Iterate until \(\abs{x^{k+1} - x^k}\) is small. Note that divergence is possible.
+\item Check for convergence (when \(\abs{x^{k+1} - x^k}\) is small). If not converged, go to
+  step~\ref{itm:newton-linear-approx}.
+\end{enumerate*}
 
 \subsubsection{Two-Point Cubic Optimization with Refinement}\label{sec:cubic-interpolation}
 
