@@ -389,7 +389,7 @@ This method approximates the Hessian directly.
     D^q &= \frac{\vec{y}\transpose{\vec{y}}}{\transpose{\vec{y}}\vec{p}} \\
     E^q &= \frac{\vec{c}\transpose{\vec{c}}}{\transpose{\vec{c}}\vec{S}} \\
     \vec{p} &= \vec{x}^{q+1} - \vec{x}^q \\
-    \vec{y} &= \del F(\vec{x}^{q+1}) - \del F(\vec{x}^q) \\
+    \vec{y} &= \del F(\vec{x}^{q+1}) - \del F(\vec{x}^q)
   \end{align*}
 \item Increment \(q\) and go to step~\ref{itm:bfgs-converge}.
 \end{enumerate*}
@@ -427,7 +427,7 @@ they can be written as:
 Lower and upper bounds on \(x_i\) can often be written as a single constraint on another variable \(y_i\). For example, if \(\ell_i \le x_i \le u_i\), then two options are:
 \begin{align*}
   x_i &= \ell_i + (u_i - \ell_i) \sin^2 y_i \\
-  x_i &= \ell_i + (u_i - \ell_i) \frac{y_i^2}{1 + y_i^2} \\
+  x_i &= \ell_i + (u_i - \ell_i) \frac{y_i^2}{1 + y_i^2}
 \end{align*}
 
 \section{Sequential Unconstrained Minimization Techniques (SUMT)}
