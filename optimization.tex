@@ -422,9 +422,10 @@ Normalizing constraints provides similar benefits to normalizing design variable
 they can be written as:
 \[g_\textrm{normalized}(\vec{x}) = \frac{g(\vec{x})}{g_\textrm{allowable}} - 1 \le 0\]
 
-\subsection{Combining Bounds}
+\subsection{Eliminating Bounds}
 
-Lower and upper bounds on \(x_i\) can often be written as a single constraint on another variable \(y_i\). For example, if \(\ell_i \le x_i \le u_i\), then two options are:
+Lower and upper bounds on \(x_i\) can often be eliminated by expressing \(x_i\) in terms of another
+variable \(y_i\). For example, if \(\ell_i \le x_i \le u_i\), then two options are:
 \begin{align*}
   x_i &= \ell_i + (u_i - \ell_i) \sin^2 y_i \\
   x_i &= \ell_i + (u_i - \ell_i) \frac{y_i^2}{1 + y_i^2}
