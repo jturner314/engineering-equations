@@ -34,7 +34,7 @@ $\vec{H}$.
 \item[Specific weight]
   \(\gamma = \rho g\)
 \item[Specific gravity]
-  \(\mathit{SG} = \rho / \rho_\mrm{H_2O}\)
+  \(\var{SG} = \rho / \rho_\mrm{H_2O}\)
 \end{description*}
 
 \subsection{Viscosity}
@@ -54,7 +54,7 @@ $\vec{H}$.
 \item[Speed of sound]
   \(c = \sqrt{{\left(\od{P}{\rho}\right)}_s}\)
 \item[Mach number]
-  \(\mathit{Ma} = u/c\)
+  \(\var{Ma} = u/c\)
 \end{description*}
 
 \subsection{Surface Tension}
@@ -441,19 +441,19 @@ $\vec{H}$.
   \toprule
   Name & Meaning & Definition \\
   \midrule
-  Reynolds number, \(\mathit{Re}\) & \(\frac{\textrm{inertia force}}{\textrm{viscous force}}\)
+  Reynolds number, \(\var{Re}\) & \(\frac{\textrm{inertia force}}{\textrm{viscous force}}\)
   & \(\frac{\rho{}V\ell}{\mu}\) \\
-  Euler number, \(\mathit{Eu}\) & \(\frac{\textrm{pressure force}}{\textrm{inertia force}}\)
+  Euler number, \(\var{Eu}\) & \(\frac{\textrm{pressure force}}{\textrm{inertia force}}\)
   & \(\frac{\Delta p}{\rho{}V^2}\) \\
-  Froude number, \(\mathit{Fr}\) & \(\frac{\textrm{inertia force}}{\textrm{gravity force}}\)
+  Froude number, \(\var{Fr}\) & \(\frac{\textrm{inertia force}}{\textrm{gravity force}}\)
   & \(\frac{V}{\sqrt{g\ell}}\) \\
-  Mach number, \(\mathit{Ma}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
+  Mach number, \(\var{Ma}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
   & \(\frac{V}{c}\) \\
-  Cauchy number, \(\mathit{Ca}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
+  Cauchy number, \(\var{Ca}\) & \(\frac{\textrm{inertia force}}{\textrm{compressibility force}}\)
   & \(\frac{\rho{}V^2}{E_v}\) \\
-  Weber number, \(\mathit{We}\) & \(\frac{\textrm{inertia force}}{\textrm{surface tension force}}\)
+  Weber number, \(\var{We}\) & \(\frac{\textrm{inertia force}}{\textrm{surface tension force}}\)
   & \(\frac{\rho{}V^2\ell}{\sigma}\) \\
-  Strouhal number, \(\mathit{St}\)
+  Strouhal number, \(\var{St}\)
   & \(\frac{\textrm{local inertia force}}{\textrm{convective inertia force}}\)
   & \(\frac{\omega\ell}{V}\) \\
   lift coefficient, \(C_\mrm{L}\) & \(\frac{\textrm{lift force}}{\textrm{dynamic pressure force}}\)
@@ -476,16 +476,16 @@ $\vec{H}$.
 \item[Absolute pipe roughness, $\varepsilon$] a measure of the roughness of pipe walls; has units of
   length. Search online or see Table 8.1 of~\cite{fofm} for values of $\varepsilon$.
 \item[Friction factor, $f$] determine flow type with Reynolds number,
-  \(\mathit{Re} = \frac{\rho{}VD}{\mu} = \frac{4\rho{}Q}{\pi\mu{}D}\), then use:
+  \(\var{Re} = \frac{\rho{}VD}{\mu} = \frac{4\rho{}Q}{\pi\mu{}D}\), then use:
   \begin{description}
-  \item[Laminar (\(\mathit{Re}<2100\))]
-    \(f = \frac{64}{\mathit{Re}}\)
-  \item[Transitional (\(2100<\mathit{Re}<4000\))]
+  \item[Laminar (\(\var{Re}<2100\))]
+    \(f = \frac{64}{\var{Re}}\)
+  \item[Transitional (\(2100<\var{Re}<4000\))]
     highly variable $f$; in general, use turbulent value
-  \item[Turbulent (\(\mathit{Re}>4000\))]
+  \item[Turbulent (\(\var{Re}>4000\))]
     \(\frac{1}{\sqrt{f}}
     = -1.8\log\left[{\left(\frac{\varepsilon/D}{3.7}\right)}^{1.11}
-      + \frac{6.9}{\mathit{Re}}\right]\)
+      + \frac{6.9}{\var{Re}}\right]\)
   \end{description}
   Alternatively, you can look up values graphically with the Moody diagram in Figure~\ref{fig:moody}.
 \end{description*}
