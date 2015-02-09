@@ -78,7 +78,7 @@ where \(A\) only contains active constraints, then
   else go to step~\ref{itm:choose-init-and-step}.
 \item \label{itm:calc-next-x} \(x^{k+1} = x^k + 2^k \Delta\)
 \item If \(f(x^{k+1}) < f(x^k)\),
-  then \(k := k + 1\) and go to step~\ref{itm:calc-next-x} \\
+  then increment \(k\) and go to step~\ref{itm:calc-next-x} \\
   else the minimum is between \((x^{k-1}, x^{k+1})\)
 \end{enumerate*}
 
@@ -348,7 +348,7 @@ This method approximates the inverse of the Hessian.
   \item the inverse Hessian approximation \(H^0 = I_n\)
   \item the vector \(\vec{c}^0 = \del F(\vec{x}^0)\)
   \item the convergence criterion \(\varepsilon\)
-  \item the iteration number \(q = 0\).
+  \item the iteration number \(q = 0\)
   \end{itemize*}
 \item \label{itm:dfp-converge} If \(\norm{\vec{c}^q} < \varepsilon\), stop because the method has converged. Otherwise,
   continue to the next step.
@@ -377,7 +377,7 @@ This method approximates the Hessian directly.
   \item the Hessian approximation \(H^0 = I_n\)
   \item the vector \(\vec{c}^0 = \del F(\vec{x}^0)\)
   \item the convergence criterion \(\varepsilon\)
-  \item the iteration number \(q = 0\).
+  \item the iteration number \(q = 0\)
   \end{itemize*}
 \item \label{itm:bfgs-converge} If \(\norm{\vec{c}^q} < \varepsilon\), stop because the method has converged. Otherwise,
   continue to the next step.
@@ -491,7 +491,7 @@ The pseudo-objective function is defined as follows:
 \end{align*}
 
 \paragraph{Extended Method}
-This extension helps keep the penalty function from ``blowing up'' near the optimimum. The portion
+This extension helps keep the penalty function from ``blowing up'' near the optimum. The portion
 of \(P(\vec{x})\) for each \(g(\vec{x})\) is defined as:
 \[\textrm{portion of } P(\vec{x}) \textrm{ for each } g(\vec{x}) =
 \begin{cases}
