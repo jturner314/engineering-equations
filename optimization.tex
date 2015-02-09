@@ -500,6 +500,396 @@ of \(P(\vec{x})\) for each \(g(\vec{x})\) is defined as:
 \end{cases}\] where \(\varepsilon\) is a small negative number defined as
 \(\varepsilon = -c {(r'_\mrm{p})}^a\)
 
+\subsection{Augmented Lagrange Multiplier (ALM) Method}
+
+This method is usually superior to the interior and exterior penalty function
+methods. This section needs to be completed.
+
+\section{Simplex Method}
+
+\begin{description*}
+\item[Canonical form]
+  Minimize \(F(\vec{x}) = c_1x_1 + c_2x_2 + c_3x_3 + \cdots + c_nx_n\) subject to
+  \begin{align*}
+    a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots a_{1n}x_n &= b_1 \\
+    a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots a_{2n}x_n &= b_2 \\
+    \vdots \\
+    a_{n1}x_1 + a_{n2}x_2 + a_{n3}x_3 + \cdots a_{nn}x_n &= b_n \\
+    x_1,x_2,\cdots,x_n &\ge 0
+  \end{align*}
+  where all \(b \ge 0\).
+\end{description*}
+
+Things to do to turn nonlinear standard form into simplex standard form:
+\begin{enumerate}
+\item If an \(x_i\) is not constrained to be \(\ge 0\), then substitute \(x_i = x_i' - x_i''\) where \(x_i',x_i'' \ge 0\).
+\item Use slack variables to turn inequality constraints into equalities:
+  \begin{align*}
+    a_1x_1 + a_2x_2 + \cdots \le b &\implies a_1x_1 + a_2x_2 + \cdots + s_1 = b \\
+    a_1x_1 + a_2x_2 + \cdots \ge b &\implies a_1x_1 + a_2x_2 + \cdots - s_1 = b
+  \end{align*}
+\item Add artificial variables to constraints that were initially \(=\) or \(\ge\), e.g.:
+  \[a_1x_1 + a_2x_2 + \cdots \ge b \implies a_1x_1 + a_2x_2 + \cdots - s_1 + a_1 = b\]
+\end{enumerate}
+
+The tableau is constructed from the simplex standard form. Variables with a 1 in
+one coefficient and a 0 everywhere else are in the basis, and are assumed to be
+nonzero. All other variables are nonbasic and are assumed to be zero. The steps
+in the simplex method are:
+\begin{enumerate}
+\item Get artificial variables into the basis, then work to eliminate the \(w\)s, bottom-up. If a \(w\) cannot be eliminated, no feasible solution can be found.
+\item Figure out which variable \(j\) you want to bring into the basis to reduce \(F\)
+  the fastest. This is the variable with the most negative coefficient in the last row of the tableau.
+\item Pivot about the row \(i\) that has the smallest value of \(b_i / a_{ij}\) for rows where \(a_{ij} > 0\).
+\item The method has converged when all of the coefficients in the last row are
+  \(\ge 0\) or the values are negative and grow unbounded. When converged:
+  \begin{itemize*}
+  \item If all of the coefficients of non-basic variables in the last row are \(\ge 0\), the solution is unique.
+  \item If some of the coefficients of non-basic variables in the last row are \(= 0\), the solution is not unique.
+  \item If some of the coefficients of non-basic variables in the last row are \(< 0\), the solution is unbounded.
+  \end{itemize*}
+\end{enumerate}
+
+\section{Sequential Linear Programming}
+
+\subsection*{Steps}
+
+\begin{enumerate*}
+\item Find initial point
+\item \label{itm:linearize} Linearize about point
+\item Apply move limits (20--25\% of DV range initially, about 5\% near optimum)
+\item Minimize linear problem
+\item Check convergence; if not converged, go to step~\ref{itm:linearize}.
+\end{enumerate*}
+
+\subsection*{Notes}
+
+\begin{itemize*}
+\item Advantages
+  \begin{itemize*}
+  \item practical
+  \item easy to implement
+  \item fast for lots of DVs
+  \end{itemize*}
+\item Disadvantages
+  \begin{itemize*}
+  \item have to select move limits and how to shrink them
+  \end{itemize*}
+\end{itemize*}
+
+\section{Method of Feasible Directions}
+
+This method is only designed to handle inequality constraints. It uses a pushoff factor to avoid violating constraints. A method is
+\begin{description*}
+\item[Usable if] \(\transpose{\del F(\vec{x})} \cdot \vec{S} \le 0\)
+\item[Feasible if] \(\transpose{\del g_j(\vec{x})} \cdot \vec{S} \le 0\)
+\end{description*}
+
+TODO
+
+\section{Generalized Reduced Gradient (GRG) Method}
+
+Find \(\vec{S}\) such that any active constraint remains precisely active for some small move.
+
+\begin{enumerate*}
+\item Convert the problem into standard GRG form. There are \(n\)
+  design variables, and all inequality constraints are transformed into equality
+  constraints by adding \(m\) slack variables:
+
+  Minimize \(F(\vec{x})\) such that
+  \begin{align*}
+    g_j(\vec{x}) + x_{j+n} &= 0 & j &= 1,m \\
+    h_k(\vec{x}) &= 0 & k &= 1,\ell \\
+    x_i^L \le x_i &\le x_i^U & i &= 1,n \\
+    x_{j+n} &\ge 0 & j &= 1,m
+  \end{align*}
+
+  Each equality constraint makes one independent variable a dependent variable. The variables are split into two parts:
+  \[\vec{x} = \begin{Bmatrix}\vec{y} \\ \vec{z}\end{Bmatrix} \quad
+  \begin{array}{l} n-\ell \text{ independent variables} \\ m + l \text{ dependent variables} \end{array}\]
+
+\item Find the starting point \(\vec{x}^0\).
+\item \label{itm:reduced-grad} Calculate the search direction from the reduced gradient:
+  \[\vec{S} = -\od{F(\vec{x})}{\vec{y}} = -\left[\del_{\vec{y}}F - \transpose{\left({[D]}^{-1} [C]\right)} \del_{\vec{z}} F\right]\]
+  where
+  \begin{align*}
+    [C] &= \begin{bmatrix}
+      \pd{h_1}{y_1} & \cdots & \pd{h_1}{y_{n-\ell}} \\
+      \vdots & \ddots & \vdots \\
+      \pd{h_{m+\ell}}{y_1} & \cdots & \pd{h_{m+\ell}}{y_{n - \ell}} \\
+    \end{bmatrix} \\
+    [D] &= \begin{bmatrix}
+      \pd{h_1}{z_1} & \cdots & \pd{h_1}{z_{m+\ell}} \\
+      \vdots & \ddots & \vdots \\
+      \pd{h_{m+\ell}}{z_1} & \cdots & \pd{h_{m+\ell}}{z_{m+\ell}} \\
+    \end{bmatrix}
+  \end{align*}
+\item Find the \(\alpha^*\) that minimizes \(F\) along the \(\vec{S}\) search direction, and calculate the corresponding \(\vec{y}\).
+\item Find the \(\vec{z}\) corresponding to \(\vec{y}\) by iterating until \(\dif{\vec{z}} = 0\).
+  \begin{align*}
+    \dif{\vec{z}} &= -{[D]}^{-1}\left(\vec{h}(\vec{x}) + [C]\dif{\vec{y}}\right) \\
+    \vec{z}^{k+1} &= \vec{z}^k + \dif{\vec{z}}
+  \end{align*}
+\item The \(\vec{y}\) and \(\vec{z}\) vectors give the new design vector \(\vec{x}\).
+  If not converged, go to step~\ref{itm:reduced-grad}.
+\end{enumerate*}
+
+\section{Simulated Annealing}
+
+This method simulates the thermal annealing of critically heated solids. At high
+temperatures, the atoms move more freely. As the temperature is reduced, the
+atoms move less freely and are more ordered, minimizing the internal energy. The
+process depends on the cooling rate.
+
+\begin{enumerate*}
+\item Start with \(\vec{x}^0\) and a high value for \(T\). A good starting value
+  for \(T\) is the average of some randomly selected \(F(\vec{x})\). Select a
+  maximum number of iterations \(n\) for this temperature. A good value for \(n \in [50, 100]\).
+\item \label{itm:random-design-proposal} Randomly generate a proposed design in the vicinity of the current point.
+\item The probability of the proposed design \(\vec{x}^{i+1}\) depends on \(\Delta E\):
+\begin{align*}
+  \Delta E &= E^{i+1} - E^{i} = F(\vec{x}^{i+1}) - F(\vec{x}^i) \\
+  P(E^{i+1}) &= \min\left(1, \mrm{e}^{-\Delta E/(kT)}\right)
+\end{align*}
+Note that if \(\Delta E < 0\), the proposed point is always accepted. If \(\Delta E > 0\),
+the point is accepted less often when \(T\) is small. Increment \(i\).
+\item Check for convergence. Can stop if \(\Delta f\) is small enough or \(T\) is small enough.
+\item If \(i < n\), go to step~\ref{itm:random-design-proposal}. Otherwise, let
+  \(T = cT\) and \(i = 1\), then go to step~\ref{itm:random-design-proposal}. A
+  good value of \(c \in [0.4, 0.6]\). More complex cooling schedules are in the literature.
+\end{enumerate*}
+
+\subsection*{Features}
+
+\begin{itemize*}
+\item The quality of the solution is not influenced by the starting point,
+  although the computational effort could increase.
+\item It does not need to be continuous or differentiable.
+\item Convergence is not influenced by convexity of the design space.
+\item \(\vec{x}^i\) are not required to be positive.
+\item Can solve mixed-integer, discrete, or continuous problems.
+\item To account for constraints, use a penalty function.
+\end{itemize*}
+
+\section{Genetic Algorithms}
+
+These methods are modeled after the natural process of evolution. They have the following steps:
+\begin{enumerate*}
+\item Select initial population
+\item \label{itm:ga-selection} Select parents
+\item Crossover
+\item Recombine
+\item Mutation and go to step~\ref{itm:ga-selection}
+\end{enumerate*}
+
+\subsection*{Design Encoding Methods}
+
+\begin{itemize*}
+\item Vector of integer
+\item Vector of real numbers
+\item Vector of binary bits (can represent integer vectors this way)
+  \begin{itemize*}
+  \item Flexible for many different data types
+  \item Natural representation for computers
+  \item Easy to crossover
+  \item Can be unnatural to encode real numbers
+  \end{itemize*}
+\item Data structure
+\end{itemize*}
+
+\subsection*{Initial Population Generation}
+
+\begin{itemize*}
+\item Random
+\item Pattern (e.g. latin hypercube)
+\end{itemize*}
+
+\subsection*{Evaluating Design Fitness}
+
+\begin{itemize*}
+\item Must be transitive (\(F(a) \ge F(b) \ge F(c) \implies F(a) \ge F(c)\))
+\item The fitness must be increasingly better closer to the optimum
+\item Can be equal to the objective function
+\item Creative fitness functions can improve performance
+\end{itemize*}
+
+\subsection*{Selecting Parents and Producing New Designs}
+
+\subsubsection*{Selection}
+
+\begin{itemize*}
+\item Roulette wheel (fitness proportionate selection)
+  \begin{tabular}{ccc}
+    \toprule
+    Design & Fitness & Probability / \% \\
+    \midrule
+    1 & \(F_1\) & \(F_1 / \sum{F}\) \\
+    2 & \(F_2\) & \(F_2 / \sum{F}\) \\
+    3 & \(F_3\) & \(F_3 / \sum{F}\) \\
+    \(\vdots\) & \(\vdots\) & \(\vdots\) \\
+    \midrule
+    Total & \(\sum{F}\) & 100\% \\
+    \bottomrule
+  \end{tabular}
+\item Tournament
+  \begin{itemize*}
+  \item \(b\) strings are chosen at random
+  \item most fit individual in group wins and becomes parent
+  \item \(n\) tournaments to find \(n\) parents
+  \end{itemize*}
+\item Truncation: top \(1/q\) individuals get \(q\)
+  copies in the mating pool, or select only the top \% of parents
+\end{itemize*}
+
+\subsubsection*{Crossover}
+
+\begin{itemize*}
+\item Strategies to generate new population
+  \begin{itemize*}
+  \item Use a probability for crossover, then children replace parents
+  \item Select a set of parents to create a fixed number of children, which are
+    added back to the population. Then, downsize the population.
+  \end{itemize*}
+\item Binary representations
+  \begin{itemize*}
+  \item \(k\)-point crossover strategy for binary strings
+    \begin{itemize*}
+    \item \(1 \le k \le \ell - 1\) is defined by the user, where \(\ell\) is the number of bits in a string
+    \item randomly choose \(k\) splits in the string and swap every other section to generate two children
+    \end{itemize*}
+  \item uniform crossover strategy for binary strings: every bit can be swapped based on some probability (usually 0.5)
+  \end{itemize*}
+\item Continuous representations
+  \begin{itemize*}
+  \item Arithmetic crossover: the children are the following, where \(\lambda\) is generated randomly
+    \begin{align*}
+      \text{child 1} &= \lambda(\text{parent 1}) + (1 - \lambda)(\text{parent 2}) \\
+      \text{child 2} &= (1 - \lambda)(\text{parent 1}) + \lambda(\text{parent 2})
+    \end{align*}
+  \item BLX-\(\alpha\) generates one child. For each DV,
+    \begin{align*}
+      P_\mrm{min} &= \min(\text{parent 1 DV},\ \text{parent 2 DV}) \\
+      P_\mrm{max} &= \max(\text{parent 1 DV},\ \text{parent 2 DV}) \\
+      \text{child DV} &\in \left[P_\mrm{min} - I\cdot\alpha, P_\mrm{max} + I\cdot\alpha\right]
+    \end{align*}
+  \item Linear crossover generates three children, and the best two of the three are selected.
+    \begin{align*}
+      C_1 &= \tfrac12 P_1 + \tfrac12 P_2 \\
+      C_2 &= \tfrac32 P_1 - \tfrac12 P_2 \\
+      C_3 &= -\tfrac12 P_1 + \tfrac32 P_2
+    \end{align*}
+  \end{itemize*}
+\end{itemize*}
+
+\subsubsection*{Mutation}
+
+\begin{itemize*}
+\item Binary: bitwise not
+\item Real values
+  \begin{itemize*}
+  \item mutation over distribution (e.g. normal)
+  \item random reassignment within bounds
+  \end{itemize*}
+\end{itemize*}
+
+\subsection*{Implementation Issues}
+
+\begin{itemize*}
+\item handling constraints: could use penalty function
+\item convergence
+  \begin{itemize*}
+  \item average fitness of population has stagnated
+  \item homogeneous population
+  \item best design is not changing
+  \item maximum number of generations
+  \item maximum number of \(F\) calls
+  \end{itemize*}
+\end{itemize*}
+
+\subsection*{Establish Parameters for Algorithm}
+
+\begin{itemize*}
+\item Population size: generally 5 to 10 times the number of DVs (limit 200)
+\item Crossover rate/type: typically mate 75\% to 80\% of pairs
+\item Mutation rate/type: typically 0.5\% for bits and 3--5\% for real values
+\end{itemize*}
+
+\section{Particle Swarm Optimization}
+
+Particles' state is their position and velocity. They remember the best location
+they have discovered so far and communicate good positions to each other. On
+each iteration, they adjust their positions and velocities.
+
+\subsection*{Rules}
+
+\begin{description*}
+\item[Cohesion] Stick together
+\item[Separation] Don't come too close to each other
+\item[Alignment] Follow general heading of the flock
+\end{description*}
+
+\subsection*{Principles}
+
+\begin{itemize*}
+\item When a particle finds good information, it transmits this to others.
+\item All other particles gravitate toward the target, but not directly.
+\item Each particle has independent thinking and past memory.
+\end{itemize*}
+
+\subsection*{Method}
+
+Assume unconstrained (with some bounds on DVs).
+\begin{enumerate*}
+\item Generate initial population (typically 20--30 particles). Typically, set the initial velocities to 0.
+\item \label{itm:swarm-update} For \(i\)th iteration, find the following for each particle \(j\):
+  \[\vec{v}_j(i) = \vec{v}_j(i - 1) + c_1r_1\left[\vec{P}_{\text{best},j} - \vec{x}_j(i-1)\right] + c_2r_2\left[\vec{G}_{\text{best},j} - \vec{x}_j(i - 1)\right]\]
+  where
+  \begin{align*}
+    \vec{P}_{\text{best},j} &= \text{historical best position of } \vec{x}_j \\
+    \vec{G}_{\text{best},j} &= \text{historical best position the entire swarm} \\
+    c_1 &= \text{cognitive learning rate, typically 2} \\
+    c_2 &= \text{social learning rate, typically 2} \\
+    r_1,r_2 &= \text{random number} \in [0,1]
+  \end{align*}
+  then
+  \[\vec{x}_j(i) = \vec{x}_j(i - 1) + \vec{v}_j(i)\]
+\item If not converged, go to step~\ref{itm:swarm-update}.
+\end{enumerate*}
+
+\subsection*{Inertia}
+
+This is an improvement to keep particle velocities from building up too fast.
+\[\theta(i) = \theta_\mrm{max} - \left(\frac{\theta_\mrm{max} - \theta_\mrm{min}}{i_\mrm{max}}\right) i\]
+where typically \(\theta_\mrm{min} = 0.4\) and \(\theta_\mrm{max} = 0.9\). Then, the velocity update relation is:
+\[\vec{v}_j(i) = \theta(i - 1)\vec{v}_j(i - 1) + c_1r_1\left[\vec{P}_{\text{best},j} - \vec{x}_j(i-1)\right] + c_2r_2\left[\vec{G}_{\text{best},j} - \vec{x}_j(i - 1)\right]\]
+
+\subsection*{Constraints}
+
+This method works for inequality constraints only. Psuedo-\(F\):
+\begin{description*}
+\item[Stationary] fixed parameters, function of violation degree
+\item[Nonstationary] dynamic penalty parameters
+  \[F(\vec{x}) = f(\vec{x}) + C(i)H(\vec{x})\]
+  where
+  \begin{align*}
+    C(i) &= {(ci)}^\alpha = \text{dynamic penalty parameter} \\
+    H(\vec{x}) &= \sum_{j=1}^{m}{\left\{\psi\left[g_j(\vec{x})\right]{\left[q_j(\vec{x})\right]}^{\gamma\left[q_j(\vec{x})\right]}\right\}} = \text{penalty factor} \\
+    \psi\left[g_j(\vec{x})\right] &= a\left(1 - \frac{1}{\mrm{e}^{q_j(\vec{x})}}\right) + b \\
+    q_j(\vec{x}) &= \max\left(0, g_j(\vec{x})\right) \\
+  \end{align*}
+  where typically
+  \begin{align*}
+    c &= 0.5 \\
+    \alpha &= 2 \\
+    a &= 150 \\
+    b &= 10 \\
+    \gamma\left[g_j(\vec{x})\right] &= \begin{cases}
+      1 & q_j(\vec{x}) \le 1 \\
+      2 & q_j(\vec{x}) > 1
+    \end{cases}
+  \end{align*}
+\end{description*}
+
 \begin{thebibliography}{99}
 \bibitem{flec} Ferguson, S. M., 2014, \emph{Engineering Design Optimization}, MAE 531 course
   lectures, North Carolina State University, Raleigh, NC.
