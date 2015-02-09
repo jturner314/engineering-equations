@@ -47,12 +47,12 @@ located at https://github.com/jturner314/engineering-equations.
 License
 =======
 
-Some portions of this project are licensed under the Creative Commons Attribution-ShareAlike 3.0
-Unported License (CC-BY-SA), while others are licensed under the GNU General Public License (GPL)
-version 3 or later. See the header of each file for its specific license. While these licenses are,
-in general, currently not compatible in a single functional program, the portions of this project
-that are licensed under different terms are independent of one another. My intent is that the GPL
-will cover only the portions that are computer programs, such as the ``Makefile`` and
+Some portions of this project are licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License (CC-BY-SA), while others are licensed under the GNU General Public License
+(GPL) version 3 or later. See the header of each file for its specific license. While these licenses
+are, in general, currently not compatible in a single functional program, the portions of this
+project that are licensed under different terms are independent of one another. My intent is that
+the GPL will cover only the portions that are computer programs, such as the ``Makefile`` and
 ``moody_diagram.py`` script. These are only used for (1) building the equation sheets or (2)
 generating content. Since output of GPL-licensed programs generally does not fall under the GPL, I
 can put the generated content under a different license. In this case, I have put it under the
